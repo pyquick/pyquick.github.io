@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8" name="404" content="not found">
+    <title>404 Not Found</title>
+    <link rel="stylesheet"  href="{% static '/css/404.css' %}">
+</head>
+<body>
+
+<h1>Not Found</h1>
+<p>why? because we can't found your page you want</p>
+<br>
+<a href="http://192.168.31.24:8000" target="_blank" >
+    go to main page
+</a>
+<img src="{% static '/images/404.png' %}" width="1200" height="923" alt="404 NOT FOUND"/>
+</body>
+</html>
