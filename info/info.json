@@ -5,8 +5,13 @@
       "release1":
         {
           "name": "python-tool",
-          "version": "1.0.3",
-          "tag": "release"
+          "version": "1.0.2",
+          "tag": "release",
+          "url":
+          {
+            "Windows":"https://github.com/githubtohaoyangli/python_tool/releases/download/1.0.2/python_tool.exe",
+            "macOS":"https://github.com/githubtohaoyangli/python_tool/releases/download/1.0.2/python_tool.dmg"
+          }
         },
       "release2":
         {
