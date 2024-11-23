@@ -1,11 +1,20 @@
-p
+/* pt.css */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+    a img {
+        width: 100%;
+        height: auto;
+    }
+}p
 {
     color: rgb(239, 0, 0);
     text-align: center;
 }
-body
-{
-    background-color: rgba(0, 255, 34, 0.55);
+/* pt.css */
+body {
+    background: linear-gradient(135deg, rgba(0, 255, 34, 0.55), rgba(0, 255, 255, 0.55));
     text-align: center;
 }
 table,th,td{
