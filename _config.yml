@@ -1,0 +1,10 @@
+#写一个底部的config，带有title：Hello! This is how_to_create email:fairzlq@gmail.com
+title: Hello! This is how_to_create
+email: fairzlq@gmail.com
+description: >- 
+  Githubtohaoyangli own page. Githubtohaoyangli的个人页面
+url: "githubtohaoyangli.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+github_username:  githubtohaoyangli
