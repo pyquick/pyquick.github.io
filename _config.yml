@@ -2,9 +2,10 @@
 title: Hello! This is how_to_create
 email: fairzlq@gmail.com
 description: >- 
-  Githubtohaoyangli own page. Githubtohaoyangli的个人页面
+  Githubtohaoyangli own page. 
+  Githubtohaoyangli的个人页面
 url: "githubtohaoyangli.github.io"
-theme: minima
+github_username:  githubtohaoyangli
+theme: minimal
 plugins:
   - jekyll-feed
-github_username:  githubtohaoyangli
