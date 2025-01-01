@@ -7,6 +7,7 @@ description: >-
 url: "githubtohaoyangli.github.io"
 icon: "/favicon.ico"
 github_username:  githubtohaoyangli
+twitter_username:  exe258011
 theme: minima
 plugins:
   - jekyll-feed
