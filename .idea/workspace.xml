@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.markdown" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "githubtohaoyangli"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/githubtohaoyangli/githubtohaoyangli.github.io.git",
+    "accountId": "be3b1505-e2a6-4436-84bf-ea83915f7dde"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -40,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Documents/GitHub/githubtohaoyangli.github.io/static/images",
+    "last_opened_file_path": "D:/Documents/GitHub/githubtohaoyangli.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,7 +72,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.180" />
+        <option value="bundled-python-sdk-85c76a3b01b3-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.180" />
       </set>
     </attachedChunks>
   </component>
@@ -85,6 +100,7 @@
       <workItem from="1726289957203" duration="15000" />
       <workItem from="1726291320602" duration="10000" />
       <workItem from="1733542178548" duration="184000" />
+      <workItem from="1735725811776" duration="107000" />
     </task>
     <servers />
   </component>
