@@ -6,6 +6,6 @@ description: >-
   Githubtohaoyangli的个人页面
 url: "githubtohaoyangli.github.io"
 github_username:  githubtohaoyangli
-theme: minimal
+theme: minima
 plugins:
   - jekyll-feed
