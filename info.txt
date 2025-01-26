@@ -1,0 +1,9 @@
+||hnjqlkj.cn^
+||windows.hnjqlkj.cn^
+||baidu.com^
+||360.com^
+127.0.0.1 360.com
+||hao.360.com^
+||www.360.com^
+127.0.0.1 360.com
+127.0.0.1 hao.360.com
