@@ -1,0 +1,73 @@
+/* 设置页面背景颜色和字体 */
+body {
+    background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #1a2a6c);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* 确保背景延伸到页面底部 */
+}
+
+/* 背景动态效果 */
+@keyframes gradientBG {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* 设置标题样式 */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+/* 设置段落样式 */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: rgba(34, 87, 177, 0.84);
+}
+
+/* 设置列表样式 */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+}
+
+/* 设置列表项样式 */
+li {
+    margin: 10px 0;
+}
+
+/* 设置链接样式 */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;/* 添加这一行，使按钮不重叠 */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* 设置链接悬停效果 */
+a:hover {
+    background-color: #007BFF;
+    color: white;
+}

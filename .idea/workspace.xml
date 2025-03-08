@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="Changes" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/data/co.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/download.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -55,12 +63,13 @@
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/liexe/Documents/GitHub/githubtohaoyangli.github.io/info",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "Code Search",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,7 +119,11 @@
       <workItem from="1737867540479" duration="2274000" />
       <workItem from="1739192958342" duration="687000" />
       <workItem from="1740910989743" duration="2001000" />
-      <workItem from="1740917684846" duration="1060000" />
+      <workItem from="1740917684846" duration="1284000" />
+      <workItem from="1741354028789" duration="941000" />
+      <workItem from="1741415282877" duration="62000" />
+      <workItem from="1741417433945" duration="1998000" />
+      <workItem from="1741419756313" duration="1073000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -240,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740918741923</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1740918867329</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1740918867329</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
