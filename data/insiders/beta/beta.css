@@ -16,10 +16,16 @@
 
 /* 新增版本框样式 */
 .version-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 30px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.version-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* 新增信息框样式 */
@@ -123,7 +129,17 @@ h1 {
     color: #fff;
     margin-top: 20px;
     font-size: 2.5em;
-    animation: fadeInText 2s ease-in-out;
+    animation: fadeInText 2s ease-in-out, float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+}
+
+/* 新增发光效果 */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+    }
 }
 
 /* 设置段落样式 */
@@ -131,7 +147,7 @@ p {
     text-align: center;
     font-size: 1.2em;
     margin: 10px 0;
-    color: rgba(34, 87, 177, 0.84);
+    color: rgba(255, 255, 255, 0.8);
     animation: fadeInText 2s ease-in-out;
 }
 
@@ -260,4 +276,14 @@ a:hover {
 
 #okBtn:hover {
     background-color: #0056b3;
+}
+
+/* 新增浮动动画效果 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }

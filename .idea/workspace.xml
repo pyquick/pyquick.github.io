@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="对网站下载更改" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="2025.1.1 md">
+      <change afterPath="$PROJECT_DIR$/404.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103/pyquick1103.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/dev/souc/macOS/1960/pyquick1960.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/beta/beta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/beta/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -60,7 +73,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io",
+    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io/data/insiders/beta/souc/macOS/1103",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -129,7 +142,7 @@
       <workItem from="1741415282877" duration="62000" />
       <workItem from="1741417433945" duration="1998000" />
       <workItem from="1741419756313" duration="2099000" />
-      <workItem from="1741517668738" duration="265000" />
+      <workItem from="1741517668738" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -307,7 +320,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741517855029</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741517949286</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1741517949286</updated>
+    </task>
+    <task id="LOCAL-00024" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741518074606</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1741518074606</updated>
+    </task>
+    <task id="LOCAL-00025" summary="2025.1.1 md">
+      <option name="closed" value="true" />
+      <created>1741518344748</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1741518344748</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,6 +364,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes" />
     <MESSAGE value="对网站下载更改" />
-    <option name="LAST_COMMIT_MESSAGE" value="对网站下载更改" />
+    <MESSAGE value="2025.1.1 md" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.1.1 md" />
   </component>
 </project>

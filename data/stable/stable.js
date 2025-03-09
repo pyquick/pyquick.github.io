@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.text())
                 .then(text => {
                     document.getElementById('gpl3Box').innerText = text;
+                    // 新增滚动到协议内容的效果
+                    document.getElementById('gpl3Box').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
         });
     });
@@ -24,5 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = link.href;
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('confirmBox').style.display = 'none';
+    });
+
+    // 新增页面加载时的动画效果
+    document.querySelectorAll('.container > *').forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.2}s`;
     });
 });
