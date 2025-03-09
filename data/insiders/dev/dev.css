@@ -1,0 +1,184 @@
+/* 设置页面背景颜色和字体 */
+body {
+    background: linear-gradient(-45deg, #00ff99, #00ccff, #6633ff, #cc00ff);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+/* 背景动态效果 */
+@keyframes gradientBG {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+/* 添加文字由模糊到清晰的动态效果 */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        filter: blur(5px); /* 初始模糊效果 */
+    }
+    to {
+        opacity: 1;
+        filter: blur(0); /* 最终清晰效果 */
+    }
+}
+/* 设置标题样式 */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 2.5em;
+    animation: fadeInText 2s ease-in-out;
+}
+
+/* 设置段落样式 */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: rgba(34, 87, 177, 0.84);
+    animation: fadeInText 2s ease-in-out;
+}
+
+/* 设置列表样式 */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+}
+
+/* 设置列表项样式 */
+li {
+    margin: 10px 0;
+}
+
+/* 设置链接样式 */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: fadeInText 2s ease-in-out;
+}
+
+/* 设置链接悬停效果 */
+a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* GPL3 协议内容框样式 */
+.gpl3-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+/* 隐藏类 */
+.hidden {
+    display: none;
+}
+
+/* 遮罩层样式 */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+
+/* 确认框样式 */
+#confirmBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 确认框淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 确认框段落样式 */
+#confirmBox p {
+    margin-bottom: 20px;
+    animation: none;
+}
+
+/* 取消和确认按钮样式 */
+#cancelBtn, #okBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    animation: fadeInText 1s ease-in-out;
+}
+
+#cancelBtn {
+    background-color: #ccc;
+    color: #333;
+}
+
+#okBtn {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* 取消和确认按钮悬停效果 */
+#cancelBtn:hover {
+    background-color: #bbb;
+}
+
+#okBtn:hover {
+    background-color: #0056b3;
+}
