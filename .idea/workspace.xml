@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="对网站下载更改">
-      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/beta/gpl3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/souc/Windows/2004/pyquick2004.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/souc/Windows/1/python_tool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/Windows/100/python_tool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
-    </list>
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="对网站下载更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +60,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Documents/GitHub/githubtohaoyangli.github.io/data/insiders/beta",
+    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -101,7 +90,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
       </set>
     </attachedChunks>
   </component>
@@ -140,6 +129,7 @@
       <workItem from="1741415282877" duration="62000" />
       <workItem from="1741417433945" duration="1998000" />
       <workItem from="1741419756313" duration="2099000" />
+      <workItem from="1741517668738" duration="265000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -309,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741511113938</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741517855028</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1741517855029</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
