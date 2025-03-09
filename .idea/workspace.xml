@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="对网站下载更改">
-      <change afterPath="$PROJECT_DIR$/data/stable/gpl3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/beta/beta.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/beta/gpl3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/insiders/dev/souc/Windows/2004/pyquick2004.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/souc/Windows/1/python_tool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/Windows/100/python_tool.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,6 +47,9 @@
     &quot;accountId&quot;: &quot;bc9e3b8d-7797-411b-ac7c-be497b00098c&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -66,7 +71,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Documents/GitHub/githubtohaoyangli.github.io/data/stable",
+    "last_opened_file_path": "D:/Documents/GitHub/githubtohaoyangli.github.io/data/insiders/beta",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,11 +84,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta" />
+      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\dev\souc\Windows\2004" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\macOS\102" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\Windows\1" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\Windows\101" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\Windows" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta\souc\Windows\1103" />
@@ -296,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741508658184</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741511113938</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1741511113938</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
