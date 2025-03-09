@@ -3,17 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/data/insiders/dev/dev.css">
-  <script src="/data/insiders/dev/dev.js"></script>
+  <link rel="stylesheet" href="dev.css">
+  <script src="dev.js"></script>
   <title>Insider Dev Download</title>
 </head>
 <body>
 
-<h1>Insider Dev Download</h1>
-<p>Choose your build version:</p>
-<ul>
-  <li><a href="/data/insiders/dev/Windows/2004/pyquick2004.zip" download="pyquick2004.zip">Build 2004 (Windows)</a></li>
-</ul>
+<div class="container">
+  <h1>Insider Dev Download</h1>
+  <p class="subtitle">Experience the latest features before anyone else</p>
+  <div class="version-box">
+    <h2>Available Builds</h2>
+    <ul>
+      <li>
+        <a href="/data/insiders/dev/Windows/2004/pyquick2004.zip" download="pyquick2004.zip">
+          <span class="version">Build 2004</span>
+          <span class="platform">(Windows)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="info-box">
+    <p>This build is experimental. Please report any issues you encounter.</p>
+  </div>
+</div>
 
 <div id="overlay" class="hidden"></div>
 <div id="confirmBox" class="hidden">
@@ -21,8 +35,10 @@
   <div id="gpl3Box" class="gpl3-box">
     <!-- GPL3 协议内容将通过 JavaScript 动态加载 -->
   </div>
-  <button id="cancelBtn">Cancel</button>
-  <button id="okBtn">OK</button>
+  <div class="button-group">
+    <button id="cancelBtn">Cancel</button>
+    <button id="okBtn">Agree & Download</button>
+  </div>
 </div>
 </body>
 </html>

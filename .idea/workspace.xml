@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="对网站下载更改">
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/dev.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/dev.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/gpl3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/stable/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/stable/info.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/stable/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/stable/gpl3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/download.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/ja.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Mac/1.0.2/python_tool.dmg" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/macOS/102/python_tool.dmg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Mac/1.0.3/python_tool.dmg" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/beta/souc/Windows/1103/pyquick1103.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Mac/Latest/python_tool.dmg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Windows/1.0.0/python_tool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/Windows/1/python_tool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Windows/1.0.1/python_tool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/Windows/101/python_tool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Windows/1.0.2/python_tool.exe" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/souc/Windows/102/python_tool.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/python_tool/Windows/Latest/python_tool.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/ddkey/info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info/key_hash.json" beforeDir="false" afterPath="$PROJECT_DIR$/ddkey/key_hash.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +280,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741420884072</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741508543064</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1741508543064</updated>
+    </task>
+    <task id="LOCAL-00020" summary="对网站下载更改">
+      <option name="closed" value="true" />
+      <created>1741508658184</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1741508658184</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
