@@ -1,29 +1,16 @@
 {
-  "info": "python-tool's ver.",
-  "releases":
-    {
-      "release1":
-        {
-          "name": "python-tool",
-          "version": "1.0.2",
-          "tag": "release",
-          "url":
-          {
-            "Windows":"https://github.com/githubtohaoyangli/python_tool/releases/download/1.0.2/python_tool.exe",
-            "macOS":"https://github.com/githubtohaoyangli/python_tool/releases/download/1.0.2/python_tool.dmg"
-          }
-        },
-      "release2":
-        {
-          "name": "python-tool(nightly)",
-          "version": "None",
-          "tag": "pre-release"
-        },
-      "release3":
-        {
-          "name": "python-tool(nightly)",
-          "version": "2.0",
-          "tag": "2.0-development"
-        }
-    }
+  "info": "pyquick",
+  "version_win": {
+    "stable": "0000",
+    "RP": "0000",
+    "beta": "1103",
+    "dev": "1905"
+
+  },
+  "version_mac": {
+    "stable": "0000",
+    "RP": "0000",
+    "beta": "1103",
+    "dev": "1927"
+  }
 }
