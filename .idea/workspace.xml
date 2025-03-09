@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="2025.1.1 md">
-      <change afterPath="$PROJECT_DIR$/404.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103/pyquick1103.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/insiders/dev/souc/macOS/1960/pyquick1960.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/beta/beta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/beta/beta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/insiders/dev/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable/stable.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable/stable.js" afterDir="false" />
-    </list>
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="404.html" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,18 +73,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
+      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\dev\souc\Windows\2004" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\macOS\102" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\Windows\1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/insiders/beta/souc" />
+      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS/1960" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta\souc\Windows\1103" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders" />
       <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable\souc\Windows\102" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -142,7 +129,7 @@
       <workItem from="1741415282877" duration="62000" />
       <workItem from="1741417433945" duration="1998000" />
       <workItem from="1741419756313" duration="2099000" />
-      <workItem from="1741517668738" duration="2791000" />
+      <workItem from="1741517668738" duration="3348000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -344,7 +331,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741518344748</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2025.1.1 md">
+      <option name="closed" value="true" />
+      <created>1741521491726</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1741521491726</updated>
+    </task>
+    <task id="LOCAL-00027" summary="404.html">
+      <option name="closed" value="true" />
+      <created>1741521538844</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1741521538844</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +368,7 @@
     <MESSAGE value="Changes" />
     <MESSAGE value="对网站下载更改" />
     <MESSAGE value="2025.1.1 md" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025.1.1 md" />
+    <MESSAGE value="404.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="404.html" />
   </component>
 </project>
