@@ -229,6 +229,7 @@ a:hover {
 
 /* 确认框段落样式 */
 #confirmBox p {
+    color: rgba(34, 87, 177, 0.84);
     margin-bottom: 20px;
     animation: none; /* 确保没有动画 */
 }

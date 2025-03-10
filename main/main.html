@@ -1,0 +1,57 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PyQuick - Python高效管理工具</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-rocket"></i> PyQuick 2.0</h1>
+            <p>一站式Python开发环境管理解决方案</p>
+        </header>
+
+        <section class="feature-box" id="python-manager">
+            <h2><i class="fab fa-python"></i> Python版本管理</h2>
+            <ul class="feature-list">
+                <li>多线程高速下载引擎（支持断点续传）</li>
+                <li>跨平台文件批量下载管理</li>
+                <li>网络版本库动态加载（支持官方/镜像源切换）</li>
+                <li>自动校验文件完整性（SHA-256验证）</li>
+            </ul>
+            <div class="version-selector">
+                <button class="btn load-version">加载可用版本</button>
+                <select id="pythonVersions"></select>
+            </div>
+        </section>
+
+        <section class="feature-box" id="pip-manager">
+            <h2><i class="fas fa-box-open"></i> 智能PIP管理</h2>
+            <div class="gui-container">
+                <div class="pip-controls">
+                    <input type="text" id="packageSearch" placeholder="搜索PyPI包...">
+                    <button class="btn install-btn"><i class="fas fa-download"></i> 安装</button>
+                    <button class="btn upgrade-btn"><i class="fas fa-level-up-alt"></i> 升级</button>
+                </div>
+                <div class="multi-pip">
+                    <div class="pip-instance active" data-version="default">
+                        <span>系统PIP</span>
+                        <progress value="75" max="100"></progress>
+                    </div>
+                    <!-- 动态生成的PIP环境 -->
+                </div>
+            </div>
+        </section>
+
+        <section class="theme-switcher">
+            <button class="theme-btn light"><i class="fas fa-sun"></i></button>
+            <button class="theme-btn dark"><i class="fas fa-moon"></i></button>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
