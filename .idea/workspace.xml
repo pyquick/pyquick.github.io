@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AngularSettings">
+    <option name="useTypesFromServer" value="true" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="404.html" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="404.html">
+      <change afterPath="$PROJECT_DIR$/_posts/pyquick.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily/newyear.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily/pyquick2.0.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily/static/css/year.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily/static/js/year.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyquick/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyquick/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2025-1-1-New Years.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2025-3-2-Pyquick 2.0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/beta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/beta/gpl3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/gpl3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/insiders/dev/gpl3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/gpl3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/gpl3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable/stable.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/stable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,9 +54,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,6 +76,9 @@
     &quot;accountId&quot;: &quot;bc9e3b8d-7797-411b-ac7c-be497b00098c&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/daily/pyquick2.0.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -60,37 +103,37 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io/data/insiders/beta/souc/macOS/1103",
+    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io/data/static",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "co.fitten.llmintellij.LlmSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/static" />
+      <recent name="$PROJECT_DIR$/data/static/js" />
+      <recent name="$PROJECT_DIR$/data/static/css" />
       <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
       <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\dev\souc\Windows\2004" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\stable" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data/insiders/beta/souc" />
-      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS/1960" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders\beta\souc\Windows\1103" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io\data\insiders" />
-      <recent name="D:\Documents\GitHub\githubtohaoyangli.github.io" />
+      <recent name="$PROJECT_DIR$/pyquick/static/js" />
+      <recent name="$PROJECT_DIR$/pyquick/static/css" />
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/static/js" />
+      <recent name="$PROJECT_DIR$/data/static/css" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+        <option value="bundled-js-predefined-d6986cc7102b-d159365566ee-JavaScript-WS-251.23774.114" />
       </set>
     </attachedChunks>
   </component>
@@ -130,6 +173,12 @@
       <workItem from="1741417433945" duration="1998000" />
       <workItem from="1741419756313" duration="2099000" />
       <workItem from="1741517668738" duration="3348000" />
+      <workItem from="1741956927857" duration="3466000" />
+      <workItem from="1742015162233" duration="788000" />
+      <workItem from="1742016189169" duration="1081000" />
+      <workItem from="1742017478808" duration="172000" />
+      <workItem from="1742017672219" duration="6379000" />
+      <workItem from="1742025054484" duration="253000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -370,5 +419,8 @@
     <MESSAGE value="2025.1.1 md" />
     <MESSAGE value="404.html" />
     <option name="LAST_COMMIT_MESSAGE" value="404.html" />
+  </component>
+  <component name="VueSettings">
+    <option name="useTypesFromServer" value="true" />
   </component>
 </project>

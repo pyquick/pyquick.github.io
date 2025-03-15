@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('overlay').style.display = 'block';
             document.getElementById('confirmBox').style.display = 'block';
             // 加载 GPL3 协议内容
-            fetch('/data/insiders/dev/gpl3.txt')
+            fetch('./gpl3.txt')
                 .then(response => response.text())
                 .then(text => {
                     document.getElementById('gpl3Box').innerText = text;

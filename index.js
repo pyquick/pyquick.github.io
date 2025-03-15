@@ -1,0 +1,61 @@
+
+// 滚动动画
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+// 页面启动时的动态效果
+document.addEventListener('DOMContentLoaded', () => {
+    // 页面元素渐入效果
+    const container = document.querySelector('.container');
+    if (container) {
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            container.style.transition = 'opacity 1s ease, transform 1s ease';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 100);
+    }
+
+    // 标题浮动效果
+    const h1 = document.querySelector('h1');
+    if (h1) {
+        h1.style.opacity = '0';
+        h1.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            h1.style.transition = 'opacity 1s ease, transform 1s ease';
+            h1.style.opacity = '1';
+            h1.style.transform = 'translateY(0)';
+            h1.style.animation = 'float 3s ease-in-out infinite';
+        }, 200);
+    }
+
+    // 卡片逐个显示效果
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = `opacity 0.5s ease ${index * 0.2}s, transform 0.5s ease ${index * 0.2}s`;
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300 + index * 100);
+    });
+});
+
+// 滑动效果
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    document.querySelectorAll('section').forEach(section => {
+        const speed = section.dataset.speed || 1;
+        section.style.transform = `translateY(${(currentScroll - lastScroll) * speed}px)`;
+    });
+    lastScroll = currentScroll;
+});
