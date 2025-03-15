@@ -86,7 +86,7 @@ body.night {
 }
 
 .section {
-    background: rgba(137, 247, 254, 0.1); /* 修改为浅蓝色背景 */
+    background: rgba(137, 247, 254, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
@@ -96,24 +96,9 @@ body.night {
     animation: breathingSection 3s ease-in-out infinite;
 }
 
-@keyframes breathingSection {
-    0%, 100% {
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    }
-    50% {
-        box-shadow: 0 8px 32px rgba(102,166,255,0.3);
-    }
-}
-
 .section:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-}
-
-.features {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .feature {
@@ -127,36 +112,81 @@ body.night {
     animation: breathingFeature 3s ease-in-out infinite;
 }
 
-@keyframes breathingFeature {
-    0%, 100% {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-        box-shadow: 0 2px 5px rgba(102,166,255,0.3);
-    }
-}
-
 .feature:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .footer {
     text-align: center;
-    padding: 2rem 1rem; /* 增加上下padding，避免重合 */
-    margin-top: 4rem; /* 增加顶部margin，确保与上方内容有足够间距 */
+    padding: 2rem 1rem;
+    margin-top: 4rem;
     background-color: rgba(102, 166, 255, 0.3);
     color: #ffffff;
     opacity: 0;
     animation: fadeIn 1s ease-out 1.5s forwards;
     border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background-color: rgba(102, 166, 255, 0.4);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.footer:hover::before {
+    left: 100%;
 }
 
 .footer a {
     opacity: 0;
     transform: translateY(20px);
     animation: float 3s ease-in-out infinite;
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease, color 0.3s ease;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-color);
+    transition: width 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--highlight-color);
+}
+
+.footer a:hover::after {
+    width: 100%;
 }
 
 @keyframes float {

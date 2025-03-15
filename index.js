@@ -1,10 +1,10 @@
-
 // 滚动动画
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = 1;
             entry.target.style.transform = 'translateY(0)';
+            entry.target.style.transition = 'opacity 1s ease, transform 1s ease';
         }
     });
 }, { threshold: 0.1 });
@@ -47,15 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'translateY(0)';
         }, 300 + index * 100);
     });
-});
 
-// 滑动效果
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    document.querySelectorAll('section').forEach(section => {
-        const speed = section.dataset.speed || 1;
-        section.style.transform = `translateY(${(currentScroll - lastScroll) * speed}px)`;
+    // 更平滑的滑动效果
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        document.querySelectorAll('section').forEach(section => {
+            const speed = section.dataset.speed || 0.03; // 将speed从1调整为0.03，使滑动效果更轻微
+            section.style.transform = `translateY(${currentScroll * speed}px)`;
+        });
     });
-    lastScroll = currentScroll;
 });
