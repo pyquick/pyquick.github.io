@@ -20,12 +20,17 @@
     border-radius: 15px;
     padding: 20px;
     margin: 30px 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
 }
 
 .version-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 修正Insiders容器悬停效果写法 */
+.insiders-box:hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
 }
 
 /* 新增信息框样式 */
@@ -45,6 +50,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
+}
+
+.version-box a:hover {
+    background-color: #0056b3; /* 修改为更深的蓝色 */
+    color: white;
 }
 
 .version {
@@ -67,7 +77,7 @@
 
 /* 改进确认按钮样式 */
 #okBtn {
-  background-color: #28a745;
+  background-color: #28a745; /* 保持绿色主色 */
 }
 
 #okBtn:hover {
@@ -76,7 +86,7 @@
 
 /* 改进取消按钮样式 */
 #cancelBtn {
-  background-color: #6c757d;
+  background-color: #6c757d; /* 保持灰色主色 */
 }
 
 #cancelBtn:hover {
@@ -254,7 +264,7 @@ a:hover {
 #cancelBtn, #okBtn {
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* 修改原5px为8px */
     cursor: pointer;
     margin: 0 10px;
     animation: fadeInText 1s ease-in-out;
@@ -279,6 +289,26 @@ a:hover {
     background-color: #0056b3;
 }
 
+/* 改进Insiders按钮样式 */
+.insiders-button {
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInText 2s ease-in-out, pulse 1.5s infinite;
+}
+
+.insiders-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* 新增浮动动画效果 */
 @keyframes float {
     0%, 100% {
@@ -286,5 +316,23 @@ a:hover {
     }
     50% {
         transform: translateY(-10px);
+    }
+}
+
+/* 修改确认/取消按钮圆角 */
+#cancelBtn, #okBtn {
+    border-radius: 8px; /* 修改原5px为8px */
+}
+
+/* 修改版本下载链接圆角 */
+.version-box a {
+    border-radius: 8px; /* 新增统一圆角 */
+}
+
+/* 修改Insiders按钮圆角 */
+.insiders-button {
+    border-radius: 8px; /* 修改原5px为8px */
+    &:hover {
+        border-radius: 8px; /* 同步悬停状态圆角 */
     }
 }

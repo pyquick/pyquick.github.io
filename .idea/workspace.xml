@@ -7,10 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="404.html">
-      <change afterPath="$PROJECT_DIR$/pyquick/python_download.html" afterDir="false" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/js/beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/beta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/js/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/dev.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +43,12 @@
     &quot;assignee&quot;: &quot;githubtohaoyangli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/pyquick/pyquick.github.io.git",
-    "accountId": "40464881-8a29-4e04-869c-07a2e07ede69"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/pyquick/pyquick.github.io.git&quot;,
+    &quot;accountId&quot;: &quot;40464881-8a29-4e04-869c-07a2e07ede69&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/daily/pyquick2.0.html" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -70,7 +76,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/liexe/Documents/GitHub/pyquick.github.io/data/static&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hsdfg/Documents/pyquick.github.io/data/insiders/dev/souc/Windows/2008&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -83,11 +89,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\data\insiders\dev\souc\Windows\2008" />
       <recent name="$PROJECT_DIR$/data/static" />
       <recent name="$PROJECT_DIR$/data/static/js" />
       <recent name="$PROJECT_DIR$/data/static/css" />
       <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
-      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pyquick/static/js" />
@@ -146,7 +152,9 @@
       <workItem from="1742017478808" duration="172000" />
       <workItem from="1742017672219" duration="6379000" />
       <workItem from="1742025054484" duration="253000" />
-      <workItem from="1742124911857" duration="970000" />
+      <workItem from="1742124911857" duration="2202000" />
+      <workItem from="1742562069634" duration="851000" />
+      <workItem from="1742564919010" duration="1104000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -364,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741521538844</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题">
+      <option name="closed" value="true" />
+      <created>1742129142597</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1742129142597</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +402,8 @@
     <MESSAGE value="对网站下载更改" />
     <MESSAGE value="2025.1.1 md" />
     <MESSAGE value="404.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="404.html" />
+    <MESSAGE value="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />

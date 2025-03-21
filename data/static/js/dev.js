@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentDownloadLink = null; // 下载完成后清空
     });
 
+    // 新增元素动画延迟初始化
     document.querySelectorAll('.container > *').forEach((element, index) => {
         element.style.animationDelay = `${index * 0.2}s`;
     });
