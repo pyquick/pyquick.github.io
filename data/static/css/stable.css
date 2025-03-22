@@ -1,3 +1,10 @@
+/* 修改背景为浅色渐变 */
+body {
+    background: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+}
+
 /* 新增容器样式 */
 .container {
   max-width: 800px;

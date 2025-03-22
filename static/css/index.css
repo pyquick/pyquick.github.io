@@ -1,3 +1,23 @@
+/* 修改背景为浅色渐变 */
+body {
+    background: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* 新增背景动画 */
+@keyframes gradientBG {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
 /* 主标题样式 */
 .main-title {
     font-size: 4rem;
@@ -5,7 +25,17 @@
     text-align: center;
     text-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
-    animation: float 3s ease-in-out infinite;
+    animation: glow 2s ease-in-out infinite alternate; /* 移除 float 动画 */
+}
+
+/* 新增发光效果 */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+    }
 }
 
 .main-title span {
@@ -36,8 +66,9 @@
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    transform: scale(1.02); /* 仅保留轻微缩放效果 */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.15); /* 增加多层阴影 */
+    backdrop-filter: blur(12px); /* 增加模糊效果 */
 }
 
 .icon {
@@ -89,7 +120,22 @@
     }
 }
 
+/* 新增版本框浮动效果 */
+.version-box {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 新增Insiders框浮动效果 */
+.insiders-box {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 新增浮动动画效果 */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }

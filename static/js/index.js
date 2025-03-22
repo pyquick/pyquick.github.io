@@ -1,14 +1,3 @@
-// 滚动动画
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-            entry.target.style.transition = 'opacity 1s ease, transform 1s ease';
-        }
-    });
-}, { threshold: 0.1 });
-
 // 页面启动时的动态效果
 document.addEventListener('DOMContentLoaded', () => {
     // 页面元素渐入效果
@@ -32,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             h1.style.transition = 'opacity 1s ease, transform 1s ease';
             h1.style.opacity = '1';
             h1.style.transform = 'translateY(0)';
-            h1.style.animation = 'float 3s ease-in-out infinite';
+            h1.style.animation = 'float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate';
         }, 200);
     }
 
@@ -52,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         document.querySelectorAll('section').forEach(section => {
-            const speed = section.dataset.speed || 0.03; // 将speed从1调整为0.03，使滑动效果更轻微
+            const speed = section.dataset.speed || 0.03;
             section.style.transform = `translateY(${currentScroll * speed}px)`;
         });
     });
