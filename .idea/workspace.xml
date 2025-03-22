@@ -7,11 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="refactor: 优化资源路径和页面链接&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址&#10;- 修正 index.html 中的脚本路径">
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daily/static/js/year.js" beforeDir="false" afterPath="$PROJECT_DIR$/daily/static/js/year.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +149,7 @@
       <workItem from="1742025054484" duration="253000" />
       <workItem from="1742124911857" duration="2202000" />
       <workItem from="1742562069634" duration="851000" />
-      <workItem from="1742564919010" duration="7468000" />
+      <workItem from="1742564919010" duration="12379000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -399,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742566621675</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
+      <option name="closed" value="true" />
+      <created>1742614484194</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1742614484194</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +433,8 @@
     <MESSAGE value="refactor(css): 优化下载页面样式和布局&#10;&#10;- 调整了 404.html、beta.html、dev.html 和 stable.html 的样式&#10;- 优化了按钮、链接和容器的圆角样式&#10;- 改进了悬停效果和动画&#10;- 统一了颜色主题和字体样式" />
     <MESSAGE value="refactor: 优化资源路径和页面链接&#10;&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址- 修正 index.html 中的脚本路径" />
     <MESSAGE value="refactor: 优化资源路径和页面链接&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址&#10;- 修正 index.html 中的脚本路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: 优化资源路径和页面链接&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址&#10;- 修正 index.html 中的脚本路径" />
+    <MESSAGE value="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />

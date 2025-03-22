@@ -1,3 +1,21 @@
+// 使用事件委托优化事件监听
+document.addEventListener('click', (event) => {
+    if (event.target.matches('.button')) {
+        // 处理按钮点击
+    }
+});
+
+// 使用节流优化滚动事件
+let isThrottled = false;
+window.addEventListener('scroll', () => {
+    if (isThrottled) return;
+    isThrottled = true;
+    setTimeout(() => {
+        // 处理滚动逻辑
+        isThrottled = false;
+    }, 100);
+});
+
 // 时间检测和主题切换
 
 // 滚动动画

@@ -1,3 +1,25 @@
+/* 提取全局动画定义 */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes colorPulse {
+    0%, 100% { color: #007BFF; }
+    50% { color: #66a6ff; }
+}
+
+@keyframes gridFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* 修改背景为浅色渐变 */
 body {
     background: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
