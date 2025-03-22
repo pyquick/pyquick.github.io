@@ -7,14 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +38,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/pyquick/pyquick.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;40464881-8a29-4e04-869c-07a2e07ede69&quot;
+    &quot;accountId&quot;: &quot;bc9e3b8d-7797-411b-ac7c-be497b00098c&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -64,41 +58,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript 调试.404.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.default.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hsdfg/Documents/pyquick.github.io/data/insiders/dev/souc/Windows/2008&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;co.fitten.llmintellij.LlmSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript 调试.404.html.executor": "Run",
+    "JavaScript 调试.default.html.executor": "Run",
+    "JavaScript 调试.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/liexe/Documents/GitHub/pyquick.github.io/data/static",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\data\insiders\dev\souc\Windows\2008" />
       <recent name="$PROJECT_DIR$/data/static" />
       <recent name="$PROJECT_DIR$/data/static/js" />
       <recent name="$PROJECT_DIR$/data/static/css" />
       <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
+      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\static\js" />
-      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\static\css" />
       <recent name="$PROJECT_DIR$/pyquick/static/js" />
       <recent name="$PROJECT_DIR$/pyquick/static/css" />
       <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/static/js" />
+      <recent name="$PROJECT_DIR$/data/static/css" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -150,9 +144,6 @@
       <workItem from="1742017478808" duration="172000" />
       <workItem from="1742017672219" duration="6379000" />
       <workItem from="1742025054484" duration="253000" />
-      <workItem from="1742124911857" duration="2202000" />
-      <workItem from="1742562069634" duration="851000" />
-      <workItem from="1742564919010" duration="17564000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -370,55 +361,7 @@
       <option name="project" value="LOCAL" />
       <updated>1741521538844</updated>
     </task>
-    <task id="LOCAL-00028" summary="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题">
-      <option name="closed" value="true" />
-      <created>1742129142597</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1742129142597</updated>
-    </task>
-    <task id="LOCAL-00029" summary="refactor(css): 优化下载页面样式和布局&#10;&#10;- 调整了 404.html、beta.html、dev.html 和 stable.html 的样式&#10;- 优化了按钮、链接和容器的圆角样式&#10;- 改进了悬停效果和动画&#10;- 统一了颜色主题和字体样式">
-      <option name="closed" value="true" />
-      <created>1742566134684</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1742566134684</updated>
-    </task>
-    <task id="LOCAL-00030" summary="refactor: 优化资源路径和页面链接&#10;&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址- 修正 index.html 中的脚本路径">
-      <option name="closed" value="true" />
-      <created>1742566468336</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1742566468336</updated>
-    </task>
-    <task id="LOCAL-00031" summary="refactor: 优化资源路径和页面链接&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址&#10;- 修正 index.html 中的脚本路径">
-      <option name="closed" value="true" />
-      <created>1742566621675</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1742566621675</updated>
-    </task>
-    <task id="LOCAL-00032" summary="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
-      <option name="closed" value="true" />
-      <created>1742614484194</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1742614484194</updated>
-    </task>
-    <task id="LOCAL-00033" summary="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
-      <option name="closed" value="true" />
-      <created>1742621123956</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1742621123956</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,12 +383,7 @@
     <MESSAGE value="对网站下载更改" />
     <MESSAGE value="2025.1.1 md" />
     <MESSAGE value="404.html" />
-    <MESSAGE value="feat(dev): 添加 Build 2008 并更新首页内容- 在 dev.html 中添加 Build2008 下载链接- 更新 index.html 中的下载提示文本&#10;- 新增开发者文档链接&#10;- 修改新year.html 的标题" />
-    <MESSAGE value="refactor(css): 优化下载页面样式和布局&#10;&#10;- 调整了 404.html、beta.html、dev.html 和 stable.html 的样式&#10;- 优化了按钮、链接和容器的圆角样式&#10;- 改进了悬停效果和动画&#10;- 统一了颜色主题和字体样式" />
-    <MESSAGE value="refactor: 优化资源路径和页面链接&#10;&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址- 修正 index.html 中的脚本路径" />
-    <MESSAGE value="refactor: 优化资源路径和页面链接&#10;- 更新 404.html 和 index.html 中的样式表路径&#10;- 修改 404.html 中的主页链接地址&#10;- 修正 index.html 中的脚本路径" />
-    <MESSAGE value="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画" />
+    <option name="LAST_COMMIT_MESSAGE" value="404.html" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
