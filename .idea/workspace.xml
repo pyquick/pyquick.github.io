@@ -9,9 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daily/static/js/year.js" beforeDir="false" afterPath="$PROJECT_DIR$/daily/static/js/year.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +152,7 @@
       <workItem from="1742025054484" duration="253000" />
       <workItem from="1742124911857" duration="2202000" />
       <workItem from="1742562069634" duration="851000" />
-      <workItem from="1742564919010" duration="12379000" />
+      <workItem from="1742564919010" duration="17564000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -407,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742614484194</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
+      <option name="closed" value="true" />
+      <created>1742621123956</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1742621123956</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -21,7 +21,12 @@
   padding: 20px;
   margin: 30px 0;
 }
-
+.version {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px 0;
+}
 /* 新增信息框样式 */
 .info-box {
   background-color: rgba(255, 255, 255, 0.05);
@@ -40,13 +45,21 @@
   align-items: center;
   padding: 15px 20px;
 }
-
+.version a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
 .version-box a:hover {
     background-color: #0056b3; /* 修改悬停背景色为更深的蓝色 */
     color: white;
 }
-
-.version {
+.version a:hover {
+    background-color: #0056b3; /* 修改悬停背景色为更深的蓝色 */
+    color: white;
+}
+.versionb {
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -295,6 +308,9 @@ a {
 .version-box a {
     border-radius: 8px; /* 新增统一圆角 */
 }
+.version a {
+    border-radius: 8px; /* 新增统一圆角 */
+}
 
 /* 改进Insiders按钮样式 */
 .insiders-button {
@@ -318,16 +334,39 @@ a {
 
 /* 补全版本框基础样式 */
 .version-box {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 新增默认阴影 */
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.version {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 补全悬停效果 */
+/* 统一按钮样式 */
+.insiders-button {
+  background-color: #007bff;
+  &:hover {
+    background-color: #007bff;
+  }
+}
+
+/* 统一悬停效果 */
 .version-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.version:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
+/* 新增Insiders容器样式 */
 /* 修正Insiders容器写法 */
 .insiders-box:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
