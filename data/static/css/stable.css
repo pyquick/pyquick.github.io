@@ -330,6 +330,25 @@ a:hover {
   }
 }
 
+/* 新增 No available builds 样式 */
+#builds-list li, #old-builds-list li {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#builds-list li:hover, #old-builds-list li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* 新增浮动动画效果 */
 @keyframes float {
     0%, 100% {

@@ -1,4 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // 检测用户操作系统
+    const isWindows = navigator.userAgent.indexOf('Win') !== -1;
+    const isMac = navigator.userAgent.indexOf('Mac') !== -1;
+
+    // 根据操作系统显示或隐藏相应的下载按钮
+    if (isWindows) {
+        document.querySelectorAll('.macos-build').forEach(element => element.style.display = 'none');
+        if (document.querySelectorAll('.windows-build').length === 0) {
+            document.getElementById('builds-list').innerHTML = '<li>No available builds</li>';
+        }
+    } else if (isMac) {
+        document.querySelectorAll('.windows-build').forEach(element => element.style.display = 'none');
+        if (document.querySelectorAll('.macos-build').length === 0) {
+            document.getElementById('builds-list').innerHTML = '<li>No available builds</li>';
+        }
+    } else {
+        document.getElementById('builds-list').innerHTML = '<li>No available builds</li>';
+    }
+
+    // 处理old builds部分
+    const oldBuildsList = document.getElementById('old-builds-list');
+    const isWin = navigator.userAgent.indexOf('Win') !== -1;
+    const isMacos = navigator.userAgent.indexOf('Mac') !== -1;
+
+    if (isMacos) {
+        const macOldBuilds = oldBuildsList.querySelectorAll('.macos-build');
+        if (macOldBuilds.length === 0) {
+            oldBuildsList.innerHTML = '<li>No available builds</li>';
+        } else {
+            oldBuildsList.querySelectorAll('.windows-build').forEach(element => element.style.display = 'none');
+        }
+    } else if (!isWin) {
+        oldBuildsList.innerHTML = '<li>No available builds</li>';
+    }
+
     let currentDownloadLink = null; // 新增变量存储当前点击的下载链接
 
     document.querySelectorAll('.version-box a').forEach(link => {

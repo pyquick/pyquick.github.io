@@ -7,7 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix: 更新发布日期和移除多余的任务记录" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix: 更新版本链接样式和移除多余的任务记录">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/js/beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/beta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/js/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/static/js/stable.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/stable.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,11 +97,11 @@
       <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/developers" />
       <recent name="$PROJECT_DIR$/pyquick/static/js" />
       <recent name="$PROJECT_DIR$/pyquick/static/css" />
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/data/static/js" />
-      <recent name="$PROJECT_DIR$/data/static/css" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -143,6 +154,8 @@
       <workItem from="1742017672219" duration="6379000" />
       <workItem from="1742025054484" duration="253000" />
       <workItem from="1742650367792" duration="319000" />
+      <workItem from="1742701372782" duration="1713000" />
+      <workItem from="1742706159279" duration="4147000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -368,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742650634245</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: 更新版本链接样式和移除多余的任务记录">
+      <option name="closed" value="true" />
+      <created>1742702025811</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1742702025811</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +412,8 @@
     <MESSAGE value="2025.1.1 md" />
     <MESSAGE value="404.html" />
     <MESSAGE value="fix: 更新发布日期和移除多余的任务记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 更新发布日期和移除多余的任务记录" />
+    <MESSAGE value="fix: 更新版本链接样式和移除多余的任务记录" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 更新版本链接样式和移除多余的任务记录" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />

@@ -16,17 +16,32 @@
 
 /* 新增版本框样式 */
 .version-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 30px 0;
-}
-.version {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin: 30px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
 }
+.insiders {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
+}
+.version-box:hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 修正Insiders容器悬停效果写法 */
+.insiders:hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* 新增信息框样式 */
 .info-box {
   background-color: rgba(255, 255, 255, 0.05);
@@ -40,26 +55,25 @@
 
 /* 改进版本链接样式 */
 .version-box a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-.version a {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
 }
+.insiders a {
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.25s ease;
+}
 .version-box a:hover {
-    background-color: #0056b3; /* 修改悬停背景色为更深的蓝色 */
+    background-color: #0056b3; /* 修改为更深的蓝色 */
     color: white;
 }
-.version a:hover {
-    background-color: #0056b3; /* 修改悬停背景色为更深的蓝色 */
+.insiders a:hover {
+    background-color: #0056b3; /* 修改为更深的蓝色 */
     color: white;
 }
-.versionb {
+.version {
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -79,7 +93,7 @@
 
 /* 改进确认按钮样式 */
 #okBtn {
-  background-color: #28a745;
+  background-color: #28a745; /* 保持绿色主色 */
 }
 
 #okBtn:hover {
@@ -88,7 +102,7 @@
 
 /* 改进取消按钮样式 */
 #cancelBtn {
-  background-color: #6c757d;
+  background-color: #6c757d; /* 保持灰色主色 */
 }
 
 #cancelBtn:hover {
@@ -141,7 +155,17 @@ h1 {
     color: #fff;
     margin-top: 20px;
     font-size: 2.5em;
-    animation: fadeInText 2s ease-in-out, float 3s ease-in-out infinite; /* 添加文字动态效果和浮动效果 */
+    animation: fadeInText 2s ease-in-out, float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+}
+
+/* 新增发光效果 */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+    }
 }
 
 /* 设置段落样式 */
@@ -149,7 +173,7 @@ p {
     text-align: center;
     font-size: 1.2em;
     margin: 10px 0;
-    color: rgba(34, 87, 177, 0.84);
+    color: rgba(255, 255, 255, 0.8);
     animation: fadeInText 2s ease-in-out;
 }
 
@@ -174,40 +198,17 @@ a {
     font-size: 1.1em;
     padding: 10px 15px;
     border: 1px solid #007BFF;
+    border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.8);
     animation: fadeInText 2s ease-in-out;
-    border-radius: 8px; /* 新增圆角样式 */
 }
 
-/* 取消和确认按钮样式 */
-#cancelBtn, #okBtn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px; /* 调整圆角半径 */
-    cursor: pointer;
-    margin: 0 10px;
-    animation: fadeInText 1s ease-in-out;
-}
-
-#cancelBtn {
-    background-color: #ccc;
-    color: #333;
-}
-
-#okBtn {
+/* 设置链接悬停效果 */
+a:hover {
     background-color: #007BFF;
     color: white;
-}
-
-/* 取消和确认按钮悬停效果 */
-#cancelBtn:hover {
-    background-color: #bbb;
-}
-
-#okBtn:hover {
-    background-color: #0056b3;
 }
 
 /* GPL3 协议内容框样式 */
@@ -275,6 +276,26 @@ a {
     animation: none;
 }
 
+/* 取消和确认按钮样式 */
+#cancelBtn, #okBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* 修改原5px为8px */
+    cursor: pointer;
+    margin: 0 10px;
+    animation: fadeInText 1s ease-in-out;
+}
+
+#cancelBtn {
+    background-color: #ccc;
+    color: #333;
+}
+
+#okBtn {
+    background-color: #007BFF;
+    color: white;
+}
+
 /* 取消和确认按钮悬停效果 */
 #cancelBtn:hover {
     background-color: #bbb;
@@ -282,34 +303,6 @@ a {
 
 #okBtn:hover {
     background-color: #0056b3;
-}
-
-/* 新增浮动动画效果 */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* 同步修改确认按钮圆角 */
-#okBtn {
-    border-radius: 8px; /* 修改原5px为8px */
-}
-
-/* 同步修改取消按钮圆角 */
-#cancelBtn {
-    border-radius: 8px; /* 修改原5px为8px */
-}
-
-/* 同步版本链接圆角 */
-.version-box a {
-    border-radius: 8px; /* 新增统一圆角 */
-}
-.version a {
-    border-radius: 8px; /* 新增统一圆角 */
 }
 
 /* 改进Insiders按钮样式 */
@@ -332,42 +325,51 @@ a {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* 补全版本框基础样式 */
-.version-box {
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.version {
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* 新增浮动动画效果 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-/* 统一按钮样式 */
+/* 修改确认/取消按钮圆角 */
+#cancelBtn, #okBtn {
+    border-radius: 8px; /* 修改原5px为8px */
+}
+
+/* 修改版本下载链接圆角 */
+.version-box a {
+    border-radius: 8px; /* 新增统一圆角 */
+}
+.insiders a {
+    border-radius: 8px; /* 新增统一圆角 */
+}
+/* 修改Insiders按钮圆角 */
 .insiders-button {
-  background-color: #007bff;
-  &:hover {
-    background-color: #007bff;
-  }
+    border-radius: 8px; /* 修改原5px为8px */
+    &:hover {
+        border-radius: 8px; /* 同步悬停状态圆角 */
+    }
 }
 
-/* 统一悬停效果 */
-.version-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-.version:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+/* 新增 No available builds 样式 */
+#builds-list li {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* 新增Insiders容器样式 */
-/* 修正Insiders容器写法 */
-.insiders-box:hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
+#builds-list li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
