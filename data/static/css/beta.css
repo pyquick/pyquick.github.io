@@ -55,9 +55,10 @@
 
 /* 改进版本链接样式 */
 .version-box a {
-  border-radius: 8px;
-  padding: 16px;
-  transition: all 0.25s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 .insiders a {
     border-radius: 8px;
