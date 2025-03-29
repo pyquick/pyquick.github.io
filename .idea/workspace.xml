@@ -9,12 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,27 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript 调试.404.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.default.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hsdfg/Documents/pyquick.github.io/data/insiders/dev/souc/Windows/2008&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;co.fitten.llmintellij.LlmSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript 调试.404.html.executor": "Run",
+    "JavaScript 调试.default.html.executor": "Run",
+    "JavaScript 调试.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/hsdfg/Documents/pyquick.github.io/data/insiders/dev/souc/Windows/2008",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\data\insiders\dev\souc\Windows\2008" />
@@ -152,7 +149,8 @@
       <workItem from="1742025054484" duration="253000" />
       <workItem from="1742124911857" duration="2202000" />
       <workItem from="1742562069634" duration="851000" />
-      <workItem from="1742564919010" duration="17564000" />
+      <workItem from="1742564919010" duration="19240000" />
+      <workItem from="1743252998488" duration="1922000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -418,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742621123956</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="style: 更新页面样式和动画效果&#10;&#10;- 修改背景为浅色渐变&#10;- 新增背景动画- 更新主标题样式和动画- 调整卡片悬停效果&#10;- 新增版本框和Insiders框浮动效果&#10;- 更新页面加载和滚动动画">
+      <option name="closed" value="true" />
+      <created>1742633459694</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1742633459694</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
