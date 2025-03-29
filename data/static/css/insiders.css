@@ -55,9 +55,10 @@
 
 /* 改进版本链接样式 */
 .version-box a {
-  border-radius: 8px;
-  padding: 16px;
-  transition: all 0.25s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 .insiders a {
     border-radius: 8px;
@@ -352,4 +353,23 @@ a:hover {
     &:hover {
         border-radius: 8px; /* 同步悬停状态圆角 */
     }
+}
+
+/* 新增 No available builds 样式 */
+#builds-list li {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#builds-list li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }

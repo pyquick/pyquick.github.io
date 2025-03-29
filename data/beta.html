@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./static/css/beta.css">
+  <link rel="stylesheet" href="static/css/insiders.css">
   <script src="./static/js/beta.js"></script>
   <title>Beta Download</title>
 </head>
@@ -14,14 +14,14 @@
   <p class="subtitle">Join the beta program, experience the latest features, and help us improve the product</p>
   <div class="version-box">
     <h2>Available Builds</h2>
-    <ul>
-      <li>
+    <ul id="builds-list">
+      <li class="windows-build">
         <a href="/data/insiders/beta/souc/Windows/1104/pyquick1103.zip" download="pyquick1103.zip">
           <span class="version">Build 1104</span>
           <span class="platform">(Windows)</span>
         </a>
       </li>
-      <li>
+      <li class="macos-build">
         <a href="/data/insiders/beta/souc/macOS/1103/pyquick1103.dmg" download="pyquick1103.dmg">
           <span class="version">Build 1103</span>
           <span class="platform">(macOS)</span>
@@ -34,10 +34,8 @@
     <h2>Insiders</h2>
     <ul>
       <div class="button-group">
-        <li>
           <a href="stable.html" class="insiders-button">Stable</a>
-        </li>
-        <li><a href="dev.html" class="insiders-button">Dev</a></li>
+          <a href="dev.html" class="insiders-button">Dev</a>
       </div>
     </ul>
   </div>
