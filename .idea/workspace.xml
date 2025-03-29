@@ -7,18 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix: 更新版本链接样式和移除多余的任务记录">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/beta.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/beta.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/dev.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/dev.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/css/stable.css" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/css/stable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/js/beta.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/beta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/js/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/js/stable.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/stable.js" afterDir="false" />
-    </list>
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix: 更新版本链接样式和移除多余的任务记录" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

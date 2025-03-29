@@ -52,6 +52,7 @@ let emailPopup = null; // 用于存储邮箱弹出窗口的引用
 
 document.getElementById('email-icon').addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation(); // 阻止事件冒泡
     if (emailPopup) {
         // 如果窗口已存在，则移除
         document.body.removeChild(emailPopup);
@@ -142,4 +143,23 @@ document.getElementById('email-icon').addEventListener('click', (e) => {
     setTimeout(() => {
         emailPopup.style.opacity = '1';
     }, 10);
+
+    // 添加全局点击事件监听器
+    document.addEventListener('click', handleOutsideClick);
 });
+
+// 处理点击外部区域关闭窗口的函数
+function handleOutsideClick(e) {
+    if (emailPopup && !emailPopup.contains(e.target) && e.target.id !== 'email-icon') {
+        // 添加渐隐效果
+        emailPopup.style.transition = 'opacity 0.3s ease';
+        emailPopup.style.opacity = '0';
+        // 等待动画结束后移除窗口
+        setTimeout(() => {
+            document.body.removeChild(emailPopup);
+            emailPopup = null;
+            // 移除事件监听器
+            document.removeEventListener('click', handleOutsideClick);
+        }, 300); // 300ms 是动画持续时间
+    }
+}
