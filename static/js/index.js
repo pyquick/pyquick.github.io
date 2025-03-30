@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 添加邮箱图标点击事件
+// 添加邮箱图标悬停事件
 let emailPopup = null; // 用于存储邮箱弹出窗口的引用
 
-document.getElementById('email-icon').addEventListener('click', (e) => {
+document.getElementById('email-icon').addEventListener('mouseenter', (e) => {
     e.preventDefault();
     e.stopPropagation(); // 阻止事件冒泡
     if (emailPopup) {
@@ -144,12 +144,12 @@ document.getElementById('email-icon').addEventListener('click', (e) => {
         emailPopup.style.opacity = '1';
     }, 10);
 
-    // 添加全局点击事件监听器
-    document.addEventListener('click', handleOutsideClick);
+    // 添加全局鼠标离开事件监听器
+    document.addEventListener('mouseleave', handleOutsideLeave);
 });
 
-// 处理点击外部区域关闭窗口的函数
-function handleOutsideClick(e) {
+// 处理鼠标离开外部区域关闭窗口的函数
+function handleOutsideLeave(e) {
     if (emailPopup && !emailPopup.contains(e.target) && e.target.id !== 'email-icon') {
         // 添加渐隐效果
         emailPopup.style.transition = 'opacity 0.3s ease';
@@ -159,7 +159,7 @@ function handleOutsideClick(e) {
             document.body.removeChild(emailPopup);
             emailPopup = null;
             // 移除事件监听器
-            document.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('mouseleave', handleOutsideLeave);
         }, 300); // 300ms 是动画持续时间
     }
 }
