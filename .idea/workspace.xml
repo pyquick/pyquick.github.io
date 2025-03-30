@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix: 更新版本链接样式和移除多余的任务记录" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -378,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742702025811</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑">
+      <option name="closed" value="true" />
+      <created>1743315541966</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1743315541966</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +410,8 @@
     <MESSAGE value="404.html" />
     <MESSAGE value="fix: 更新发布日期和移除多余的任务记录" />
     <MESSAGE value="fix: 更新版本链接样式和移除多余的任务记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 更新版本链接样式和移除多余的任务记录" />
+    <MESSAGE value="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
