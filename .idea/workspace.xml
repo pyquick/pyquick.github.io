@@ -8,7 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑">
+      <change afterPath="$PROJECT_DIR$/insiders/2020.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/hub.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/static/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/static/css/hub.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/static/css/insiders.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/static/css/intrduce.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/static/js/all.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insiders/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -38,7 +47,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/pyquick/pyquick.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;bc9e3b8d-7797-411b-ac7c-be497b00098c&quot;
+    &quot;accountId&quot;: &quot;40464881-8a29-4e04-869c-07a2e07ede69&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -68,7 +77,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/liexe/Documents/GitHub/pyquick.github.io/data/static&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hsdfg/Documents/pyquick.github.io/insiders&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -81,18 +90,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders" />
       <recent name="$PROJECT_DIR$/data/static" />
       <recent name="$PROJECT_DIR$/data/static/js" />
       <recent name="$PROJECT_DIR$/data/static/css" />
       <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
-      <recent name="$PROJECT_DIR$/data/insiders/dev/souc/macOS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders\static\css" />
+      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders" />
       <recent name="$PROJECT_DIR$/developers" />
       <recent name="$PROJECT_DIR$/pyquick/static/js" />
       <recent name="$PROJECT_DIR$/pyquick/static/css" />
-      <recent name="$PROJECT_DIR$/data" />
-      <recent name="$PROJECT_DIR$/data/static/js" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -147,6 +156,9 @@
       <workItem from="1742650367792" duration="319000" />
       <workItem from="1742701372782" duration="1713000" />
       <workItem from="1742706159279" duration="4147000" />
+      <workItem from="1743914779415" duration="266000" />
+      <workItem from="1743928113735" duration="5064000" />
+      <workItem from="1743936220056" duration="2236000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />

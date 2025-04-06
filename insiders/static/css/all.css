@@ -1,0 +1,178 @@
+:root {
+    --day-bg: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    --night-bg: linear-gradient(120deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --day-text: #333;
+    --night-text: #fff;
+    --transition: all 0.5s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui;
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--day-text);
+    transition: var(--transition);
+    background: var(--day-bg);
+}
+
+body.night {
+    background: var(--night-bg);
+    color: var(--night-text);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 2rem 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #007BFF;
+    transition: var(--transition);
+}
+
+li:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(10px);
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(173, 216, 230, 0.8); /* 修改为浅蓝色 */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 10px 0;
+    border-left: none;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.navbar li:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--day-text);
+    padding: 8px 16px;
+    display: block;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    background: rgba(0, 123, 255, 0.2);
+    color: #007BFF;
+}
+
+/* Insider 计划表格样式 */
+.insider-program table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.insider-program th,
+.insider-program td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.insider-program th {
+    background: rgba(0, 123, 255, 0.2);
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.insider-program tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.insider-program tr:last-child td {
+    border-bottom: none;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    section {
+        padding: 1rem;
+    }
+}

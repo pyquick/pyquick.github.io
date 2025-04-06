@@ -1,0 +1,46 @@
+.intro-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section h2 {
+    color: #007BFF;
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.intro-section a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.intro-section a:hover {
+    text-decoration: underline;
+}
+
+.channel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.channel-list li {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #007BFF;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.channel-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
