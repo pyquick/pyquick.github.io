@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="改善体验">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insiders/2020.html" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/2020.html" afterDir="false" />
-    </list>
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix(core): 更新稳定版本下载链接" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +147,7 @@
       <workItem from="1742706159279" duration="4147000" />
       <workItem from="1743914779415" duration="266000" />
       <workItem from="1743928113735" duration="5064000" />
-      <workItem from="1743936220056" duration="4567000" />
+      <workItem from="1743936220056" duration="5003000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -416,7 +413,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743941287978</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="改善体验">
+      <option name="closed" value="true" />
+      <created>1743941738559</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1743941738559</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix(core): 更新稳定版本下载链接">
+      <option name="closed" value="true" />
+      <created>1743942117838</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1743942117838</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +456,8 @@
     <MESSAGE value="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
     <MESSAGE value="docs(insiders): 添加 PyQuick2020 Dev 版本发布页面&#10;&#10;- 新增 2020 Dev 版本发布页面，介绍新功能和改进- 添加 Insider 预览通道说明页面&#10;- 创建 Fight Hub 页面，列出不同版本的下载链接- 更新首页，调整 Insider Preview链接指向&#10;- 新增多套 CSS 样式和 JS 动画效果，提升页面体验" />
     <MESSAGE value="改善体验" />
-    <option name="LAST_COMMIT_MESSAGE" value="改善体验" />
+    <MESSAGE value="fix(core): 更新稳定版本下载链接" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(core): 更新稳定版本下载链接" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
