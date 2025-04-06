@@ -10,10 +10,32 @@ h1, h2, p, ul {
     margin: 20px auto;
     text-align: left;
 }
+h1 {
+    border-bottom: 2px solid #e0e0e0; /* 改为浅灰色下划线 */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* 放大 h1 标题 */
+}
+h2 {
+    border-bottom: 1px solid #e0e0e0; /* 改为浅灰色下划线 */
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    font-weight: bold; /* 加粗 h2 标题 */
+}
 img {
     max-width: 100%;
     height: auto;
-    margin: 10px 0;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+.img-container {
+    margin-bottom: 30px;
+}
+.img-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
 }
 a {
     color: #007BFF;
@@ -21,4 +43,19 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+h2 strong{
+    font-weight:600 ;
 }

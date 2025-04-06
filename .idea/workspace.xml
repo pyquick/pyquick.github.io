@@ -7,17 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑">
-      <change afterPath="$PROJECT_DIR$/insiders/2020.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/hub.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/static/css/all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/static/css/hub.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/static/css/insiders.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/static/css/intrduce.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/insiders/static/js/all.js" afterDir="false" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="docs(insiders): 添加 PyQuick2020 Dev 版本发布页面&#10;&#10;- 新增 2020 Dev 版本发布页面，介绍新功能和改进- 添加 Insider 预览通道说明页面&#10;- 创建 Fight Hub 页面，列出不同版本的下载链接- 更新首页，调整 Insider Preview链接指向&#10;- 新增多套 CSS 样式和 JS 动画效果，提升页面体验">
+      <change afterPath="$PROJECT_DIR$/insiders/img/about.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/img/expired.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/img/in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insiders/img/warning.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insiders/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insiders/2020.html" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/2020.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insiders/static/css/insiders.css" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/static/css/insiders.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,34 +66,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript 调试.404.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.default.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript 调试.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hsdfg/Documents/pyquick.github.io/insiders&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript 调试.404.html.executor": "Run",
+    "JavaScript 调试.default.html.executor": "Run",
+    "JavaScript 调试.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/hsdfg/Documents/pyquick.github.io/insiders/img",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders\img" />
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders" />
       <recent name="$PROJECT_DIR$/data/static" />
       <recent name="$PROJECT_DIR$/data/static/js" />
       <recent name="$PROJECT_DIR$/data/static/css" />
-      <recent name="$PROJECT_DIR$/data/insiders/beta/souc/macOS/1103" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders\static\css" />
@@ -158,7 +157,7 @@
       <workItem from="1742706159279" duration="4147000" />
       <workItem from="1743914779415" duration="266000" />
       <workItem from="1743928113735" duration="5064000" />
-      <workItem from="1743936220056" duration="2236000" />
+      <workItem from="1743936220056" duration="3828000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -408,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743315854540</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="docs(insiders): 添加 PyQuick2020 Dev 版本发布页面&#10;&#10;- 新增 2020 Dev 版本发布页面，介绍新功能和改进- 添加 Insider 预览通道说明页面&#10;- 创建 Fight Hub 页面，列出不同版本的下载链接- 更新首页，调整 Insider Preview链接指向&#10;- 新增多套 CSS 样式和 JS 动画效果，提升页面体验">
+      <option name="closed" value="true" />
+      <created>1743940115122</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1743940115122</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +440,8 @@
     <MESSAGE value="fix: 更新发布日期和移除多余的任务记录" />
     <MESSAGE value="fix: 更新版本链接样式和移除多余的任务记录" />
     <MESSAGE value="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(static): 修改邮箱图标交互方式&#10;&#10;- 将邮箱图标的点击事件改为悬停事件，以弹出窗口&#10;- 全局事件从点击事件改为鼠标离开事件，以关闭窗口&#10;- 相应地修改了事件处理函数名称和逻辑" />
+    <MESSAGE value="docs(insiders): 添加 PyQuick2020 Dev 版本发布页面&#10;&#10;- 新增 2020 Dev 版本发布页面，介绍新功能和改进- 添加 Insider 预览通道说明页面&#10;- 创建 Fight Hub 页面，列出不同版本的下载链接- 更新首页，调整 Insider Preview链接指向&#10;- 新增多套 CSS 样式和 JS 动画效果，提升页面体验" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(insiders): 添加 PyQuick2020 Dev 版本发布页面&#10;&#10;- 新增 2020 Dev 版本发布页面，介绍新功能和改进- 添加 Insider 预览通道说明页面&#10;- 创建 Fight Hub 页面，列出不同版本的下载链接- 更新首页，调整 Insider Preview链接指向&#10;- 新增多套 CSS 样式和 JS 动画效果，提升页面体验" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
