@@ -6,6 +6,8 @@
     cursor: pointer;
     font-size: 1.1em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* 确保文字颜色为白色，增加可见性 */
+    display: inline-block; /* 确保按钮正确显示 */
 }
 
 .button:hover, #okBtn:hover, #cancelBtn:hover, .insiders-button:hover {
@@ -49,11 +51,19 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+/* 新增Insiders容器样式 */
+.insiders-box {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* 新增Insiders容器悬停效果 */
 .insiders-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
 }
 
 /* 新增信息框样式 */
@@ -94,6 +104,16 @@ body {
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+}
+
+/* 添加Insiders按钮样式 */
+.insiders-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.insiders-button:hover {
+  background-color: #0056b3;
 }
 
 /* 改进确认按钮样式 */

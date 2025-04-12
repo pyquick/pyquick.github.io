@@ -1,0 +1,240 @@
+ii/**
+ * 优化的CSS样式
+ * 提高动画性能，减少重绘重排
+ */
+
+/* 添加性能优化的CSS变量 */
+:root {
+  --primary-color: #007BFF;
+  --primary-hover: #0056b3;
+  --success-color: #28a745;
+  --success-hover: #218838;
+  --secondary-color: #6c757d;
+  --secondary-hover: #5a6268;
+  --animation-duration: 0.3s;
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 优化背景动画性能 */
+body {
+  background: linear-gradient(-45deg, #00ff99, #00ccff, #6633ff, #cc00ff);
+  background-size: 600% 600%;
+  animation: gradientBG 15s ease infinite;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* 添加will-change提示浏览器优化背景动画 */
+  will-change: background-position;
+}
+
+/* 优化背景动画 */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 优化文字淡入动画 - 使用opacity和transform代替filter */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 优化浮动动画 - 只使用transform */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 优化发光效果 - 减少文字阴影数量 */
+@keyframes glow {
+  0% { text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); }
+  100% { text-shadow: 0 0 16px rgba(255, 255, 255, 0.8); }
+}
+
+/* 优化标题动画 */
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 2.5em;
+  animation: fadeInText 1s ease-out, float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  /* 添加will-change提示浏览器优化动画 */
+  will-change: transform, opacity, text-shadow;
+}
+
+/* 优化容器样式 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  /* 使用CSS变量 */
+  animation: fadeInText var(--animation-duration) ease-out;
+}
+
+/* 优化版本框样式 - 使用transform代替多属性变化 */
+.version-box, .insiders, .insiders-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  /* 只对transform和opacity应用transition */
+  transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease;
+  /* 添加will-change提示浏览器优化悬停效果 */
+  will-change: transform, box-shadow;
+}
+
+.version-box:hover, .insiders:hover, .insiders-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+/* 优化按钮样式 */
+.button, #okBtn, #cancelBtn, .insiders-button {
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  /* 只对transform和box-shadow应用transition */
+  transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease, background-color var(--animation-duration) ease;
+  /* 添加will-change提示浏览器优化悬停效果 */
+  will-change: transform, box-shadow;
+}
+
+.button:hover, #okBtn:hover, #cancelBtn:hover, .insiders-button:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+/* 优化链接样式 */
+.version-box a, .insiders a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  /* 只对background-color和color应用transition */
+  transition: background-color var(--animation-duration) ease, color var(--animation-duration) ease;
+}
+
+.version-box a:hover, .insiders a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* 优化确认框样式 */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* 添加hidden类样式 */
+.hidden {
+  display: none !important;
+}
+
+#confirmBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1001;
+  /* 移除display:none，使用.hidden类控制显示/隐藏 */
+  /* 使用opacity和transform实现淡入效果 */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* 优化GPL3协议框样式 */
+.gpl3-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* 优化按钮颜色 */
+#okBtn {
+  background-color: var(--success-color);
+  color: white;
+}
+
+#okBtn:hover {
+  background-color: var(--success-hover);
+}
+
+#cancelBtn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+#cancelBtn:hover {
+  background-color: var(--secondary-hover);
+}
+
+.insiders-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.insiders-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* 优化No available builds样式 */
+#builds-list li, #old-builds-list li {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease;
+}
+
+#builds-list li:hover, #old-builds-list li:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 隐藏类 */
+.hidden {
+  display: none;
+}

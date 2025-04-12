@@ -1,17 +1,35 @@
-/* 提取全局动画定义 */
+/* 全局变量定义 */
+:root {
+    --primary-color: #007BFF;
+    --hover-color: #66a6ff;
+    --bg-gradient: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    --transition-timing: 0.3s ease;
+    --shadow-light: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-medium: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* 全局动画定义 */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
 @keyframes colorPulse {
-    0%, 100% { color: #007BFF; }
-    50% { color: #66a6ff; }
+    0%, 100% { color: var(--primary-color); }
+    50% { color: var(--hover-color); }
 }
 
 @keyframes gridFade {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+        -webkit-transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
 }
 
 @keyframes gradientBG {
@@ -20,51 +38,61 @@
     100% { background-position: 0% 50%; }
 }
 
-/* 修改背景为浅色渐变 */
+/* 基础样式设置 */
 body {
-    background: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    background: var(--bg-gradient);
     background-size: 600% 600%;
     animation: gradientBG 15s ease infinite;
-}
-
-/* 新增背景动画 */
-@keyframes gradientBG {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
+    -webkit-animation: gradientBG 15s ease infinite;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* 主标题样式 */
 .main-title {
-    font-size: 4rem;
-    margin: 4rem 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: clamp(2rem, 4vw, 4rem) 0;
     text-align: center;
     text-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: relative;
-    animation: glow 2s ease-in-out infinite alternate; /* 移除 float 动画 */
+    animation: glow 2s ease-in-out infinite alternate;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    will-change: text-shadow;
 }
 
-/* 新增发光效果 */
+/* 优化发光效果 */
 @keyframes glow {
     0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+        text-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.5);
     }
     100% {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8);
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.8);
+    }
+}
+
+@-webkit-keyframes glow {
+    0% {
+        text-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.8);
     }
 }
 
 .main-title span {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     display: block;
-    margin-top: 1rem;
+    margin-top: clamp(0.5rem, 2vw, 1rem);
     opacity: 0.8;
+    transition: opacity var(--transition-timing);
 }
 
 /* 网格布局 */
@@ -78,19 +106,25 @@ body {
 /* 卡片样式 */
 .card {
     background: rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    padding: 2rem;
-    transition: all 0.3s ease;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    transition: transform var(--transition-timing),
+                box-shadow var(--transition-timing),
+                backdrop-filter var(--transition-timing);
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-light);
+    will-change: transform;
 }
 
 .card:hover {
-    transform: scale(1.02); /* 仅保留轻微缩放效果 */
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.15); /* 增加多层阴影 */
-    backdrop-filter: blur(12px); /* 增加模糊效果 */
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
 }
 
 .icon {
@@ -107,28 +141,68 @@ body {
 /* 底部社交链接 */
 .social-links {
     position: fixed;
-    bottom: 2rem;
+    bottom: clamp(1rem, 3vw, 2rem);
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 3vw, 2rem);
     background: rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-light);
+    z-index: 10;
+    will-change: transform;
 }
 
 .social-links a {
     color: inherit;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     opacity: 0.8;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity var(--transition-timing),
+                transform var(--transition-timing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    position: relative;
 }
 
 .social-links a:hover {
     opacity: 1;
+    text-decoration: none !important;
     transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    text-decoration: none;
+}
+
+/* 社交链接悬停提示 */
+.social-links a::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    pointer-events: none;
+    margin-bottom: 5px;
+    box-shadow: var(--shadow-light);
+}
+
+.social-links a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
 }
 
 /* 响应式设计 */
@@ -164,12 +238,15 @@ body {
 
 /* 邮箱弹出框样式 */
 .email-popup {
-    background: rgba(255, 255, 255, 0.8); /* 设置背景为半透明 */
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: clamp(15px, 3vw, 20px);
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-medium);
     z-index: 1000;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    min-width: 280px;
+    max-width: 90vw;
 }
 
 /* 邮箱项样式 */
@@ -177,48 +254,73 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: clamp(8px, 2vw, 10px);
+    padding: clamp(8px, 2vw, 10px);
+    border: 1px solid rgba(204, 204, 204, 0.5);
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: transform var(--transition-timing),
+                box-shadow var(--transition-timing);
+    will-change: transform;
 }
 
-/* 新增独立的复制按钮圆角方框样式 */
+.email-item:hover {
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* 复制按钮容器样式 */
 .copy-button-container {
-    border: 1px solid #ccc;
+    border: 1px solid rgba(204, 204, 204, 0.5);
     border-radius: 5px;
-    padding: 5px;
-    display: inline-block;
-    margin-left: 10px; /* 增加左边距 */
+    padding: clamp(4px, 1vw, 5px);
+    display: inline-flex;
+    align-items: center;
+    margin-left: clamp(8px, 2vw, 10px);
+    transition: background-color var(--transition-timing);
 }
 
 /* 复制按钮样式 */
 .copy-button {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
+    background-color: transparent;
+    color: var(--primary-color);
     border: none;
-    padding: 5px 10px;
+    padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 10px);
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color var(--transition-timing),
+                background-color var(--transition-timing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .copy-button:hover {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /* 关闭按钮样式 */
 .close-button {
-    background-color: rgba(220, 53, 69, 0.8);
+    background-color: rgba(220, 53, 69, 0.9);
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: clamp(4px, 1vw, 5px) clamp(8px, 2vw, 10px);
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-timing),
+                transform var(--transition-timing);
+    margin-top: clamp(8px, 2vw, 10px);
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .close-button:hover {
     background-color: rgba(220, 53, 69, 1);
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
 }
