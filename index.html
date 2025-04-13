@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyQuick 主页</title>
+    
+    <!-- SEO元标签 -->
+    <meta name="description" content="PyQuick - 轻量级Python工具平台">
+    <meta name="keywords" content="Python, PyQuick, 编程, 开发工具">
+    
+    <!-- Open Graph 标签，用于社交媒体共享 -->
+    <meta property="og:title" content="PyQuick 主页">
+    <meta property="og:description" content="轻量级Python工具平台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyquick.github.io/">
+    
+    <!-- 添加主题色元标签 -->
+    <meta name="theme-color" content="#f3f9ff" id="theme-color">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- 预加载CSS -->
+    <link rel="preload" href="/static/css/index.css" as="style">
     <link rel="stylesheet" href="/static/css/index.css">
+    
+    <!-- 预连接CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <!-- 引入 Font Awesome 图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -61,6 +83,7 @@
     </a>
 </footer>
 
-<script src="/static/js/index.js"></script>
+<!-- 在页面底部加载JS，提高性能 -->
+<script src="/static/js/index.js" defer></script>
 </body>
 </html>

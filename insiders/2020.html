@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>Dev 2020 Release</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO元标签 -->
+    <meta name="description" content="PyQuick Dev 2020版本发布信息">
+    <meta name="keywords" content="PyQuick, 2020, Dev版本, Python工具">
+    
+    <!-- 主题色元标签 -->
+    <meta name="theme-color" content="#f9f9f9" id="theme-color">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- 预连接和预加载资源 -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="./static/css/insiders.css" as="style">
+    
+    <!-- 样式表 -->
     <link rel="stylesheet" href="./static/css/insiders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <h1>Announcing Pyquick Insiders Preview 2020(Dev)</h1>
@@ -11,7 +28,7 @@
     <br/>
     <h2>
         <strong>
-        New Features:
+        <i class="fas fa-star"></i> New Features:
         </strong>
     </h2>
     <ul>
@@ -42,17 +59,17 @@
 
     <h2>
         <strong>
-        Changes & Improvements:
+        <i class="fas fa-wrench"></i> Changes & Improvements:
         </strong>
     </h2>
     <p>如果你是Windows10用户，你则不会看到switch theme.</p>
 
     <h2>
-        <strong>Fixes:</strong>
+        <strong><i class="fas fa-bug"></i> Fixes:</strong>
     </h2>
     <p>修复了pip_mirror设置的问题，直接到pip_mirror操控。</p>
 
-<h2><strong>Known Issues:</strong></h2>
+    <h2><strong><i class="fas fa-exclamation-triangle"></i> Known Issues:</strong></h2>
     <ul>
         <li>新设计的窗口有延时的问题，提示窗口会在程序启动后弹出</li>
         <li>程序每次打开都需要数秒</li>
@@ -62,9 +79,25 @@
     <p>去tk化从2.0开始，到3.0结束，所以2.0是过渡版本，期间可能会出现诸多不稳定问题。</p>
     <p>macOS版本仍在开发，期间不会有开发文档，知道迭代到2000+版本。</p>
 
-    <p><strong>Full Changelog</strong>: <a href="https://github.com/pyquick/pyquick/compare/2008...2020" class="button">View Changelog</a></p>
+    <div class="action-links">
+        <p><strong>Full Changelog</strong>: <a href="https://github.com/pyquick/pyquick/compare/2008...2020" class="button"><i class="fas fa-code-compare"></i> View Changelog</a></p>
 
-    <p><strong>GitHub</strong>: <a href="https://github.com/pyquick/pyquick" class="button">Visit GitHub</a></p>
-    <p>Go to <a href="hub.html" class="button">AVT</a> to find more versions</p>
+        <p><strong>GitHub</strong>: <a href="https://github.com/pyquick/pyquick" class="button"><i class="fab fa-github"></i> Visit GitHub</a></p>
+        
+        <p>Go to <a href="hub.html" class="button"><i class="fas fa-home"></i> AVT</a> to find more versions</p>
+    </div>
+
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle" title="切换主题">
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" title="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript 脚本 -->
+    <script src="./static/js/theme.js" defer></script>
 </body>
 </html>

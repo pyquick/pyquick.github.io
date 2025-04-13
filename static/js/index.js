@@ -1,5 +1,180 @@
+// 主题切换功能
+const ThemeManager = {
+    // 主题状态
+    currentTheme: null,
+    
+    // 初始化主题
+    init() {
+        // 创建主题切换按钮
+        this.createToggleButton();
+        
+        // 尝试从本地存储加载主题
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme) {
+            // 使用保存的主题
+            this.setTheme(savedTheme);
+        } else {
+            // 检查系统主题偏好
+            if (this.checkSystemPreference()) {
+                // 如果有系统偏好设置，使用系统偏好
+                this.setTheme(this.checkSystemPreference());
+            } else {
+                // 否则根据时间自动设置主题
+                this.setThemeByTime();
+            }
+        }
+        
+        // 监听系统主题变化
+        this.listenForSystemPreferenceChanges();
+        
+        // 每小时检查一次时间，以便自动切换主题
+        setInterval(() => {
+            if (!localStorage.getItem('theme')) {
+                this.setThemeByTime();
+            }
+        }, 60 * 60 * 1000); // 每小时检查一次
+    },
+    
+    // 创建主题切换按钮
+    createToggleButton() {
+        const toggleBtn = document.createElement('div');
+        toggleBtn.classList.add('theme-toggle');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        toggleBtn.setAttribute('title', '切换主题');
+        
+        // 点击切换主题
+        toggleBtn.addEventListener('click', () => {
+            this.toggleTheme();
+        });
+        
+        document.body.appendChild(toggleBtn);
+        this.toggleBtn = toggleBtn;
+    },
+    
+    // 根据时间设置主题
+    setThemeByTime() {
+        const hour = new Date().getHours();
+        // 晚上6点到早上6点使用深色模式
+        const theme = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+        this.setTheme(theme);
+    },
+    
+    // 切换主题
+    toggleTheme() {
+        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+        this.setTheme(newTheme);
+        
+        // 保存到本地存储
+        localStorage.setItem('theme', newTheme);
+        
+        // 显示主题变更提示
+        this.showThemeChangeNotification(newTheme);
+    },
+    
+    // 设置主题
+    setTheme(theme) {
+        this.currentTheme = theme;
+        
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (this.toggleBtn) {
+                this.toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                this.toggleBtn.setAttribute('title', '切换到浅色模式');
+            }
+            // 更新浏览器主题色
+            this.updateThemeColor('#1a1a2e');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (this.toggleBtn) {
+                this.toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                this.toggleBtn.setAttribute('title', '切换到深色模式');
+            }
+            // 更新浏览器主题色
+            this.updateThemeColor('#f3f9ff');
+        }
+    },
+    
+    // 更新浏览器主题色
+    updateThemeColor(color) {
+        const themeColorMeta = document.getElementById('theme-color');
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', color);
+        }
+    },
+    
+    // 检查系统主题偏好
+    checkSystemPreference() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            return 'light';
+        }
+        return null;
+    },
+    
+    // 监听系统主题变化
+    listenForSystemPreferenceChanges() {
+        if (window.matchMedia) {
+            const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // 添加变化监听器
+            darkModeMediaQuery.addEventListener('change', (e) => {
+                // 如果没有用户设置的主题偏好，则跟随系统变化
+                if (!localStorage.getItem('theme')) {
+                    this.setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        }
+    },
+    
+    // 显示主题变更提示
+    showThemeChangeNotification(theme) {
+        // 创建提示元素
+        const notification = document.createElement('div');
+        notification.style.position = 'fixed';
+        notification.style.bottom = '80px';
+        notification.style.left = '50%';
+        notification.style.transform = 'translateX(-50%)';
+        notification.style.padding = '10px 20px';
+        notification.style.borderRadius = '20px';
+        notification.style.background = 'var(--card-bg)';
+        notification.style.backdropFilter = 'blur(10px)';
+        notification.style.boxShadow = 'var(--shadow-light)';
+        notification.style.zIndex = '1000';
+        notification.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        notification.style.opacity = '0';
+        notification.style.color = 'var(--text-color)';
+        
+        // 设置提示内容
+        notification.textContent = theme === 'dark' ? '已切换到深色模式' : '已切换到浅色模式';
+        
+        // 添加到文档中
+        document.body.appendChild(notification);
+        
+        // 显示提示
+        setTimeout(() => {
+            notification.style.opacity = '1';
+        }, 10);
+        
+        // 自动隐藏提示
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(-50%) translateY(20px)';
+            
+            // 移除元素
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 2000);
+    }
+};
+
 // 页面启动时的动态效果
 document.addEventListener('DOMContentLoaded', () => {
+    // 初始化主题管理
+    ThemeManager.init();
+    
     // 页面元素渐入效果
     const container = document.querySelector('.container');
     if (container) {

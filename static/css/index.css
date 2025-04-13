@@ -1,11 +1,40 @@
 /* 全局变量定义 */
 :root {
+    /* 浅色模式变量 */
     --primary-color: #007BFF;
     --hover-color: #66a6ff;
     --bg-gradient: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-text: #333;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 12px 24px rgba(0, 0, 0, 0.2);
+    --popup-bg: rgba(255, 255, 255, 0.95);
+    --email-item-bg: rgba(255, 255, 255, 0.95);
+    --email-item-border: rgba(204, 204, 204, 0.5);
     --transition-timing: 0.3s ease;
-    --shadow-light: 0 4px 12px rgba(0,0,0,0.1);
-    --shadow-medium: 0 12px 24px rgba(0,0,0,0.2);
+    
+    /* 添加主题切换过渡效果 */
+    --theme-transition: color 0.5s ease, 
+                        background 0.5s ease, 
+                        background-color 0.5s ease,
+                        border-color 0.5s ease,
+                        box-shadow 0.5s ease;
+}
+
+/* 深色模式变量 */
+[data-theme="dark"] {
+    --primary-color: #3f93ff;
+    --hover-color: #8ab9ff;
+    --bg-gradient: linear-gradient(-45deg, #1a1a2e, #16213e, #1f3756, #293b61);
+    --text-color: #e6e6e6;
+    --card-bg: rgba(30, 40, 60, 0.4);
+    --card-text: #e6e6e6;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --popup-bg: rgba(40, 44, 52, 0.95);
+    --email-item-bg: rgba(30, 40, 60, 0.95);
+    --email-item-border: rgba(70, 70, 70, 0.5);
 }
 
 /* 全局动画定义 */
@@ -46,6 +75,15 @@ body {
     -webkit-animation: gradientBG 15s ease infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+}
+
+/* 主题过渡动画应用到所有关键元素 */
+.card, .social-links, .email-popup, .email-item, 
+.copy-button-container, .copy-button, .close-button,
+.main-title, .theme-toggle, a, button, h1, h2, h3, p {
+    transition: var(--theme-transition);
 }
 
 /* 主标题样式 */
@@ -105,16 +143,17 @@ body {
 
 /* 卡片样式 */
 .card {
-    background: rgba(255,255,255,0.1);
+    background: var(--card-bg);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: clamp(1.5rem, 3vw, 2rem);
     transition: transform var(--transition-timing),
                 box-shadow var(--transition-timing),
-                backdrop-filter var(--transition-timing);
+                backdrop-filter var(--transition-timing),
+                background-color var(--transition-timing);
     text-decoration: none;
-    color: inherit;
+    color: var(--card-text);
     box-shadow: var(--shadow-light);
     will-change: transform;
 }
@@ -147,7 +186,7 @@ body {
     -webkit-transform: translateX(-50%);
     display: flex;
     gap: clamp(1rem, 3vw, 2rem);
-    background: rgba(255,255,255,0.1);
+    background: var(--card-bg);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
@@ -158,11 +197,12 @@ body {
 }
 
 .social-links a {
-    color: inherit;
+    color: var(--text-color);
     font-size: clamp(1.5rem, 3vw, 2rem);
     opacity: 0.8;
     transition: opacity var(--transition-timing),
-                transform var(--transition-timing);
+                transform var(--transition-timing),
+                color var(--transition-timing);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -238,7 +278,7 @@ body {
 
 /* 邮箱弹出框样式 */
 .email-popup {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--popup-bg);
     padding: clamp(15px, 3vw, 20px);
     border-radius: 10px;
     box-shadow: var(--shadow-medium);
@@ -247,6 +287,8 @@ body {
     backdrop-filter: blur(5px);
     min-width: 280px;
     max-width: 90vw;
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* 邮箱项样式 */
@@ -256,12 +298,15 @@ body {
     justify-content: space-between;
     margin-bottom: clamp(8px, 2vw, 10px);
     padding: clamp(8px, 2vw, 10px);
-    border: 1px solid rgba(204, 204, 204, 0.5);
+    border: 1px solid var(--email-item-border);
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--email-item-bg);
     transition: transform var(--transition-timing),
-                box-shadow var(--transition-timing);
+                box-shadow var(--transition-timing),
+                background-color var(--transition-timing),
+                color var(--transition-timing);
     will-change: transform;
+    color: var(--text-color);
 }
 
 .email-item:hover {
@@ -323,4 +368,32 @@ body {
     background-color: rgba(220, 53, 69, 1);
     transform: translateY(-2px);
     -webkit-transform: translateY(-2px);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: var(--shadow-light);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
