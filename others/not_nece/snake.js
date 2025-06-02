@@ -12,6 +12,7 @@ let speed = 150;
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('scoreValue');
+const highScoreElement = document.getElementById('highScoreValue'); // 新增
 const finalScoreElement = document.getElementById('finalScore');
 const gameOverElement = document.getElementById('gameOver');
 const startBtn = document.getElementById('startBtn');
@@ -28,6 +29,7 @@ function initGame() {
     direction = 'right';
     score = 0;
     scoreElement.textContent = score;
+    updateHighScore(); // 新增
     generateFood();
     gameOverElement.style.display = 'none';
 }
@@ -112,6 +114,14 @@ function gameOver() {
     clearInterval(gameLoop);
     gameLoop = null;
     finalScoreElement.textContent = score;
+    
+    // 更新最高分
+    const highScore = getHighScore();
+    if (score > highScore) {
+        document.cookie = `highScore=${score}; path=/`;
+        highScoreElement.textContent = score;
+    }
+    
     // 确保游戏结束界面正确渲染
     gameOverElement.style.display = 'block';
     // 强制重绘以确保渲染正确
@@ -121,6 +131,24 @@ function gameOver() {
             gameOverElement.style.opacity = '1';
         }, 10);
     }, 0);
+}
+
+// 获取最高分
+function getHighScore() {
+    const cookies = document.cookie.split('; ');
+    for (const cookie of cookies) {
+        const [name, value] = cookie.split('=');
+        if (name === 'highScore') {
+            return parseInt(value);
+        }
+    }
+    return 0;
+}
+
+// 更新最高分显示
+function updateHighScore() {
+    const highScore = getHighScore();
+    highScoreElement.textContent = highScore;
 }
 
 // 游戏步骤
@@ -138,6 +166,48 @@ function restartGame() {
     gameLoop = setInterval(gameStep, speed);
     isPaused = false;
     pauseBtn.textContent = '暂停';
+    
+    // 隐藏游戏结束信息
+    document.getElementById('gameOver').style.display = 'none';
+    document.getElementById('endGameInfo').style.display = 'none';
+}
+
+// 新增：结束游戏
+function endGame() {
+    if (gameLoop) {
+        clearInterval(gameLoop);
+        gameLoop = null;
+    }
+    
+    // 显示得分信息
+    const endGameInfo = document.getElementById('endGameInfo');
+    const endGameScore = document.getElementById('endGameScore');
+    const highScoreMessage = document.getElementById('highScoreMessage');
+    
+    endGameScore.textContent = score;
+    
+    // 检查是否突破最高分并记录
+    const highScore = getHighScore();
+    if (score > highScore) {
+        document.cookie = `highScore=${score}; path=/`;
+        updateHighScore();
+        
+        if (highScore > 0) {
+            highScoreMessage.style.display = 'block';
+        }
+    } else {
+        highScoreMessage.style.display = 'none';
+    }
+    
+    endGameInfo.style.display = 'block';
+    
+    // 强制重绘以确保渲染正确
+    setTimeout(() => {
+        endGameInfo.style.opacity = '0';
+        setTimeout(() => {
+            endGameInfo.style.opacity = '1';
+        }, 10);
+    }, 0);
 }
 
 // 事件监听
@@ -169,6 +239,11 @@ startBtn.addEventListener('click', () => {
 pauseBtn.addEventListener('click', () => {
     isPaused = !isPaused;
     pauseBtn.textContent = isPaused ? '继续' : '暂停';
+});
+
+// 新增：结束游戏按钮点击事件
+document.getElementById('endBtn').addEventListener('click', () => {
+    endGame();
 });
 
 // 初始化游戏

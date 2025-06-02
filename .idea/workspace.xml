@@ -7,7 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix(core): 更新稳定版本下载链接" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix(core): 更新稳定版本下载链接">
+      <change afterPath="$PROJECT_DIR$/pyquick/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyquick/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyquick/snake.html" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyquick/static/js/snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/pyquick/pyquick.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;40464881-8a29-4e04-869c-07a2e07ede69&quot;
+    &quot;accountId&quot;: &quot;508152c3-beb6-4e04-b2b0-38ef9c1e986b&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -66,7 +73,9 @@
     "RunOnceActivity.git.unshallow": "true",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/hsdfg/Documents/pyquick.github.io/insiders/img",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "I:/Github/pyquick.github.io/pyquick",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,7 +105,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -148,6 +157,8 @@
       <workItem from="1743914779415" duration="266000" />
       <workItem from="1743928113735" duration="5064000" />
       <workItem from="1743936220056" duration="5003000" />
+      <workItem from="1748860354650" duration="342000" />
+      <workItem from="1748860725931" duration="967000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />

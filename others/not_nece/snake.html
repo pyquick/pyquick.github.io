@@ -70,17 +70,25 @@
 <body>
     <div class="game-container">
         <div class="score">分数: <span id="scoreValue">0</span></div>
+        <div class="score">最高分: <span id="highScoreValue">0</span></div>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         <div class="game-over" id="gameOver">
             <h2>游戏结束!</h2>
             <p>最终得分: <span id="finalScore">0</span></p>
             <button class="btn" onclick="restartGame()">重新开始</button>
         </div>
+        <div class="game-over" id="endGameInfo">
+            <h2>游戏已结束</h2>
+            <p>本次得分: <span id="endGameScore">0</span></p>
+            <p id="highScoreMessage" style="display: none;">恭喜！你打破了最高分记录！</p>
+            <button class="btn" onclick="restartGame()">重新开始</button>
+        </div>
         <div class="controls">
             <button class="btn" id="startBtn">开始游戏</button>
             <button class="btn" id="pauseBtn">暂停</button>
+            <button class="btn" id="endBtn">结束游戏</button>
         </div>
     </div>
-    <script src="static/js/snake.js"></script>
+    <script src="snake.js"></script>
 </body>
 </html>
