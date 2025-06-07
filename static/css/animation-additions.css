@@ -1,0 +1,100 @@
+/* 复制按钮样式增强 - 简化版 */
+.copy-button {
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: var(--text-color);
+}
+
+.copy-button:hover {
+    color: var(--primary-color);
+}
+
+.copy-button:active {
+    transform: scale(0.95);
+}
+
+/* 移除波纹动画效果，该效果在低性能设备上可能导致卡顿 */
+
+/* 关闭按钮样式增强 */
+.close-button {
+    background: transparent;
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    color: var(--text-color);
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.close-button:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.close-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+/* 主题切换按钮样式增强 - 简化版 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    /* 移除模糊滤镜，提高性能 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-light);
+    z-index: 100;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    color: var(--primary-color);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* 添加简化的页面过渡动画 */
+@keyframes simpleFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.container {
+    animation: simpleFadeIn 0.5s ease;
+}
+
+/* 添加简化的内容载入类 */
+.content-fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.content-fade-in.visible {
+    opacity: 1;
+}
+
+/* 移除脉冲动画，阴影动画和滚动指示器，这些会导致性能问题 */

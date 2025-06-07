@@ -70,13 +70,15 @@
 /* 基础样式设置 */
 body {
     background: var(--bg-gradient);
-    background-size: 600% 600%;
-    animation: gradientBG 15s ease infinite;
-    -webkit-animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%; /* 减小背景尺寸 */
+    animation: gradientBG 20s linear infinite; /* 降低动画频率，使用线性动画 */
+    -webkit-animation: gradientBG 20s linear infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
     transition: var(--theme-transition);
+    /* 加速渲染 */
+    will-change: auto; /* 自动确定what will change */
 }
 
 /* 主题过渡动画应用到所有关键元素 */
@@ -144,37 +146,40 @@ body {
 /* 卡片样式 */
 .card {
     background: var(--card-bg);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    /* 移除模糊滤镜，提高性能 */
     border-radius: 15px;
     padding: clamp(1.5rem, 3vw, 2rem);
-    transition: transform var(--transition-timing),
-                box-shadow var(--transition-timing),
-                backdrop-filter var(--transition-timing),
-                background-color var(--transition-timing);
+    /* 简化过渡效果 */
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
     text-decoration: none;
     color: var(--card-text);
     box-shadow: var(--shadow-light);
-    will-change: transform;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    box-shadow: var(--shadow-medium);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    transform: translateY(-5px); /* 减小位移距离 */
+    -webkit-transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* 减小阴影 */
 }
+
+/* 移除卡片的光效扫过动画，该动画较为耗费资源 */
 
 .icon {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #007BFF;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
 }
 
 .icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* 减小缩放比例 */
+    color: var(--hover-color);
+    /* 移除消耗性能的发光动画 */
 }
 
 /* 底部社交链接 */
@@ -187,13 +192,17 @@ body {
     display: flex;
     gap: clamp(1rem, 3vw, 2rem);
     background: var(--card-bg);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    /* 移除高斯模糊以提高性能 */
     padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
     border-radius: 50px;
     box-shadow: var(--shadow-light);
     z-index: 10;
-    will-change: transform;
+}
+
+/* 确保邮件图标正确显示 */
+.social-links #email-icon {
+    cursor: pointer;
+    position: relative;
 }
 
 .social-links a {
@@ -213,9 +222,11 @@ body {
 .social-links a:hover {
     opacity: 1;
     text-decoration: none !important;
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* 减小移动距离 */
     -webkit-transform: translateY(-5px);
+    color: var(--primary-color);
     text-decoration: none;
+    /* 移除持续动画，减少性能消耗 */
 }
 
 /* 社交链接悬停提示 */
@@ -256,6 +267,45 @@ body {
     }
 }
 
+/* 页面加载动画 - 简化版 */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient);
+    background-size: 200% 200%; /* 减小背景尺寸 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-icon {
+    font-size: 3rem; /* 减小图标尺寸 */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    /* 使用更简单的动画 */
+    animation: simpleSpin 2s linear infinite;
+}
+
+.loader-text {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+@keyframes simpleSpin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
 /* 新增版本框浮动效果 */
 .version-box {
     animation: float 3s ease-in-out infinite;
@@ -265,6 +315,20 @@ body {
 .insiders-box {
     animation: float 3s ease-in-out infinite;
 }
+
+/* 添加滚动动画效果 */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 视差滚动效果已移除 - 该效果在低性能设备上会造成卡顿 */
 
 /* 新增浮动动画效果 */
 @keyframes float {
@@ -276,19 +340,50 @@ body {
     }
 }
 
-/* 邮箱弹出框样式 */
+/* 邮箱弹出框样式 - 简化版 */
 .email-popup {
     background: var(--popup-bg);
     padding: clamp(15px, 3vw, 20px);
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: var(--shadow-medium);
     z-index: 1000;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+    /* 移除高斯模糊，提高性能 */
     min-width: 280px;
-    max-width: 90vw;
+    max-width: 320px;
     color: var(--text-color);
-    transition: background 0.3s ease, color 0.3s ease;
+    /* 简化过渡效果 */
+    transition: opacity 0.3s ease,
+                transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    /* 确保弹窗在适当的位置显示 */
+    position: fixed;
+}
+
+/* 邮件列表样式 */
+.email-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* 邮件项样式 */
+.email-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid var(--email-item-border);
+    border-radius: 8px;
+    background-color: var(--email-item-bg);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.email-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 邮箱项样式 */
@@ -296,34 +391,90 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: clamp(8px, 2vw, 10px);
-    padding: clamp(8px, 2vw, 10px);
+    margin-bottom: clamp(12px, 2vw, 15px);
+    padding: clamp(10px, 2vw, 12px);
     border: 1px solid var(--email-item-border);
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--email-item-bg);
-    transition: transform var(--transition-timing),
-                box-shadow var(--transition-timing),
-                background-color var(--transition-timing),
-                color var(--transition-timing);
-    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background-color 0.3s ease,
+                color 0.3s ease;
+    will-change: transform, box-shadow;
     color: var(--text-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .email-item:hover {
-    transform: translateY(-2px);
-    -webkit-transform: translateY(-2px);
-    box-shadow: var(--shadow-light);
+    transform: translateY(-4px) scale(1.02);
+    -webkit-transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 123, 255, 0.2);
+    border-color: rgba(0, 123, 255, 0.3);
+}
+
+.email-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.email-item:hover::after {
+    transform: translateX(100%);
 }
 
 /* 复制按钮容器样式 */
 .copy-button-container {
     border: 1px solid rgba(204, 204, 204, 0.5);
-    border-radius: 5px;
-    padding: clamp(4px, 1vw, 5px);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    overflow: hidden;
+    position: relative;
+    padding: 4px;
     display: inline-flex;
     align-items: center;
-    margin-left: clamp(8px, 2vw, 10px);
-    transition: background-color var(--transition-timing);
+    margin-left: 8px;
+}
+
+/* 复制按钮和关闭按钮样式 */
+.copy-button, .close-button {
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.copy-button {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    color: var(--text-color);
+}
+
+.copy-button:hover {
+    color: var(--primary-color);
+}
+
+.close-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.close-button:hover {
+    background-color: var(--hover-color);
 }
 
 /* 复制按钮样式 */

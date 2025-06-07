@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译API使用示例</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c73d2;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2c73d2;
+            margin-top: 30px;
+        }
+
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            color: #333;
+        }
+
+        .highlight {
+            background-color: #ffffd0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .note {
+            background-color: #e8f4fd;
+            border-left: 4px solid #2c73d2;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+
+        .step {
+            margin-bottom: 20px;
+        }
+
+        .step-num {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-color: #2c73d2;
+            color: white;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>翻译API使用示例</h1>
+
+        <p>这个页面展示了如何使用我们的翻译API进行文本翻译。本实时翻译工具支持百度翻译API和有道翻译API。</p>
+
+        <div class="note">
+            <strong>注意：</strong> 在使用翻译API之前，请先获取相应的API密钥。
+        </div>
+
+        <h2>使用方法</h2>
+
+        <div class="step">
+            <span class="step-num">1</span>
+            <strong>导入API模块：</strong>
+            <pre><code>import TranslateAPI from './api.js';</code></pre>
+        </div>
+
+        <div class="step">
+            <span class="step-num">2</span>
+            <strong>配置API密钥：</strong>
+            <pre><code>// 设置使用的API服务
+TranslateAPI.setService('baidu'); // 或 'youdao'
+
+// 设置百度翻译API密钥
+TranslateAPI.setApiKey('baidu', 'YOUR_APP_ID', 'YOUR_SECRET_KEY');
+
+// 设置有道翻译API密钥
+TranslateAPI.setApiKey('youdao', 'YOUR_APP_ID', 'YOUR_SECRET_KEY');</code></pre>
+        </div>
+
+        <div class="step">
+            <span class="step-num">3</span>
+            <strong>调用翻译方法：</strong>
+            <pre><code>// 使用异步方式调用翻译API
+async function translateExample() {
+    try {
+        // 翻译文本，从英文到中文
+        const result = await TranslateAPI.translate('Hello world', 'en', 'zh');
+        console.log('翻译结果:', result);
+    } catch (error) {
+        console.error('翻译失败:', error.message);
+    }
+}</code></pre>
+        </div>
+
+        <h2>支持的语言代码</h2>
+
+        <p>以下是常用的语言代码：</p>
+        <ul>
+            <li><strong>zh</strong> - 中文</li>
+            <li><strong>en</strong> - 英语</li>
+            <li><strong>ja</strong> - 日语</li>
+            <li><strong>ko</strong> - 韩语</li>
+            <li><strong>fr</strong> - 法语</li>
+            <li><strong>de</strong> - 德语</li>
+            <li><strong>es</strong> - 西班牙语</li>
+            <li><strong>ru</strong> - 俄语</li>
+            <li><strong>auto</strong> - 自动检测（仅用于源语言）</li>
+        </ul>
+
+        <h2>完整示例</h2>
+
+        <pre><code>import TranslateAPI from './api.js';
+
+// 配置翻译API
+TranslateAPI.setService('baidu');
+TranslateAPI.setApiKey('baidu', 'YOUR_APP_ID', 'YOUR_SECRET_KEY');
+
+// 创建翻译函数
+async function translateText() {
+    const sourceText = document.getElementById('source').value;
+    const sourceLang = document.getElementById('from-lang').value;
+    const targetLang = document.getElementById('to-lang').value;
+    const resultElement = document.getElementById('result');
+
+    resultElement.textContent = '翻译中...';
+
+    try {
+        const translatedText = await TranslateAPI.translate(sourceText, sourceLang, targetLang);
+        resultElement.textContent = translatedText;
+    } catch (error) {
+        resultElement.textContent = `翻译失败: ${error.message}`;
+    }
+}
+
+// 为翻译按钮添加事件监听
+document.getElementById('translate-btn').addEventListener('click', translateText);</code></pre>
+
+        <div class="note">
+            <strong>提示：</strong> 在实际应用中，请妥善保管你的API密钥，避免直接在客户端代码中明文存储。在生产环境中，应通过服务器端进行API调用。
+        </div>
+
+        <h2>错误处理</h2>
+
+        <p>翻译API可能会返回以下错误：</p>
+        <ul>
+            <li>API密钥未配置或无效</li>
+            <li>网络连接问题</li>
+            <li>API调用超过限额</li>
+            <li>不支持的语言组合</li>
+        </ul>
+
+        <p>请务必在代码中添加适当的错误处理逻辑。</p>
+
+        <h2>相关文档</h2>
+
+        <ul>
+            <li><a href="http://api.fanyi.baidu.com/doc/21" target="_blank">百度翻译API文档</a></li>
+            <li><a href="https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html" target="_blank">有道翻译API文档</a></li>
+        </ul>
+    </div>
+</body>
+</html>

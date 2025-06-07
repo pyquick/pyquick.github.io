@@ -8,12 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="fix(core): 更新稳定版本下载链接">
-      <change afterPath="$PROJECT_DIR$/pyquick/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/api-example.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/google-translate-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/local-translate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/translate/translate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/animation-additions.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/snake.html" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/static/js/snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +47,12 @@
     &quot;assignee&quot;: &quot;githubtohaoyangli&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/pyquick/pyquick.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;508152c3-beb6-4e04-b2b0-38ef9c1e986b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/pyquick/pyquick.github.io.git",
+    "accountId": "9df2cafc-e762-4e33-bd0d-1d99ad6f68ec"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/daily/pyquick2.0.html" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -82,7 +89,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "database.data.csv.formats",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -105,7 +112,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
       </set>
     </attachedChunks>
   </component>
@@ -159,6 +166,7 @@
       <workItem from="1743936220056" duration="5003000" />
       <workItem from="1748860354650" duration="342000" />
       <workItem from="1748860725931" duration="967000" />
+      <workItem from="1749295930463" duration="2884000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
