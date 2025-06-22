@@ -1,0 +1,200 @@
+/* 全局变量定义 */
+:root {
+    /* 浅色模式变量 */
+    --primary-color: #007BFF;
+    --hover-color: #66a6ff;
+    --bg-gradient: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-text: #333;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 12px 24px rgba(0, 0, 0, 0.2);
+    --transition-timing: 0.3s ease;
+    --theme-transition: color 0.5s ease,
+                        background 0.5s ease,
+                        background-color 0.5s ease,
+                        border-color 0.5s ease,
+                        box-shadow 0.5s ease;
+}
+
+/* 深色模式变量 */
+[data-theme="dark"] {
+    --primary-color: #3f93ff;
+    --hover-color: #8ab9ff;
+    --bg-gradient: linear-gradient(-45deg, #1a1a2e, #16213e, #1f3756, #293b61);
+    --text-color: #e6e6e6;
+    --card-bg: rgba(30, 40, 60, 0.4);
+    --card-text: #e6e6e6;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* 全局动画定义 */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 添加简化的页面过渡动画 */
+@keyframes simpleFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 基础样式设置 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-size: 400% 400%;
+    animation: gradientBG 20s linear infinite;
+    -webkit-animation: gradientBG 20s linear infinite;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    transition: var(--theme-transition);
+    will-change: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 确保内容不足时 footer 也在底部 */
+    font-family: 'Arial', sans-serif; /* 统一字体 */
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1); /* 略微增加透明度 */
+    backdrop-filter: blur(15px); /* 更强的模糊效果 */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
+    /* 模拟玻璃边缘的光泽 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 浅色边框 */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* 增强阴影 */
+    color: var(--card-text);
+    flex-grow: 1;
+    animation: simpleFadeIn 0.5s ease;
+}
+
+[data-theme="dark"] .container {
+    background: rgba(30, 40, 60, 0.3); /* 深色模式下更透明的背景 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 深色模式下更柔和的边框 */
+}
+
+h1 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--card-text);
+}
+
+.giscus-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* 略微增加透明度 */
+    backdrop-filter: blur(15px); /* 更强的模糊效果 */
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* 浅色模式下更柔和的分割线 */
+    color: var(--text-color);
+    width: 100%;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.05); /* 底部阴影 */
+}
+
+[data-theme="dark"] .footer {
+    background: rgba(30, 40, 60, 0.3); /* 深色模式下更透明的背景 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 深色模式下更柔和的分割线 */
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color var(--transition-timing);
+}
+
+.home-link:hover {
+    background-color: var(--hover-color);
+}
+
+#success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.category-selector {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.category-button {
+    background-color: rgba(255, 255, 255, 0.15); /* 略微增加透明度 */
+    backdrop-filter: blur(8px); /* 更强的模糊效果 */
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--card-text);
+    border: 1px solid rgba(255, 255, 255, 0.4); /* 浅色模式下更强的边框 */
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 调整阴影 */
+}
+
+[data-theme="dark"] .category-button {
+    background-color: rgba(30, 40, 60, 0.4); /* 深色模式下更透明的背景 */
+    border: 1px solid rgba(0, 0, 0, 0.5); /* 深色模式下更强的边框 */
+}
+
+.category-button:hover {
+    background-color: var(--hover-color);
+    color: white;
+    border-color: var(--hover-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 悬停阴影 */
+}
+
+.category-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 激活阴影 */
+} 

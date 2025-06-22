@@ -1,0 +1,253 @@
+:root {
+    --day-bg: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    --night-bg: linear-gradient(120deg, #434343 0%, #000000 100%);
+    --day-text: #333;
+    --night-text: #fff;
+    --transition: all 0.5s ease;
+    --highlight-color: #66a6ff;
+    --highlight-color-night: #89f7fe;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui;
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--day-text);
+    transition: var(--transition);
+    background: var(--day-bg);
+}
+
+body.night {
+    background: var(--night-bg);
+    color: var(--night-text);
+}
+
+.header {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(102, 166, 255, 0.3); /* 修改为浅蓝色半透明背景 */
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.8s ease-out 0.5s forwards;
+    border-radius: 15px; /* 添加圆角 */
+    max-width: 80%; /* 添加此行，将标题宽度调整为80% */
+    margin: 0 auto; /* 添加此行，使标题居中 */
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 1rem 0;
+    animation: rotateLogo 2s ease-in-out 1, breathingLogo 3s ease-in-out infinite;
+}
+
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes breathingLogo {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    background: rgba(137, 247, 254, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: breathingSection 3s ease-in-out infinite;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.feature {
+    flex: 1 1 30%;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: breathingFeature 3s ease-in-out infinite;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+    background-color: rgba(102, 166, 255, 0.3);
+    color: #ffffff;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background-color: rgba(102, 166, 255, 0.4);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.footer:hover::before {
+    left: 100%;
+}
+
+.footer a {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: float 3s ease-in-out infinite;
+    transition: opacity 1s ease, transform 1s ease, color 0.3s ease;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--highlight-color);
+    transition: width 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--highlight-color);
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(173, 216, 230, 0.8); /* 修改为浅蓝色 */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 10px 0;
+    border-left: none;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.navbar li:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--day-text);
+    padding: 8px 16px;
+    display: block;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    background: rgba(0, 123, 255, 0.2);
+    color: #007BFF;
+}

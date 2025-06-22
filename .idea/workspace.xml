@@ -7,9 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="增加translate">
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="增加issues for pyquick">
+      <change afterPath="$PROJECT_DIR$/classesoclp/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classesoclp/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oclpr/OC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oclpr/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oclpr/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oclpr/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/others/expired/ver.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyquick/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -71,24 +78,25 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "I:/Github/pyquick.github.io/pyquick",
+    "last_opened_file_path": "/Users/li/Documents/GitHub/pyquick.github.io/classesoclp",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/classesoclp" />
+      <recent name="$PROJECT_DIR$/oclpr" />
+      <recent name="$PROJECT_DIR$/oclpr/static/js" />
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders\img" />
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders" />
-      <recent name="$PROJECT_DIR$/data/static" />
-      <recent name="$PROJECT_DIR$/data/static/js" />
-      <recent name="$PROJECT_DIR$/data/static/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hsdfg\Documents\pyquick.github.io\insiders\static\css" />
@@ -101,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.27812.50" />
       </set>
     </attachedChunks>
   </component>
@@ -157,6 +165,15 @@
       <workItem from="1748860725931" duration="967000" />
       <workItem from="1749295930463" duration="4570000" />
       <workItem from="1750508127515" duration="164000" />
+      <workItem from="1750575020991" duration="78000" />
+      <workItem from="1750578369800" duration="639000" />
+      <workItem from="1751174812133" duration="1707000" />
+      <workItem from="1751179388969" duration="2903000" />
+      <workItem from="1751709936432" duration="29000" />
+      <workItem from="1754208987529" duration="95000" />
+      <workItem from="1754209084798" duration="2000" />
+      <workItem from="1754209238649" duration="149000" />
+      <workItem from="1754209396609" duration="917000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -446,7 +463,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749300942812</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="增加issues for pyquick">
+      <option name="closed" value="true" />
+      <created>1750575081645</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1750575081645</updated>
+    </task>
+    <task id="LOCAL-00038" summary="增加issues for pyquick">
+      <option name="closed" value="true" />
+      <created>1750578387799</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1750578387799</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +508,8 @@
     <MESSAGE value="改善体验" />
     <MESSAGE value="fix(core): 更新稳定版本下载链接" />
     <MESSAGE value="增加translate" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加translate" />
+    <MESSAGE value="增加issues for pyquick" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加issues for pyquick" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
