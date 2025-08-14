@@ -7,16 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="增加issues for pyquick">
-      <change afterPath="$PROJECT_DIR$/classesoclp/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classesoclp/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oclpr/OC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oclpr/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oclpr/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oclpr/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/others/expired/ver.json" afterDir="false" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸">
+      <change afterPath="$PROJECT_DIR$/KdkSupportPkg/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +19,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="tsconfig.json" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="tsconfig.json" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="CJ &lt;hsdfg3@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -50,6 +48,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/KdkSupportPkg/manifest.json" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/daily/pyquick2.0.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -66,30 +65,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript 调试.404.html.executor": "Run",
-    "JavaScript 调试.default.html.executor": "Run",
-    "JavaScript 调试.index.html.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/li/Documents/GitHub/pyquick.github.io/classesoclp",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript 调试.404.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.default.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/li/Documents/GitHub/pyquick.github.io/classesoclp&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/classesoclp" />
@@ -173,7 +172,8 @@
       <workItem from="1754208987529" duration="95000" />
       <workItem from="1754209084798" duration="2000" />
       <workItem from="1754209238649" duration="149000" />
-      <workItem from="1754209396609" duration="917000" />
+      <workItem from="1754209396609" duration="1472000" />
+      <workItem from="1755165690778" duration="1189000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -479,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750578387799</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸">
+      <option name="closed" value="true" />
+      <created>1754210450846</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1754210450846</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +517,8 @@
     <MESSAGE value="fix(core): 更新稳定版本下载链接" />
     <MESSAGE value="增加translate" />
     <MESSAGE value="增加issues for pyquick" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加issues for pyquick" />
+    <MESSAGE value="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />
