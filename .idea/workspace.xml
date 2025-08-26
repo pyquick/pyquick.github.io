@@ -7,8 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸">
-      <change afterPath="$PROJECT_DIR$/KdkSupportPkg/manifest.json" afterDir="false" />
+    <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="Update Kdk">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +172,8 @@
       <workItem from="1754209084798" duration="2000" />
       <workItem from="1754209238649" duration="149000" />
       <workItem from="1754209396609" duration="1472000" />
-      <workItem from="1755165690778" duration="1189000" />
+      <workItem from="1755165690778" duration="2347000" />
+      <workItem from="1756117311519" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -487,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754210450846</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Update Kdk">
+      <option name="closed" value="true" />
+      <created>1755167400700</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1755167400700</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +526,8 @@
     <MESSAGE value="增加translate" />
     <MESSAGE value="增加issues for pyquick" />
     <MESSAGE value="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs(oclpr): 创建 OCLP-R 项目页面&#10;&#10;- 新增 OCLP-R 项目介绍页面，包括核心功能和新增功能&#10;- 添加项目地址链接和 logo 图片&#10;- 实现页面元素的渐入和浮动动画效果- 优化响应式布局，适应不同屏幕尺寸" />
+    <MESSAGE value="Update Kdk" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Kdk" />
   </component>
   <component name="VueSettings">
     <option name="useTypesFromServer" value="true" />

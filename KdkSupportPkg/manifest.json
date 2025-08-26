@@ -1,5 +1,17 @@
 [
   {
+    "build": "25A5349a",
+    "date": "2025-08-26T17:20:00",
+    "fileSize": 947523884,
+    "md5sum": "a5e2552aa47118cec09d0d91f5a2dbd5",
+    "name": "Kernel Debug Kit 26.0 build 25A5349a",
+    "seen": "2025-08-14T18:13:00",
+    "sha256sum": "61de04ef3992201467b1b3e03b05d30d5ccf081a4d50308d0e7e008d519721ac",
+    "url": "https://github.com/pyquick/KdkSupportPkg/releases/download/25A5349a/Kernel_Debug_Kit_26_build_25A5349a.dmg",
+    "version": "26.0",
+    "Beta": 8
+  },
+  {
     "build": "25A5338b",
     "date": "2025-08-14T18:13:00",
     "fileSize": 947487176,
