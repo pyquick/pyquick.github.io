@@ -43,7 +43,7 @@
       "seen": "2025-09-22T17:40:34Z",
       "sha256sum": "be84770e6c01c5fe17eb085579dc1e985f7db42ad1946fd502c140ad0c152895",
       "url": "https://github.com/dortania/KdkSupportPkg/releases/download/25B5042k/Kernel_Debug_Kit_26_build_25B5042k.dmg",
-      "version": "26"
+      "version": "26.1"
   },
   {
     "build": "25A353",
@@ -89,7 +89,7 @@
     "seen": "2025-09-09T19:18:34Z",
     "sha256sum": "b37a43c861f7d22235b0ae8279f040a7731290c25d2d85f5c423a0d1fc96e0b3",
     "url": "https://github.com/dortania/KdkSupportPkg/releases/download/25A353/Kernel_Debug_Kit_26_build_25A353.dmg",
-    "version": "26"
+    "version": "26.0"
   },
   {
     "build": "25A5349a",
