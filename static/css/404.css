@@ -1,8 +1,9 @@
-/* 新增背景动画效果 */
+/* 404页面样式 - 优化性能和兼容性 */
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    /* 使用更高效的渐变背景，减少动画复杂度 */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: 200% 200%;
+    animation: gradientBG 20s ease infinite; /* 降低动画频率 */
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -11,17 +12,17 @@ body {
     align-items: center;
     font-family: 'Arial', sans-serif;
     color: white;
+    /* 优化渲染性能 */
+    will-change: background-position;
+    transform: translateZ(0);
 }
 
 @keyframes gradientBG {
-    0% {
+    0%, 100% {
         background-position: 0% 50%;
     }
     50% {
         background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
     }
 }
 
@@ -31,13 +32,16 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 0.8s ease-out; /* 优化动画时长 */
+    /* 优化渲染性能 */
+    will-change: opacity, transform;
+    transform: translateZ(0);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-10px); /* 减少移动距离 */
     }
     to {
         opacity: 1;
@@ -49,10 +53,14 @@ h1 {
     margin: 0;
     font-size: 8em;
     font-weight: bold;
-    background: linear-gradient(45deg, #ff6b6b, #ffa8a8);
+    /* 使用更高效的渐变 */
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: float 3s ease-in-out infinite;
+    background-clip: text; /* 标准属性 */
+    animation: float 4s ease-in-out infinite; /* 降低动画频率 */
+    /* 优化渲染性能 */
+    will-change: transform;
 }
 
 @keyframes float {
@@ -60,13 +68,16 @@ h1 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-5px); /* 减少浮动幅度 */
     }
 }
 
 p {
     font-size: 1.2em;
     margin: 20px 0;
+    /* 优化字体渲染 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -78,10 +89,39 @@ a {
     border-radius: 25px;
     transition: all 0.3s ease;
     margin-top: 20px;
+    /* 优化渲染性能 */
+    will-change: transform, background-color, box-shadow;
+    transform: translateZ(0);
 }
 
 a:hover {
     background-color: #ff4c4c;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+}
+
+/* 媒体查询优化 - 响应式设计 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6em; /* 移动端减小字体 */
+    }
+    
+    .container {
+        padding: 20px; /* 移动端减小内边距 */
+        margin: 20px; /* 添加外边距 */
+    }
+    
+    p {
+        font-size: 1em; /* 移动端减小字体 */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 4em; /* 小屏幕进一步减小字体 */
+    }
+    
+    body {
+        animation-duration: 30s; /* 小屏幕降低动画频率 */
+    }
 }

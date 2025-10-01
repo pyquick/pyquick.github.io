@@ -10,13 +10,18 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', system-ui;
+    font-family: 'Segoe UI', system-ui, 'Roboto', sans-serif;
     min-height: 100vh;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 25s ease infinite; /* 延长动画时间，降低CPU使用 */
     color: var(--day-text);
     transition: var(--transition);
     background: var(--day-bg);
+    /* 优化字体渲染和性能 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: background-position;
+    transform: translateZ(0);
 }
 
 body.night {
@@ -94,11 +99,14 @@ body.night {
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: breathingSection 3s ease-in-out infinite;
+    /* 优化渲染性能 */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* 减少阴影强度 */
 }
 
 .feature {
@@ -110,11 +118,14 @@ body.night {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: breathingFeature 3s ease-in-out infinite;
+    /* 优化渲染性能 */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 .feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* 减少阴影强度 */
 }
 
 .features {
@@ -136,11 +147,14 @@ body.night {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    /* 优化渲染性能 */
+    will-change: transform, box-shadow, background-color;
+    transform: translateZ(0);
 }
 
 .footer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* 减少阴影强度 */
     background-color: rgba(102, 166, 255, 0.4);
 }
 
@@ -194,7 +208,7 @@ body.night {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-5px); /* 减少浮动幅度，提高性能 */
     }
 }
 

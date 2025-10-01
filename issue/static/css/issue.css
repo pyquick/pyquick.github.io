@@ -1,9 +1,9 @@
-/* 全局变量定义 */
+/* 全局变量定义 - 优化性能和兼容性 */
 :root {
     /* 浅色模式变量 */
     --primary-color: #007BFF;
     --hover-color: #66a6ff;
-    --bg-gradient: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #d9efff, #cceaff);
+    --bg-gradient: linear-gradient(-45deg, #f3f9ff, #e6f4ff, #cceaff); /* 简化渐变颜色数量 */
     --text-color: #333;
     --card-bg: rgba(255, 255, 255, 0.1);
     --card-text: #333;
@@ -51,18 +51,19 @@ html, body {
 
 body {
     background: var(--bg-gradient);
-    background-size: 400% 400%;
-    animation: gradientBG 20s linear infinite;
-    -webkit-animation: gradientBG 20s linear infinite;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 25s linear infinite; /* 延长动画时间，减少CPU使用 */
+    -webkit-animation: gradientBG 25s linear infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
     transition: var(--theme-transition);
-    will-change: auto;
+    will-change: background-position, color;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* 确保内容不足时 footer 也在底部 */
-    font-family: 'Arial', sans-serif; /* 统一字体 */
+    font-family: 'Arial', 'Segoe UI', sans-serif; /* 扩展字体族，增强兼容性 */
+    transform: translateZ(0); /* 优化渲染性能 */
 }
 
 .container {
@@ -197,4 +198,4 @@ p {
     color: white;
     border-color: var(--primary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 激活阴影 */
-} 
+}

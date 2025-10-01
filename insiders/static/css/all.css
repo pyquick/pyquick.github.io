@@ -8,13 +8,18 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', system-ui;
+    font-family: 'Segoe UI', system-ui, 'Roboto', sans-serif;
     min-height: 100vh;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 25s ease infinite; /* 延长动画时间，降低CPU使用 */
     color: var(--day-text);
     transition: var(--transition);
     background: var(--day-bg);
+    /* 优化字体渲染和性能 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: background-position;
+    transform: translateZ(0);
 }
 
 body.night {

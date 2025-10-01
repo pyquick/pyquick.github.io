@@ -14,13 +14,14 @@
   opacity: 0.8;
 }
 
-/* 新增版本框样式 */
+/* 新增版本框样式 - 优化渲染性能 */
 .version-box {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin: 30px 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
+    will-change: transform, box-shadow; /* 性能优化提示 */
 }
 .insiders {
     background-color: rgba(255, 255, 255, 0.1);
@@ -28,18 +29,17 @@
     padding: 20px;
     margin: 30px 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* 新增过渡属性 */
+    will-change: transform, box-shadow; /* 性能优化提示 */
 }
 .version-box:hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 减少阴影强度 */
 }
 
-/* 修正Insiders容器悬停效果写法 */
+/* 修正Insiders容器悬停效果写法 - 优化性能 */
 .insiders:hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 将transition放在非:hover状态 */
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 减少阴影强度 */
 }
 
 /* 新增信息框样式 */
@@ -109,12 +109,12 @@
   background-color: #5a6268;
 }
 
-/* 设置页面背景颜色和字体 */
+/* 设置页面背景颜色和字体 - 优化性能和兼容性 */
 body {
     background: linear-gradient(-45deg, #00ff99, #00ccff, #6633ff, #cc00ff);
-    background-size: 600% 600%;
-    animation: gradientBG 15s ease infinite;
-    font-family: Arial, sans-serif;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 25s ease infinite; /* 延长动画时间，减少CPU占用 */
+    font-family: 'Roboto', Arial, sans-serif; /* 扩展字体族，提高兼容性 */
     color: #333;
     margin: 0;
     padding: 0;
@@ -123,7 +123,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    -webkit-font-smoothing: antialiased; /* 字体渲染优化 */
+    -moz-osx-font-smoothing: grayscale; /* 字体渲染优化 */
+    will-change: background-position, color; /* 性能优化提示 */
+    transform: translateZ(0); /* 硬件加速 */
 }
 
 /* 背景动态效果 */
@@ -149,13 +152,14 @@ body {
         filter: blur(0); /* 最终清晰效果 */
     }
 }
-/* 设置标题样式 */
+/* 设置标题样式 - 优化渲染性能 */
 h1 {
     text-align: center;
     color: #fff;
     margin-top: 20px;
     font-size: 2.5em;
-    animation: fadeInText 2s ease-in-out, float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    animation: fadeInText 2s ease-in-out, float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    will-change: transform, opacity, text-shadow; /* 性能优化提示 */
 }
 
 /* 新增发光效果 */

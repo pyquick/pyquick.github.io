@@ -174,6 +174,10 @@
       <workItem from="1754209396609" duration="1472000" />
       <workItem from="1755165690778" duration="2347000" />
       <workItem from="1756117311519" duration="275000" />
+      <workItem from="1756199779857" duration="2419000" />
+      <workItem from="1756211777444" duration="259000" />
+      <workItem from="1756462643043" duration="474000" />
+      <workItem from="1756474400981" duration="2379000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -495,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755167400700</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Update Kdk">
+      <option name="closed" value="true" />
+      <created>1756200172965</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1756200172965</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

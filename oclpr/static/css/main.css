@@ -1,3 +1,4 @@
+/* OCLP页面样式 - 优化性能和兼容性 */
 :root {
     --day-bg: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     --night-bg: linear-gradient(120deg, #434343 0%, #000000 100%);
@@ -10,13 +11,18 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', system-ui;
+    font-family: 'Segoe UI', system-ui, 'Roboto', sans-serif;
     min-height: 100vh;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 20s ease infinite; /* 延长动画时间，减少CPU使用 */
     color: var(--day-text);
     transition: var(--transition);
     background: var(--day-bg);
+    /* 优化字体渲染和性能 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: background-position, color;
+    transform: translateZ(0);
 }
 
 body.night {
@@ -65,7 +71,7 @@ body.night {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05); /* 减少缩放幅度，提高性能 */
     }
 }
 
@@ -194,7 +200,7 @@ body.night {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-5px); /* 减少浮动幅度，提高性能 */
     }
 }
 

@@ -15,18 +15,21 @@ ii/**
   --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* 优化背景动画性能 */
+/* 优化背景动画性能 - 进一步优化 */
 body {
   background: linear-gradient(-45deg, #00ff99, #00ccff, #6633ff, #cc00ff);
-  background-size: 600% 600%;
-  animation: gradientBG 15s ease infinite;
-  font-family: Arial, sans-serif;
+  background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+  animation: gradientBG 25s ease infinite; /* 延长动画时间，减少CPU占用 */
+  font-family: 'Roboto', Arial, sans-serif; /* 扩展字体族，提高兼容性 */
   color: #333;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   /* 添加will-change提示浏览器优化背景动画 */
-  will-change: background-position;
+  will-change: background-position, color;
+  -webkit-font-smoothing: antialiased; /* 字体渲染优化 */
+  -moz-osx-font-smoothing: grayscale; /* 字体渲染优化 */
+  transform: translateZ(0); /* 硬件加速 */
 }
 
 /* 优化背景动画 */
@@ -48,10 +51,10 @@ body {
   }
 }
 
-/* 优化浮动动画 - 只使用transform */
+/* 优化浮动动画 - 减少浮动幅度，提高性能 */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-5px); /* 减少浮动幅度，提高性能 */ }
 }
 
 /* 优化发光效果 - 减少文字阴影数量 */
@@ -60,13 +63,13 @@ body {
   100% { text-shadow: 0 0 16px rgba(255, 255, 255, 0.8); }
 }
 
-/* 优化标题动画 */
+/* 优化标题动画 - 延长动画时间，提高性能 */
 h1 {
   text-align: center;
   color: #fff;
   margin-top: 20px;
   font-size: 2.5em;
-  animation: fadeInText 1s ease-out, float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  animation: fadeInText 1s ease-out, float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
   /* 添加will-change提示浏览器优化动画 */
   will-change: transform, opacity, text-shadow;
 }
@@ -93,8 +96,8 @@ h1 {
 }
 
 .version-box:hover, .insiders:hover, .insiders-box:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow);
+  transform: translateY(-3px); /* 减少移动距离，提高性能 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 减少阴影强度 */
 }
 
 /* 优化按钮样式 */

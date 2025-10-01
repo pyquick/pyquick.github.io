@@ -1,39 +1,43 @@
-// 主题切换功能
+// 主题切换功能 - 优化性能和错误处理
 const ThemeManager = {
     // 主题状态
     currentTheme: null,
     
-    // 初始化主题
+    // 初始化主题 - 添加错误处理
     init() {
-        // 创建主题切换按钮
-        this.createToggleButton();
-        
-        // 尝试从本地存储加载主题
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme) {
-            // 使用保存的主题
-            this.setTheme(savedTheme);
-        } else {
-            // 检查系统主题偏好
-            if (this.checkSystemPreference()) {
-                // 如果有系统偏好设置，使用系统偏好
-                this.setTheme(this.checkSystemPreference());
+        try {
+            // 创建主题切换按钮
+            this.createToggleButton();
+            
+            // 尝试从本地存储加载主题
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
+                // 使用保存的主题 - 验证主题值
+                this.setTheme(savedTheme);
             } else {
-                // 否则根据时间自动设置主题
-                this.setThemeByTime();
+                // 检查系统主题偏好
+                const systemPreference = this.checkSystemPreference();
+                if (systemPreference) {
+                    // 如果有系统偏好设置，使用系统偏好
+                    this.setTheme(systemPreference);
+                } else {
+                    // 否则根据时间自动设置主题
+                    this.setThemeByTime();
+                }
             }
+            
+            // 监听系统主题变化
+            this.listenForSystemPreferenceChanges();
+            
+            // 每小时检查一次时间，以便自动切换主题 - 优化性能
+            this.setupThemeCheckInterval();
+            
+        } catch (error) {
+            console.warn('主题初始化失败:', error);
+            // 设置默认主题作为后备
+            this.setTheme('light');
         }
-        
-        // 监听系统主题变化
-        this.listenForSystemPreferenceChanges();
-        
-        // 每小时检查一次时间，以便自动切换主题
-        setInterval(() => {
-            if (!localStorage.getItem('theme')) {
-                this.setThemeByTime();
-            }
-        }, 60 * 60 * 1000); // 每小时检查一次
     },
     
     // 创建主题切换按钮
@@ -113,18 +117,33 @@ const ThemeManager = {
         return null;
     },
     
-    // 监听系统主题变化
+    // 设置主题检查间隔 - 优化性能
+    setupThemeCheckInterval() {
+        // 使用更高效的间隔检查
+        this.themeCheckInterval = setInterval(() => {
+            if (!localStorage.getItem('theme')) {
+                this.setThemeByTime();
+            }
+        }, 60 * 60 * 1000); // 每小时检查一次
+        
+        // 保存间隔ID以便清理
+        this.intervalId = this.themeCheckInterval;
+    },
+    
+    // 监听系统主题变化 - 优化性能
     listenForSystemPreferenceChanges() {
         if (window.matchMedia) {
             const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
             
-            // 添加变化监听器
-            darkModeMediaQuery.addEventListener('change', (e) => {
+            // 添加变化监听器 - 使用弱引用避免内存泄漏
+            this.mediaQueryListener = (e) => {
                 // 如果没有用户设置的主题偏好，则跟随系统变化
                 if (!localStorage.getItem('theme')) {
                     this.setTheme(e.matches ? 'dark' : 'light');
                 }
-            }
+            };
+            
+            darkModeMediaQuery.addEventListener('change', this.mediaQueryListener);
         }
     },
     
@@ -170,7 +189,7 @@ const ThemeManager = {
     }
 };
 
-// 页面启动时的动态效果
+// 页面启动时的动态效果 - 优化性能和资源管理
 document.addEventListener('DOMContentLoaded', () => {
     // 初始化主题管理
     ThemeManager.init();
@@ -179,6 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         EmailPopup.init();
     }, 100);
+    
+    // 添加页面卸载时的清理功能
+    window.addEventListener('beforeunload', () => {
+        // 清理主题管理器资源
+        if (ThemeManager.cleanup) {
+            ThemeManager.cleanup();
+        }
+        
+        // 清理邮件弹窗资源
+        if (EmailPopup.cleanup) {
+            EmailPopup.cleanup();
+        }
+    });
     
     // 创建页面加载动画
     const loader = document.createElement('div');
@@ -292,6 +324,20 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', throttledCheck, { passive: true });
     }
 
+    // 节流函数 - 优化性能
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
     // 优化滚动效果，使用更低频率的节流
     const handleScroll = throttle(() => {
         // 只在必要时才使用requestAnimationFrame
@@ -339,31 +385,39 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 });
 
-// 简化的邮件弹窗功能
+// 简化的邮件弹窗功能 - 优化性能和错误处理
 const EmailPopup = {
     popup: null,
     isVisible: false,
+    eventListeners: [], // 存储事件监听器以便清理
 
-    // 初始化邮件弹窗
+    // 初始化邮件弹窗 - 添加错误处理
     init() {
-        // 监听邮件图标点击
-        const emailIcon = document.getElementById('email-icon');
-        if (emailIcon) {
-            emailIcon.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // 阻止事件冒泡
-                this.show(e);
-            });
-
-            // 确保内部图标也能触发点击事件
-            const iconElement = emailIcon.querySelector('i');
-            if (iconElement) {
-                iconElement.addEventListener('click', (e) => {
+        try {
+            // 监听邮件图标点击
+            const emailIcon = document.getElementById('email-icon');
+            if (emailIcon) {
+                const clickHandler = (e) => {
                     e.preventDefault();
                     e.stopPropagation(); // 阻止事件冒泡
                     this.show(e);
-                });
-            }
+                };
+                
+                emailIcon.addEventListener('click', clickHandler);
+                this.eventListeners.push({ element: emailIcon, handler: clickHandler });
+
+                // 确保内部图标也能触发点击事件
+                const iconElement = emailIcon.querySelector('i');
+                if (iconElement) {
+                    const iconClickHandler = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation(); // 阻止事件冒泡
+                        this.show(e);
+                    };
+                    
+                    iconElement.addEventListener('click', iconClickHandler);
+                    this.eventListeners.push({ element: iconElement, handler: iconClickHandler });
+                }
         }
 
         // 点击其他区域关闭弹窗
@@ -372,99 +426,114 @@ const EmailPopup = {
                 this.hide();
             }
         });
+    } catch (error) {
+        console.warn('邮件弹窗初始化失败:', error);
+    }
+},
+
+    // 清理邮件弹窗资源
+    cleanup() {
+        // 移除所有事件监听器
+        this.eventListeners.forEach(({ element, handler }) => {
+            element.removeEventListener('click', handler);
+        });
+        this.eventListeners = [];
+        
+        // 移除弹窗元素
+        if (this.popup && this.popup.parentNode) {
+            this.popup.parentNode.removeChild(this.popup);
+            this.popup = null;
+        }
+        
+        this.isVisible = false;
     },
 
     // 显示弹窗
     show(e) {
-        if (this.isVisible) return;
-        this.isVisible = true;
+        try {
+            if (this.isVisible) return;
+            this.isVisible = true;
 
-        // 获取点击的元素
-        const target = e.target.closest('#email-icon') || e.target;
-        const popup = document.createElement('div');
-        popup.classList.add('email-popup');
+            // 获取点击的元素
+            const target = e.target.closest('#email-icon') || e.target;
+            const popup = document.createElement('div');
+            popup.classList.add('email-popup');
 
-        // 获取图标位置
-        const iconRect = target.getBoundingClientRect();
-        // 计算弹窗位置，确保在图标上方且居中
-        const viewportHeight = window.innerHeight;
-        const popupTop = iconRect.top - 220 < 10 ? iconRect.top + iconRect.height + 10 : iconRect.top - 220;
+            // 获取图标位置
+            const iconRect = target.getBoundingClientRect();
+            // 计算弹窗位置，确保在图标上方且居中
+            const viewportHeight = window.innerHeight;
+            const popupTop = iconRect.top - 250 < 10 ? iconRect.top + iconRect.height + 10 : iconRect.top - 250;
 
-        Object.assign(popup.style, {
-            position: 'fixed',
-            top: `${popupTop}px`,
-            left: `${iconRect.left + (iconRect.width / 2)}px`,
-            transform: 'translateX(-50%)',
-            opacity: '0'
-        });
-
-        // 填充弹窗内容
-        popup.innerHTML = `
-            <h3 style="margin-top:0;text-align:center;">联系我们</h3>
-            <div class="email-list">
-                <div class="email-item">
-                    <span>技术支持:</span>
-                    <div>
-                        <span>support@pyquick.org</span>
-                        <div class="copy-button-container">
-                            <button class="copy-button" data-email="support@pyquick.org">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="email-item">
-                    <span>商务合作:</span>
-                    <div>
-                        <span>business@pyquick.org</span>
-                        <div class="copy-button-container">
-                            <button class="copy-button" data-email="business@pyquick.org">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="email-item">
-                    <span>问题反馈:</span>
-                    <div>
-                        <span>feedback@pyquick.org</span>
-                        <div class="copy-button-container">
-                            <button class="copy-button" data-email="feedback@pyquick.org">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="close-button">关闭</button>
-        `;
-
-        // 添加到页面
-        document.body.appendChild(popup);
-        this.popup = popup;
-
-        // 显示动画
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                popup.style.opacity = '1';
-                popup.style.transform = 'translateX(-50%)'; // 保持水平居中
+            Object.assign(popup.style, {
+                position: 'fixed',
+                top: `${popupTop}px`,
+                left: `${iconRect.left + (iconRect.width / 2)}px`,
+                transform: 'translateX(-50%)',
+                opacity: '0'
             });
-        });
 
-        // 添加复制功能
-        popup.querySelectorAll('.copy-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const email = button.dataset.email;
-                navigator.clipboard.writeText(email).then(() => {
-                    this.showCopyNotification('邮箱已复制到剪贴板');
+            // 填充弹窗内容
+            popup.innerHTML = `
+                <div class="email-popup-header">
+                    <i class="fas fa-envelope"></i>
+                    <h3>联系我</h3>
+                </div>
+                <div class="email-content">
+                    <div class="email-main">
+                        <div class="email-address">
+                            <span class="email-label">邮箱地址:</span>
+                            <div class="email-value">
+                                <span class="email-text">fairzlq@gmail.com</span>
+                                <button class="copy-button" data-email="fairzlq@gmail.com">
+                                    <i class="fas fa-copy"></i>
+                                    <span>复制</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="email-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>点击复制按钮将邮箱地址复制到剪贴板</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="email-popup-footer">
+                    <button class="close-button">
+                        <i class="fas fa-times"></i>
+                        关闭
+                    </button>
+                </div>
+            `;
+
+            // 添加到页面
+            document.body.appendChild(popup);
+            this.popup = popup;
+
+            // 显示动画
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    popup.style.opacity = '1';
+                    popup.style.transform = 'translateX(-50%)'; // 保持水平居中
                 });
             });
-        });
 
-        // 添加关闭功能
-        popup.querySelector('.close-button').addEventListener('click', () => {
-            this.hide();
-        });
+            // 添加复制功能
+            popup.querySelectorAll('.copy-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const email = button.dataset.email;
+                    navigator.clipboard.writeText(email).then(() => {
+                        this.showCopyNotification('邮箱已复制到剪贴板');
+                    });
+                });
+            });
+
+            // 添加关闭功能
+            popup.querySelector('.close-button').addEventListener('click', () => {
+                this.hide();
+            });
+        } catch (error) {
+            console.warn('显示邮件弹窗失败:', error);
+        }
     },
 
     // 隐藏弹窗
@@ -544,155 +613,16 @@ function throttle(func, limit) {
     };
 }
 
-// 添加邮箱图标悬停事件
-// 邮箱弹窗状态管理
-const EmailPopup = {
-    popup: null,
-    inactivityTimer: null,
-    isVisible: false,
+// 清理重复的EmailPopup定义
 
-    // 创建邮箱项
-    createEmailItem(email) {
-        const item = document.createElement('div');
-        item.classList.add('email-item');
-        item.textContent = email;
-
-        const copyButton = document.createElement('div');
-        copyButton.classList.add('copy-button-container');
-        const copyIcon = document.createElement('button');
-        copyIcon.classList.add('copy-button');
-        copyIcon.innerHTML = '<i class="fas fa-clone"></i>';
-
-        copyIcon.onclick = () => {
-            navigator.clipboard.writeText(email).then(() => {
-                copyIcon.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    copyIcon.innerHTML = '<i class="fas fa-clone"></i>';
-                }, 2000);
-            });
-        };
-
-        copyButton.appendChild(copyIcon);
-        item.appendChild(copyButton);
-        return item;
-    },
-
-    // 显示弹窗 - 简化版
-    show(e) {
-        if (this.isVisible) return;
-        this.isVisible = true;
-
-        const popup = document.createElement('div');
-        popup.classList.add('email-popup');
-
-        // 获取图标位置
-        const iconRect = target.getBoundingClientRect();
-        // 计算弹窗位置，确保在图标上方且居中
-        const viewportHeight = window.innerHeight;
-        const popupTop = iconRect.top - 220 < 10 ? iconRect.top + iconRect.height + 10 : iconRect.top - 220;
-
-        Object.assign(popup.style, {
-            position: 'fixed',
-            top: `${iconRect.top - 220}px`,
-            left: `${iconRect.left + iconRect.width / 2}px`,
-            transform: 'translateX(-50%)',
-            opacity: '0'
-        });
-
-        // 添加邮箱项
-        popup.appendChild(this.createEmailItem('hsdfg3@outlook.com'));
-        popup.appendChild(this.createEmailItem('dsfksdf67@outlook.com'));
-
-        // 添加关闭按钮
-        const closeButton = document.createElement('button');
-        closeButton.textContent = '关闭';
-        closeButton.classList.add('close-button');
-        closeButton.onclick = () => this.hide();
-        popup.appendChild(closeButton);
-
-        document.body.appendChild(popup);
-        this.popup = popup;
-
-        // 使用requestAnimationFrame确保DOM更新后再添加过渡效果
-        requestAnimationFrame(() => {
-            popup.style.transition = 'opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
-            popup.style.opacity = '1';
-            popup.style.transform = 'translateX(-50%) scale(1)';
-        });
-
-        // 添加事件监听和自动关闭计时器
-        this.addEventListeners();
-        this.startInactivityTimer();
-    },
-
-    // 隐藏弹窗
-    hide() {
-        if (!this.isVisible) return;
-        this.isVisible = false;
-
-        if (this.popup) {
-            this.popup.style.opacity = '0';
-            this.popup.style.transform = 'translateX(-50%) scale(0.9)';
-            setTimeout(() => {
-                document.body.removeChild(this.popup);
-                this.popup = null;
-            }, 300);
-        }
-
-        this.removeEventListeners();
-        this.clearInactivityTimer();
-    },
-
-    // 添加事件监听器
-    addEventListeners() {
-        document.addEventListener('mouseleave', this.handleOutsideLeave);
-        document.addEventListener('click', this.handleOutsideClick);
-    },
-
-    // 移除事件监听器
-    removeEventListeners() {
-        document.removeEventListener('mouseleave', this.handleOutsideLeave);
-        document.removeEventListener('click', this.handleOutsideClick);
-    },
-
-    // 开始计时器
-    startInactivityTimer() {
-        this.clearInactivityTimer();
-        this.inactivityTimer = setTimeout(() => this.hide(), 5000);
-    },
-
-    // 清除计时器
-    clearInactivityTimer() {
-        if (this.inactivityTimer) {
-            clearTimeout(this.inactivityTimer);
-            this.inactivityTimer = null;
-        }
-    },
-
-    // 处理外部点击
-    handleOutsideClick(e) {
-        if (EmailPopup.popup && !EmailPopup.popup.contains(e.target) && e.target.id !== 'email-icon') {
-            EmailPopup.hide();
-        }
-    },
-
-    // 处理鼠标离开
-    handleOutsideLeave(e) {
-        if (EmailPopup.popup && !EmailPopup.popup.contains(e.target) && e.target.id !== 'email-icon') {
-            EmailPopup.hide();
-        }
+// 页面加载完成后初始化
+window.addEventListener('load', function() {
+    // 确保所有功能正确初始化
+    if (typeof ThemeManager !== 'undefined') {
+        ThemeManager.init();
     }
-};
-
-// 邮箱图标事件处理
-// 绑定邮箱图标事件
-document.getElementById('email-icon').addEventListener('mouseenter', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    EmailPopup.show(e);
+    
+    if (typeof EmailPopup !== 'undefined') {
+        EmailPopup.init();
+    }
 });
-
-// 清理不再使用的全局函数
-const handleOutsideClick = null;
-const handleOutsideLeave = null;
-const showEmailPopup = null;

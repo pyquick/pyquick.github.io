@@ -1,3 +1,4 @@
+/* 新年页面样式 - 优化性能和兼容性 */
 :root {
     --day-bg: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     --night-bg: linear-gradient(120deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
@@ -8,13 +9,18 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', system-ui;
+    font-family: 'Segoe UI', system-ui, 'Roboto', sans-serif;
     min-height: 100vh;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background-size: 200% 200%; /* 减少背景尺寸，提高性能 */
+    animation: gradientBG 20s ease infinite; /* 延长动画时间，减少CPU使用 */
     color: var(--day-text);
     transition: var(--transition);
     background: var(--day-bg);
+    /* 优化字体渲染和性能 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: background-position, color;
+    transform: translateZ(0);
 }
 
 body.night {
@@ -45,10 +51,13 @@ section {
     margin: 2rem 0;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 优化渲染性能 */
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
 }
 
 section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px); /* 减少移动距离，提高性能 */
     box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
@@ -160,11 +169,13 @@ li:hover {
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); } /* 减少浮动幅度，提高性能 */
 }
 
 h1 {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite; /* 延长动画时间，减少CPU使用 */
+    /* 优化渲染性能 */
+    will-change: transform;
 }
 
 @media (max-width: 768px) {
