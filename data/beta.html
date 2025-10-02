@@ -3,47 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./static/css/insiders.css">
+  <link rel="stylesheet" href="./static/css/downloads.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <script src="./static/js/common.js" defer></script>
   <script src="./static/js/beta.js" defer></script>
-  <title>Beta Download</title>
+  <title>PyQuick Beta - 测试版下载</title>
 </head>
-<body>
+<body class="beta-version">
 
 <div class="container">
-  <h1>Beta Download</h1>
-  <p class="subtitle">Join the beta program, experience the latest features, and help us improve the product</p>
-  <div class="version-box">
-    <h2>Available Builds</h2>
-    <ul id="builds-list">
-      <li class="windows-build">
-        <a href="/data/insiders/beta/souc/Windows/1104/pyquick1103.zip" download="pyquick1103.zip">
-          <span class="version">Build 1104</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-      <li class="macos-build">
-        <a href="/data/insiders/beta/souc/macOS/1103/pyquick1103.dmg" download="pyquick1103.dmg">
-          <span class="version">Build 1103</span>
-          <span class="platform">(macOS)</span>
-        </a>
-      </li>
-    </ul>
+  <!-- 页面头部 -->
+  <div class="page-header">
+    <div class="header-icon">
+      <i class="fas fa-flask"></i>
+    </div>
+    <div class="header-content">
+      <h1 class="page-title">PyQuick Beta</h1>
+      <p class="page-subtitle">测试版本 - 体验最新功能，帮助我们改进产品</p>
+      <div class="version-badge">
+        <span class="badge beta">测试版</span>
+        <span class="badge version">v1104</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="version-grid">
+    <div class="version-card beta">
+      <div class="version-card-header">
+        <div class="version-icon beta">
+          <i class="fas fa-flask"></i>
+        </div>
+        <div>
+          <h3 class="version-card-title">Beta 版本</h3>
+          <p class="version-card-subtitle">包含最新功能，可能存在不稳定性</p>
+        </div>
+      </div>
+      
+      <ul class="download-list">
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1104</span>
+            <span class="download-platform">Windows 64位</span>
+          </div>
+          <a href="/data/insiders/beta/souc/Windows/1104/pyquick1103.zip" download="pyquick1103.zip" class="download-button">
+            下载
+          </a>
+        </li>
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1103</span>
+            <span class="download-platform">macOS</span>
+          </div>
+          <a href="/data/insiders/beta/souc/macOS/1103/pyquick1103.dmg" download="pyquick1103.dmg" class="download-button">
+            下载
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="insiders">
-    <h2>Insiders</h2>
-    <ul>
-      <div class="button-group">
-          <a href="stable.html" class="insiders-button">Stable</a>
-          <a href="dev.html" class="insiders-button">Dev</a>
-      </div>
-    </ul>
+  <!-- 导航按钮 -->
+  <div class="nav-buttons">
+    <a href="stable.html" class="nav-button">
+      <i class="fas fa-shield-alt"></i> 稳定版本
+    </a>
+    <a href="dev.html" class="nav-button">
+      <i class="fas fa-code-branch"></i> 开发版本
+    </a>
+    <a href="../index.html" class="nav-button">
+      <i class="fas fa-home"></i> 返回首页
+    </a>
   </div>
 
   <div class="info-box">
-    <p>This build is a beta version and may contain instability. Please report any issues you encounter to help us improve the product.</p>
+    <p class="info-text">
+      <i class="fas fa-exclamation-triangle"></i>
+      此版本为测试版本，可能存在不稳定性。请及时反馈遇到的问题，帮助我们改进产品。
+    </p>
   </div>
 </div>
 

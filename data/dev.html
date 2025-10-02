@@ -3,57 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./static/css/insiders.css">
+  <link rel="stylesheet" href="./static/css/downloads.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <script src="./static/js/common.js" defer></script>
   <script src="./static/js/dev.js" defer></script>
-  <title>Dev Download</title>
+  <title>PyQuick Dev - 开发版下载</title>
 </head>
-<body>
+<body class="dev-version">
 
 <div class="container">
-  <h1>Dev Download</h1>
-  <p class="subtitle">Experience the latest cutting-edge features before anyone else</p>
-
-  <div class="version-box">
-    <h2>Available Builds</h2>
-    <ul id="builds-list">
-      <li class="windows-build">
-        <a href="https://github.com/pyquick/pyquick/releases/download/2020/pyquick_2020.rar" download="pyquick_2020.rar">
-          <span class="version">Build 2020</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-      <li class="windows-build">
-        <a href="/data/insiders/dev/souc/Windows/2004/pyquick2004.zip" download="pyquick2004.zip">
-          <span class="version">Build 2004</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-      <li class="macos-build">
-        <a href="/data/insiders/dev/souc/macOS/1960/pyquick1960.zip" download="pyquick1960.zip">
-          <span class="version">Build 1960</span>
-          <span class="platform">(macOS)</span>
-        </a>
-      </li>
-
-    </ul>
+  <!-- 页面头部 -->
+  <div class="page-header">
+    <div class="header-icon">
+      <i class="fas fa-code-branch"></i>
+    </div>
+    <div class="header-content">
+      <h1 class="page-title">PyQuick Dev</h1>
+      <p class="page-subtitle">开发版本 - 体验前沿功能，参与产品开发</p>
+      <div class="version-badge">
+        <span class="badge dev">开发版</span>
+        <span class="badge version">v1104</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="version-grid">
+    <div class="version-card dev">
+      <div class="version-card-header">
+        <div class="version-icon dev">
+          <i class="fas fa-code-branch"></i>
+        </div>
+        <div>
+          <h3 class="version-card-title">Dev 版本</h3>
+          <p class="version-card-subtitle">包含前沿功能，可能存在bug和未完成功能</p>
+        </div>
+      </div>
+      
+      <ul class="download-list">
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1104</span>
+            <span class="download-platform">Windows 64位</span>
+          </div>
+          <a href="/data/insiders/dev/souc/Windows/1104/pyquick1103.zip" download="pyquick1103.zip" class="download-button">
+            下载
+          </a>
+        </li>
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1103</span>
+            <span class="download-platform">macOS</span>
+          </div>
+          <a href="/data/insiders/dev/souc/macOS/1103/pyquick1103.dmg" download="pyquick1103.dmg" class="download-button">
+            下载
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="insiders">
-    <h2>Insiders</h2>
-    <ul>
-      <div class="button-group">
-        <li>
-          <a href="stable.html" class="insiders-button active">Stable</a>
-        </li>
-        <li><a href="beta.html" class="insiders-button">Beta</a></li>
-      </div>
-    </ul>
+  <!-- 导航按钮 -->
+  <div class="nav-buttons">
+    <a href="stable.html" class="nav-button">
+      <i class="fas fa-shield-alt"></i> 稳定版本
+    </a>
+    <a href="beta.html" class="nav-button">
+      <i class="fas fa-flask"></i> 测试版本
+    </a>
+    <a href="../index.html" class="nav-button">
+      <i class="fas fa-home"></i> 返回首页
+    </a>
   </div>
 
   <div class="info-box">
-    <p>This build is experimental and may contain bugs. Please report any issues you encounter.</p>
+    <p class="info-text">
+      <i class="fas fa-exclamation-triangle"></i>
+      此版本为开发版本，可能存在bug和未完成功能。请谨慎使用，风险自负。
+    </p>
   </div>
 </div>
 

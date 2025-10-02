@@ -3,65 +3,120 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./static/css/stable.css">
+  <link rel="stylesheet" href="./static/css/downloads.css">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <link rel="icon" href="./stable/favicon.ico">
   <script src="./static/js/common.js" defer></script>
   <script src="./static/js/stable.js" defer></script>
-  <title>Stable Download</title>
+  <title>PyQuick Stable - 稳定版下载</title>
 </head>
 <body>
 <div class="container">
-  <h1>Stable Download</h1>
-  <p class="subtitle">Choose your build version:</p>
-  <div class="version-box">
-    <h2>Available Builds</h2>
-    <ul id="builds-list">
-      <li class="windows-build">
-        <a href="/data/stable/souc/Windows/102/python_tool.exe" download="python_tool.exe">
-          <span class="version">1.0.2</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-      <li class="macos-build">
-        <a href="/data/stable/souc/macOS/102/python_tool.dmg" download="python_tool.dmg">
-          <span class="version">1.0.2</span>
-          <span class="platform">(macOS)</span>
-        </a>
-      </li>
-    </ul>
+  <!-- 页面头部 -->
+  <div class="page-header">
+    <div class="header-icon">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+    <div class="header-content">
+      <h1 class="page-title">PyQuick Stable</h1>
+      <p class="page-subtitle">稳定版本 - 适合生产环境使用</p>
+      <div class="version-badge">
+        <span class="badge stable">稳定版</span>
+        <span class="badge version">v1.0.2</span>
+      </div>
+    </div>
   </div>
+  
+  <div class="version-grid">
+    <!-- 最新版本 -->
+    <div class="version-card stable">
+      <div class="version-card-header">
+        <div class="version-icon stable">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div>
+          <h3 class="version-card-title">最新稳定版</h3>
+          <p class="version-card-subtitle">经过充分测试，适合生产环境</p>
+        </div>
+      </div>
+      
+      <ul class="download-list">
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1.0.2</span>
+            <span class="download-platform">Windows 64位</span>
+          </div>
+          <a href="/data/stable/souc/Windows/102/python_tool.exe" download="python_tool.exe" class="download-button">
+            下载
+          </a>
+        </li>
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1.0.2</span>
+            <span class="download-platform">macOS</span>
+          </div>
+          <a href="/data/stable/souc/macOS/102/python_tool.dmg" download="python_tool.dmg" class="download-button">
+            下载
+          </a>
+        </li>
+      </ul>
+    </div>
 
-  <!-- 新增Old Builds容器 -->
-  <div class="version-box">
-    <h2>Old Builds</h2>
-    <ul id="old-builds-list">
-      <li class="windows-build">
-        <a href="./stable/souc/Windows/101/python_tool.exe" download="python_tool.exe">
-          <span class="version">1.0.1</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-      <li class="windows-build">
-        <a href="./stable/souc/Windows/100/python_tool.exe" download="python_tool.exe">
-          <span class="version">1.0.0</span>
-          <span class="platform">(Windows)</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- 新增Insiders按钮 -->
-  <div class="insiders-box">
-    <h2>Insiders</h2>
-    <div class="button-group">
-      <a href="dev.html" class="insiders-button">Dev</a>
-      <a href="beta.html" class="insiders-button">Beta</a>
+    <!-- 旧版本 -->
+    <div class="version-card stable">
+      <div class="version-card-header">
+        <div class="version-icon stable">
+          <i class="fas fa-history"></i>
+        </div>
+        <div>
+          <h3 class="version-card-title">历史版本</h3>
+          <p class="version-card-subtitle">之前的稳定版本</p>
+        </div>
+      </div>
+      
+      <ul class="download-list">
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1.0.1</span>
+            <span class="download-platform">Windows 64位</span>
+          </div>
+          <a href="./stable/souc/Windows/101/python_tool.exe" download="python_tool.exe" class="download-button">
+            下载
+          </a>
+        </li>
+        <li class="download-item">
+          <div class="download-info">
+            <span class="download-version">版本 1.0.0</span>
+            <span class="download-platform">Windows 64位</span>
+          </div>
+          <a href="./stable/souc/Windows/100/python_tool.exe" download="python_tool.exe" class="download-button">
+            下载
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 
+  <!-- 导航按钮 -->
+  <div class="nav-buttons">
+    <a href="beta.html" class="nav-button">
+      <i class="fas fa-flask"></i> Beta 版本
+    </a>
+    <a href="dev.html" class="nav-button">
+      <i class="fas fa-code-branch"></i> 开发版本
+    </a>
+    <a href="../index.html" class="nav-button">
+      <i class="fas fa-home"></i> 返回首页
+    </a>
+  </div>
+
   <div class="info-box">
-    <p>This build is stable. Please report any issues you encounter.</p>
+    <p class="info-text">
+      <i class="fas fa-info-circle"></i>
+      此版本为稳定版本，经过充分测试，适合生产环境使用。如遇到问题，请及时反馈。
+    </p>
   </div>
 </div>
 
