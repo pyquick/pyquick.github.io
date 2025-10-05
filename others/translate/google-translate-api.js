@@ -27,15 +27,26 @@ const GoogleTranslateAPI = {
      * @param {string} text - 要翻译的文本
      * @param {string} from - 源语言代码 (可以是'auto'自动检测)
      * @param {string} to - 目标语言代码
+     * @param {number} retryCount - 重试次数，默认3次
      * @returns {Promise<string>} 翻译后的文本
      */
-    async translate(text, from, to) {
+    async translate(text, from, to, retryCount = 3) {
         // 如果文本为空，直接返回
         if (!text.trim()) return '';
 
         // 检查API密钥是否配置
         if (!this.config.apiKey) {
             throw new Error('Google翻译API密钥未配置');
+        }
+
+        // 验证语言代码
+        if (!this.isValidLanguageCode(from) || !this.isValidLanguageCode(to)) {
+            throw new Error('不支持的语言代码');
+        }
+
+        // 限制文本长度
+        if (text.length > 5000) {
+            throw new Error('文本过长，请控制在5000字符以内');
         }
 
         try {
@@ -59,13 +70,20 @@ const GoogleTranslateAPI = {
                 url.searchParams.append(key, params[key]);
             });
 
+            // 设置超时控制
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10秒超时
+
             // 发送请求
             const response = await fetch(url.toString(), {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                signal: controller.signal
             });
+
+            clearTimeout(timeoutId);
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -83,9 +101,28 @@ const GoogleTranslateAPI = {
             // 返回翻译结果
             return data.data.translations.map(item => item.translatedText).join('\n');
         } catch (error) {
-            console.error('Google翻译出错:', error);
+            console.error(`Google翻译出错 (${retryCount}次重试剩余):`, error);
+            
+            // 如果是网络错误或超时，尝试重试
+            if (retryCount > 0 && (error.name === 'AbortError' || error.message.includes('网络') || error.message.includes('超时') || error.message.includes('请求失败'))) {
+                console.log(`重试Google翻译，剩余重试次数: ${retryCount}`);
+                // 等待一段时间后重试
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                return await this.translate(text, from, to, retryCount - 1);
+            }
+            
             throw new Error(`Google翻译失败: ${error.message}`);
         }
+    },
+
+    /**
+     * 验证语言代码是否有效
+     * @param {string} langCode - 语言代码
+     * @returns {boolean} 是否有效
+     */
+    isValidLanguageCode(langCode) {
+        const validLanguages = ['auto', 'zh', 'en', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'fi', 'no', 'cs', 'hu', 'ro', 'sk', 'sl', 'bg', 'hr', 'sr', 'uk', 'be', 'el', 'tr', 'ar', 'he', 'th', 'vi', 'id', 'ms', 'hi', 'bn', 'ta', 'te', 'mr', 'gu', 'kn', 'ml', 'pa', 'si', 'my', 'km', 'lo', 'ne', 'ur', 'fa', 'am', 'ti', 'om', 'so', 'sw', 'rw', 'yo', 'ig', 'ha', 'zu', 'xh', 'st', 'tn', 'ts', 'ss', 've', 'nr', 'nd', 'sn', 'ny', 'mg', 'eo', 'co', 'haw', 'sm', 'to', 'fj', 'mi', 'ty', 'kl', 'bi', 'na', 'tvl', 'gil', 'mh', 'pon', 'kos', 'rar', 'niu', 'rar', 'rar', 'rar'];
+        return validLanguages.includes(langCode);
     },
 
     /**

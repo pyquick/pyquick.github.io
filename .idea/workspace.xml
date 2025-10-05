@@ -9,16 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bc1c6fbf-64e2-4a38-b657-737497c5891f" name="Changes" comment="Update Kdk">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/beta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stable.html" beforeDir="false" afterPath="$PROJECT_DIR$/data/stable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/static/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insiders/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insiders/static/css/all.css" beforeDir="false" afterPath="$PROJECT_DIR$/insiders/static/css/all.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/issue/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/issue/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/issue/static/css/issue.css" beforeDir="false" afterPath="$PROJECT_DIR$/issue/static/css/issue.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyquick/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/pyquick/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/not_nece/snake.html" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/not_nece/snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/others/not_nece/snake.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +182,7 @@
       <workItem from="1756462643043" duration="474000" />
       <workItem from="1756474400981" duration="2379000" />
       <workItem from="1759403742442" duration="160000" />
-      <workItem from="1759403913106" duration="1987000" />
+      <workItem from="1759403913106" duration="3924000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />

@@ -198,6 +198,22 @@ const TranslateApp = {
             // 获取Google翻译API配置
             const googleApiKey = document.getElementById('google-api-key').value.trim();
 
+            // 验证必填字段
+            if (currentService === 'baidu' && (!baiduAppId || !baiduSecretKey)) {
+                this.showNotification('请填写百度翻译API的完整配置');
+                return false;
+            }
+            
+            if (currentService === 'youdao' && (!youdaoAppId || !youdaoSecretKey)) {
+                this.showNotification('请填写有道翻译API的完整配置');
+                return false;
+            }
+            
+            if (currentService === 'google' && !googleApiKey) {
+                this.showNotification('请填写Google翻译API密钥');
+                return false;
+            }
+
             // 创建配置对象
             let apiConfig = {};
 
@@ -492,6 +508,12 @@ const TranslateApp = {
             return;
         }
 
+        // 限制文本长度
+        if (sourceText.length > 5000) {
+            this.elements.translatedText.value = '文本过长，请控制在5000字符以内';
+            return;
+        }
+
         // 如果文本和语言与上次相同，无需重新翻译
         const currentLanguagePair = `${sourceLanguage}-${targetLanguage}`;
         if (sourceText === this.lastTranslatedText && currentLanguagePair === this.lastLanguagePair) {
@@ -503,6 +525,91 @@ const TranslateApp = {
 
         // 模拟翻译过程（实际项目中会调用翻译API）
         this.simulateTranslation(sourceText, sourceLanguage, targetLanguage);
+    },
+
+    /**
+     * 判断是否应该重试
+     * @param {Error} error - 错误对象
+     * @returns {boolean} 是否应该重试
+     */
+    shouldRetry(error) {
+        const retryableErrors = [
+            '网络', '超时', '请求失败', 'API请求失败', 'AbortError', 'timeout', 'network'
+        ];
+        
+        return retryableErrors.some(keyword => 
+            error.message.includes(keyword) || error.name.includes(keyword)
+        );
+    },
+
+    /**
+     * 判断是否应该切换到备用API
+     * @param {Error} error - 错误对象
+     * @returns {boolean} 是否应该切换API
+     */
+    shouldSwitchApi(error) {
+        const switchableErrors = [
+            'API密钥', '配置', '认证', '权限', 'quota', 'limit', 'invalid'
+        ];
+        
+        return switchableErrors.some(keyword => 
+            error.message.includes(keyword)
+        );
+    },
+
+    /**
+     * 切换到备用API
+     */
+    switchToFallbackApi() {
+        const apis = ['baidu', 'youdao', 'google', 'local'];
+        const currentIndex = apis.indexOf(this.currentService);
+        
+        // 尝试切换到下一个可用的API
+        for (let i = 1; i < apis.length; i++) {
+            const nextApi = apis[(currentIndex + i) % apis.length];
+            if (this.isApiAvailable(nextApi)) {
+                console.log(`切换到备用API: ${nextApi}`);
+                this.currentService = nextApi;
+                this.updateApiSelector();
+                break;
+            }
+        }
+    },
+
+    /**
+     * 检查API是否可用
+     * @param {string} apiName - API名称
+     * @returns {boolean} 是否可用
+     */
+    isApiAvailable(apiName) {
+        try {
+            const apiConfig = JSON.parse(localStorage.getItem('translateApiConfig') || '{}');
+            
+            switch (apiName) {
+                case 'baidu':
+                    return apiConfig.baidu && apiConfig.baidu.appId && apiConfig.baidu.secretKey;
+                case 'youdao':
+                    return apiConfig.youdao && apiConfig.youdao.appId && apiConfig.youdao.secretKey;
+                case 'google':
+                    return apiConfig.google && apiConfig.google.apiKey;
+                case 'local':
+                    return true; // 本地翻译总是可用
+                default:
+                    return false;
+            }
+        } catch (e) {
+            console.error('检查API可用性失败:', e);
+            return false;
+        }
+    },
+
+    /**
+     * 更新API选择器显示
+     */
+    updateApiSelector() {
+        if (this.elements.currentServiceSelect) {
+            this.elements.currentServiceSelect.value = this.currentService;
+        }
     },
 
     // 使用API进行实际翻译
@@ -663,9 +770,9 @@ const TranslateApp = {
     },
 
     // 显示通知
-    showNotification(message) {
+    showNotification(message, type = 'info') {
         const notification = document.createElement('div');
-        notification.className = 'notification';
+        notification.className = `notification ${type}`;
         notification.textContent = message;
 
         document.body.appendChild(notification);
@@ -678,15 +785,29 @@ const TranslateApp = {
             });
         });
 
+        // 根据类型设置不同的自动隐藏时间
+        const hideTime = type === 'error' ? 5000 : type === 'warning' ? 3000 : 2000;
+
         // 自动隐藏
         setTimeout(() => {
             notification.style.opacity = '0';
             notification.style.transform = 'translateX(-50%) translateY(20px)';
 
             setTimeout(() => {
-                document.body.removeChild(notification);
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
             }, 300);
-        }, 2000);
+        }, hideTime);
+    },
+
+    /**
+     * 显示错误信息
+     * @param {string} message - 错误信息
+     * @param {string} type - 消息类型 ('error', 'warning', 'success')
+     */
+    showError(message, type = 'error') {
+        this.showNotification(message, type);
     },
 
     // 检测文本是否为英文

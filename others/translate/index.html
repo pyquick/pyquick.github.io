@@ -3,204 +3,629 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>实时翻译工具 - PyQuick</title>
-    <meta name="description" content="PyQuick实时翻译工具 - 输入实时翻译">
-    <link rel="stylesheet" href="/static/css/index.css">
+    <title>智能翻译系统 - 智能识别近义词</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <meta id="theme-color" name="theme-color" content="#f3f9ff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="main-title">实时翻译工具
-            <span>输入即翻译，支持多语言</span>
-        </h1>
-
-        <div class="translate-container">
-            <div class="language-controls">
-                <div class="language-selector">
-                    <select id="source-language">
-                        <option value="auto">自动检测</option>
-                        <option value="zh">中文</option>
-                        <option value="en" selected>英语</option>
-                        <option value="ja">日语</option>
-                        <option value="ko">韩语</option>
-                        <option value="fr">法语</option>
-                        <option value="de">德语</option>
-                        <option value="es">西班牙语</option>
-                        <option value="ru">俄语</option>
-                    </select>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-
-                <div class="swap-button" title="交换语言">
-                    <i class="fas fa-exchange-alt"></i>
-                </div>
-
-                <div class="language-selector">
-                    <select id="target-language">
-                        <option value="zh" selected>中文</option>
-                        <option value="en">英语</option>
-                        <option value="ja">日语</option>
-                        <option value="ko">韩语</option>
-                        <option value="fr">法语</option>
-                        <option value="de">德语</option>
-                        <option value="es">西班牙语</option>
-                        <option value="ru">俄语</option>
-                    </select>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="app-header">
+            <div class="logo-container">
+                <h1 class="app-logo">智能翻译系统</h1>
+                <p class="app-tagline">智能识别近义词，提供更精准的翻译</p>
             </div>
+            <div class="header-actions">
+                <button class="icon-button" id="theme-toggle" title="切换主题">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="icon-button" id="settings-btn" title="设置">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="icon-button" id="help-btn" title="帮助">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+            </div>
+        </header>
 
-            <div class="text-areas">
-                <div class="input-container">
-                    <textarea id="source-text" placeholder="在此输入文本..."></textarea>
-                    <div class="text-actions">
-                        <button id="clear-source" class="action-button" title="清空">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <button id="copy-source" class="action-button" title="复制">
-                            <i class="fas fa-copy"></i>
-                        </button>
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <!-- 翻译控制面板 -->
+            <section class="translate-control-panel">
+                <div class="language-controls">
+                    <div class="language-selector">
+                        <div class="selector-header">
+                            <span class="flag-icon">🌐</span>
+                            <select id="source-language">
+                                <option value="auto">自动检测</option>
+                                <option value="zh">中文</option>
+                                <option value="en">英语</option>
+                                <option value="ja">日语</option>
+                                <option value="ko">韩语</option>
+                                <option value="fr">法语</option>
+                                <option value="de">德语</option>
+                                <option value="es">西班牙语</option>
+                                <option value="ru">俄语</option>
+                            </select>
+                        </div>
+                        <span class="language-name">源语言</span>
+                    </div>
+
+                    <button class="swap-button" id="swap-languages" title="交换语言">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+
+                    <div class="language-selector">
+                        <div class="selector-header">
+                            <span class="flag-icon">🌐</span>
+                            <select id="target-language">
+                                <option value="en">英语</option>
+                                <option value="zh">中文</option>
+                                <option value="ja">日语</option>
+                                <option value="ko">韩语</option>
+                                <option value="fr">法语</option>
+                                <option value="de">德语</option>
+                                <option value="es">西班牙语</option>
+                                <option value="ru">俄语</option>
+                            </select>
+                        </div>
+                        <span class="language-name">目标语言</span>
                     </div>
                 </div>
 
-                <div class="input-container">
-                    <textarea id="translated-text" placeholder="翻译结果..." readonly></textarea>
-                    <div class="text-actions">
-                        <button id="copy-translation" class="action-button" title="复制">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                        <button id="speak-translation" class="action-button" title="朗读">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
+                <div class="translation-options">
+                    <button class="option-button active" id="standard-translation">
+                        <i class="fas fa-language"></i>
+                        <span>标准翻译</span>
+                    </button>
+                    <button class="option-button" id="smart-translation">
+                        <i class="fas fa-brain"></i>
+                        <span>智能翻译</span>
+                    </button>
+                    <button class="option-button" id="synonym-translation">
+                        <i class="fas fa-th"></i>
+                        <span>近义词选择</span>
+                    </button>
+                    <button class="option-button" id="document-translation">
+                        <i class="fas fa-file-alt"></i>
+                        <span>文档翻译</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 翻译容器 -->
+            <section class="translate-container">
+                <div class="text-areas">
+                    <div class="input-container">
+                        <div class="area-header">
+                            <h3>原文</h3>
+                            <div class="area-actions">
+                                <button class="icon-button" id="clear-input" title="清除">
+                                    <i class="fas fa-eraser"></i>
+                                </button>
+                                <button class="icon-button" id="paste-input" title="粘贴">
+                                    <i class="fas fa-paste"></i>
+                                </button>
+                                <button class="icon-button" id="speak-input" title="朗读">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="textarea-wrapper">
+                            <textarea id="input-text" placeholder="请输入要翻译的文本..."></textarea>
+                            <span class="char-counter">0 / 5000</span>
+                        </div>
                     </div>
+
+                    <div class="input-container">
+                        <div class="area-header">
+                            <h3>译文</h3>
+                            <div class="area-actions">
+                                <button class="icon-button" id="copy-output" title="复制">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="icon-button" id="speak-output" title="朗读">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <button class="icon-button" id="favorite-output" title="收藏">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="textarea-wrapper">
+                            <textarea id="output-text" readonly placeholder="翻译结果将显示在这里..."></textarea>
+                            <span class="char-counter">0 / 5000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 翻译状态指示器 -->
+                <div class="translating-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <span>正在翻译中...</span>
+                </div>
+
+                <!-- 错误消息 -->
+                <div class="error-message" style="display: none;"></div>
+
+                <!-- 近义词选择器 -->
+                <div class="synonym-selector" style="display: none;">
+                    <h4>选择更合适的近义词：</h4>
+                    <div class="synonym-options">
+                        <button class="synonym-option">选项1</button>
+                        <button class="synonym-option">选项2</button>
+                        <button class="synonym-option">选项3</button>
+                        <button class="synonym-option">选项4</button>
+                        <button class="synonym-option">选项5</button>
+                    </div>
+                </div>
+
+                <!-- 翻译质量指示器 -->
+                <div class="translation-quality" style="display: none;">
+                    <div class="quality-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <span class="quality-score">翻译质量: 85%</span>
+                </div>
+            </section>
+
+            <!-- 对比视图 -->
+            <section class="comparison-view" style="display: none;">
+                <div class="comparison-header">
+                    <h3>翻译对比</h3>
+                    <button class="icon-button" id="close-comparison" title="关闭">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="comparison-content">
+                    <div class="translation-option">
+                        <div class="option-header">
+                            <span class="option-title">标准翻译</span>
+                            <div class="option-actions">
+                                <button class="use-translation">使用此翻译</button>
+                            </div>
+                        </div>
+                        <div class="option-content">
+                            这是标准翻译的结果。
+                        </div>
+                    </div>
+                    <div class="translation-option">
+                        <div class="option-header">
+                            <span class="option-title">智能翻译</span>
+                            <div class="option-actions">
+                                <button class="use-translation">使用此翻译</button>
+                            </div>
+                        </div>
+                        <div class="option-content">
+                            这是智能翻译的结果，考虑了上下文和近义词。
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 翻译信息面板 -->
+            <section class="translation-info-panel" style="display: none;">
+                <div class="info-tabs">
+                    <div class="info-tab active" data-tab="dictionary">词典</div>
+                    <div class="info-tab" data-tab="grammar">语法</div>
+                    <div class="info-tab" data-tab="context">上下文</div>
+                </div>
+                <div class="info-content">
+                    <div class="info-panel active" id="dictionary-panel">
+                        <div class="word-definition">
+                            <h4>单词释义</h4>
+                            <div id="dictionary-pronunciation">[pronunciation]</div>
+                            <div id="dictionary-definitions">
+                                <p>1. 定义一</p>
+                                <p>2. 定义二</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-panel" id="grammar-panel">
+                        <div class="grammar-info">
+                            <h4>语法分析</h4>
+                            <p>这里是语法分析结果。</p>
+                        </div>
+                    </div>
+                    <div class="info-panel" id="context-panel">
+                        <div class="context-info">
+                            <h4>上下文分析</h4>
+                            <p>这里是上下文分析结果。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部状态栏 -->
+        <footer class="app-footer">
+            <div class="api-status">
+                <span id="status-indicator" class="status-online"></span>
+                <span id="status-text">API 在线</span>
+                <small>使用智能翻译引擎</small>
+            </div>
+            <div class="footer-actions">
+                <button class="text-button" id="history-btn">
+                    <i class="fas fa-history"></i>
+                    <span>历史记录</span>
+                </button>
+                <button class="text-button" id="favorites-btn">
+                    <i class="fas fa-star"></i>
+                    <span>收藏夹</span>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 侧边栏 - 历史记录 -->
+    <aside class="sidebar" id="history-sidebar">
+        <div class="sidebar-header">
+            <h2>历史记录</h2>
+            <button class="close-sidebar" data-sidebar="history-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="history-filter">
+                <input type="text" placeholder="搜索历史记录...">
+                <button class="icon-button" title="清除">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="history-list">
+                <div class="history-item">
+                    <div class="history-item-header">
+                        <span class="history-item-date">2023-06-15</span>
+                    </div>
+                    <div class="history-item-text">Hello, how are you?</div>
+                    <div class="history-item-translation">你好，你好吗？</div>
+                </div>
+                <div class="history-item">
+                    <div class="history-item-header">
+                        <span class="history-item-date">2023-06-14</span>
+                    </div>
+                    <div class="history-item-text">Good morning</div>
+                    <div class="history-item-translation">早上好</div>
+                </div>
+                <div class="history-item">
+                    <div class="history-item-header">
+                        <span class="history-item-date">2023-06-13</span>
+                    </div>
+                    <div class="history-item-text">Thank you very much</div>
+                    <div class="history-item-translation">非常感谢</div>
                 </div>
             </div>
         </div>
+    </aside>
 
-        <div class="translate-features">
-            <div class="feature-card">
-                <i class="fas fa-bolt"></i>
-                <h3>实时翻译</h3>
-                <p>输入即翻译，无需等待</p>
+    <!-- 侧边栏 - 收藏夹 -->
+    <aside class="sidebar" id="favorites-sidebar">
+        <div class="sidebar-header">
+            <h2>收藏夹</h2>
+            <button class="close-sidebar" data-sidebar="favorites-sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <div class="favorites-filter">
+                <input type="text" placeholder="搜索收藏...">
+                <button class="icon-button" title="清除">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-globe"></i>
-                <h3>多语言支持</h3>
-                <p>支持主流语言翻译</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-volume-up"></i>
-                <h3>语音朗读</h3>
-                <p>支持翻译结果朗读</p>
+            <div class="favorites-list">
+                <div class="favorite-item">
+                    <div class="favorite-item-header">
+                        <span class="favorite-item-date">2023-06-15</span>
+                    </div>
+                    <div class="favorite-item-text">I love programming</div>
+                    <div class="favorite-item-translation">我喜欢编程</div>
+                </div>
+                <div class="favorite-item">
+                    <div class="favorite-item-header">
+                        <span class="favorite-item-date">2023-06-10</span>
+                    </div>
+                    <div class="favorite-item-text">Artificial Intelligence</div>
+                    <div class="favorite-item-translation">人工智能</div>
+                </div>
             </div>
         </div>
+    </aside>
 
-        <div class="api-status" title="点击配置翻译API">
-            <div id="status-indicator" class="status-online"></div>
-            <span id="status-text">API服务正常</span>
-            <small>(点击配置API)</small>
-        </div>
-
-        <!-- API配置对话框 -->
-        <div id="api-config-modal" class="modal" style="display: none;">
-            <div class="modal-content api-config-content">
-                <span class="close">&times;</span>
-                <h2>翻译API配置</h2>
-
-                <div class="api-service-tabs">
-                    <div class="api-config-tab active" data-tab="baidu">百度翻译</div>
-                    <div class="api-config-tab" data-tab="youdao">有道翻译</div>
-                    <div class="api-config-tab" data-tab="google">Google翻译</div>
-                    <div class="api-config-tab" data-tab="local">本地翻译</div>
+    <!-- 模态框 - 设置 -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>设置</h2>
+                <button class="close-modal" data-modal="settings-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="settings-content">
+                <div class="settings-tabs">
+                    <div class="settings-tab active" data-settings-tab="general">常规</div>
+                    <div class="settings-tab" data-settings-tab="translation">翻译</div>
+                    <div class="settings-tab" data-settings-tab="api">API</div>
                 </div>
-
-                <div class="api-service-config" id="baidu-config">
-                    <h3>百度翻译API配置</h3>
-                    <div class="form-group">
-                        <label for="baidu-app-id">AppID:</label>
-                        <input type="text" id="baidu-app-id" placeholder="请输入百度翻译AppID">
+                <div class="settings-panel active" id="general-settings">
+                    <div class="setting-group">
+                        <h3>界面设置</h3>
+                        <div class="setting-item">
+                            <label for="theme-setting">主题</label>
+                            <select id="theme-setting">
+                                <option value="light">浅色</option>
+                                <option value="dark">深色</option>
+                                <option value="auto">跟随系统</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="font-size-setting">字体大小</label>
+                            <select id="font-size-setting">
+                                <option value="small">小</option>
+                                <option value="medium" selected>中</option>
+                                <option value="large">大</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="baidu-secret-key">密钥:</label>
-                        <input type="password" id="baidu-secret-key" placeholder="请输入百度翻译密钥">
-                    </div>
-                    <div class="form-info">
-                        <p><i class="fas fa-info-circle"></i> <a href="http://api.fanyi.baidu.com/" target="_blank">如何获取百度翻译API密钥</a></p>
-                    </div>
-                </div>
-
-                <div class="api-service-config" id="youdao-config" style="display: none;">
-                    <h3>有道翻译API配置</h3>
-                    <div class="form-group">
-                        <label for="youdao-app-id">应用ID:</label>
-                        <input type="text" id="youdao-app-id" placeholder="请输入有道翻译应用ID">
-                    </div>
-                    <div class="form-group">
-                        <label for="youdao-secret-key">应用密钥:</label>
-                        <input type="password" id="youdao-secret-key" placeholder="请输入有道翻译应用密钥">
-                    </div>
-                    <div class="form-info">
-                        <p><i class="fas fa-info-circle"></i> <a href="https://ai.youdao.com/" target="_blank">如何获取有道翻译API密钥</a></p>
-                    </div>
-                </div>
-
-                <div class="api-service-config" id="google-config" style="display: none;">
-                    <h3>Google翻译API配置</h3>
-                    <div class="form-group">
-                        <label for="google-api-key">API密钥:</label>
-                        <input type="password" id="google-api-key" placeholder="请输入Google API密钥">
-                    </div>
-                    <div class="form-info">
-                        <p><i class="fas fa-info-circle"></i> <a href="https://cloud.google.com/translate/docs/setup" target="_blank">如何获取Google翻译API密钥</a></p>
+                    <div class="setting-group">
+                        <h3>功能设置</h3>
+                        <div class="setting-item">
+                            <label for="auto-speak">自动朗读</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-speak">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="save-history">保存历史记录</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="save-history" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-
-                <div class="api-service-config" id="local-config" style="display: none;">
-                    <h3>本地翻译配置</h3>
-                    <div class="form-info message-box">
-                        <p><i class="fas fa-info-circle"></i> 本地翻译无需配置API密钥，但功能有限，仅支持简单的中英文互译。</p>
-                        <p>当其他翻译API不可用时，将自动使用本地翻译作为备用方案。</p>
+                <div class="settings-panel" id="translation-settings">
+                    <div class="setting-group">
+                        <h3>翻译设置</h3>
+                        <div class="setting-item">
+                            <label for="translation-mode">默认翻译模式</label>
+                            <select id="translation-mode">
+                                <option value="standard">标准翻译</option>
+                                <option value="smart">智能翻译</option>
+                                <option value="synonym">近义词选择</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="show-comparison">显示翻译对比</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="show-comparison">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label for="show-quality">显示翻译质量</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="show-quality" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-
-                <div class="current-service">
-                    <label>当前使用的翻译服务：</label>
-                    <select id="current-service">
-                        <option value="baidu">百度翻译</option>
-                        <option value="youdao">有道翻译</option>
-                        <option value="google">Google翻译</option>
-                        <option value="local">本地翻译</option>
-                    </select>
+                <div class="settings-panel" id="api-settings">
+                    <div class="setting-group">
+                        <h3>API服务</h3>
+                        <div class="api-service-tabs">
+                            <div class="api-config-tab active" data-api-tab="google">Google</div>
+                            <div class="api-config-tab" data-api-tab="baidu">百度</div>
+                            <div class="api-config-tab" data-api-tab="custom">自定义</div>
+                        </div>
+                        <div class="api-service-panel active" id="google-api">
+                            <div class="form-group">
+                                <label for="google-api-key">API密钥</label>
+                                <input type="password" id="google-api-key" placeholder="输入Google翻译API密钥">
+                            </div>
+                            <div class="form-info">
+                                <p>获取Google翻译API密钥，请访问 <a href="https://cloud.google.com/translate" target="_blank">Google Cloud</a></p>
+                            </div>
+                        </div>
+                        <div class="api-service-panel" id="baidu-api">
+                            <div class="form-group">
+                                <label for="baidu-app-id">应用ID</label>
+                                <input type="text" id="baidu-app-id" placeholder="输入百度翻译应用ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="baidu-secret-key">密钥</label>
+                                <input type="password" id="baidu-secret-key" placeholder="输入百度翻译密钥">
+                            </div>
+                            <div class="form-info">
+                                <p>获取百度翻译API密钥，请访问 <a href="https://fanyi-api.baidu.com/" target="_blank">百度翻译开放平台</a></p>
+                            </div>
+                        </div>
+                        <div class="api-service-panel" id="custom-api">
+                            <div class="form-group">
+                                <label for="custom-api-url">API地址</label>
+                                <input type="text" id="custom-api-url" placeholder="输入自定义API地址">
+                            </div>
+                            <div class="form-group">
+                                <label for="custom-api-key">API密钥</label>
+                                <input type="password" id="custom-api-key" placeholder="输入自定义API密钥">
+                            </div>
+                        </div>
+                        <div class="current-service">
+                            <label for="current-api-service">当前使用的API服务</label>
+                            <select id="current-api-service">
+                                <option value="google">Google翻译</option>
+                                <option value="baidu">百度翻译</option>
+                                <option value="custom">自定义API</option>
+                            </select>
+                        </div>
+                        <div class="api-config-actions">
+                            <button class="button secondary">取消</button>
+                            <button class="button primary">保存</button>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="api-config-actions">
-                    <button id="save-api-config" class="btn primary-btn">保存设置</button>
-                    <button id="cancel-api-config" class="btn">取消</button>
-                </div>
+            </div>
+            <div class="setting-actions">
+                <button class="button secondary">重置</button>
+                <button class="button primary">保存设置</button>
             </div>
         </div>
     </div>
 
-    <!-- 底部社交链接 -->
-    <footer class="social-links">
-        <a href="https://github.com/pyquick" target="_blank" title="Github">
+    <!-- 模态框 - 文档翻译 -->
+    <div class="modal" id="document-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>文档翻译</h2>
+                <button class="close-modal" data-modal="document-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="document-content">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>拖放文件或点击上传</h3>
+                    <p>支持 .txt, .docx, .pdf, .html 等格式</p>
+                    <input type="file" id="file-input" style="display: none;" multiple>
+                </div>
+                <div class="upload-list" style="display: none;">
+                    <h3>已上传文件</h3>
+                    <div class="file-list">
+                        <div class="file-item">
+                            <div class="file-info">
+                                <div class="file-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name">document.pdf</div>
+                                    <div class="file-size">2.5 MB</div>
+                                </div>
+                            </div>
+                            <div class="file-actions">
+                                <button class="icon-button" title="删除">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="document-options">
+                    <div class="setting-item">
+                        <label for="document-source-lang">源语言</label>
+                        <select id="document-source-lang">
+                            <option value="auto">自动检测</option>
+                            <option value="zh">中文</option>
+                            <option value="en">英语</option>
+                            <option value="ja">日语</option>
+                            <option value="ko">韩语</option>
+                            <option value="fr">法语</option>
+                            <option value="de">德语</option>
+                            <option value="es">西班牙语</option>
+                            <option value="ru">俄语</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="document-target-lang">目标语言</label>
+                        <select id="document-target-lang">
+                            <option value="zh">中文</option>
+                            <option value="en">英语</option>
+                            <option value="ja">日语</option>
+                            <option value="ko">韩语</option>
+                            <option value="fr">法语</option>
+                            <option value="de">德语</option>
+                            <option value="es">西班牙语</option>
+                            <option value="ru">俄语</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="document-format">输出格式</label>
+                        <select id="document-format">
+                            <option value="same">与原文相同</option>
+                            <option value="pdf">PDF</option>
+                            <option value="docx">Word文档</option>
+                            <option value="txt">纯文本</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="button secondary">取消</button>
+                <button class="button primary">开始翻译</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框 - 帮助 -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>使用帮助</h2>
+                <button class="close-modal" data-modal="help-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="help-content">
+                <h3>如何使用智能翻译系统</h3>
+                <ol>
+                    <li><strong>输入文本</strong>：在左侧文本框中输入或粘贴您要翻译的文本。</li>
+                    <li><strong>选择语言</strong>：从下拉菜单中选择源语言和目标语言，或使用自动检测功能。</li>
+                    <li><strong>选择翻译模式</strong>：
+                        <ul>
+                            <li><strong>标准翻译</strong>：常规翻译模式，适用于大多数场景。</li>
+                            <li><strong>智能翻译</strong>：考虑上下文和语义，提供更准确的翻译。</li>
+                            <li><strong>近义词选择</strong>：提供多种近义词选项，让您选择最合适的翻译。</li>
+                            <li><strong>文档翻译</strong>：上传文档进行批量翻译。</li>
+                        </ul>
+                    </li>
+                    <li><strong>获取翻译结果</strong>：点击翻译按钮或按Enter键，翻译结果将显示在右侧文本框中。</li>
+                    <li><strong>使用辅助功能</strong>：您可以复制、朗读或收藏翻译结果。</li>
+                </ol>
+                
+                <h3>常见问题</h3>
+                <div class="faq-item">
+                    <h4>如何切换主题？</h4>
+                    <p>点击右上角的月亮图标可以在浅色和深色主题之间切换。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何查看历史记录？</h4>
+                    <p>点击底部的"历史记录"按钮，可以查看之前的翻译历史。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何收藏翻译结果？</h4>
+                    <p>在翻译结果区域点击星形图标，可以将翻译结果添加到收藏夹。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何配置API？</h4>
+                    <p>点击右上角的设置图标，在"API"选项卡中配置您的翻译API服务。</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="button primary">知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 社交链接 -->
+    <div class="social-links">
+        <a href="https://github.com" target="_blank" title="GitHub">
             <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.twitter.com/exe258011" target="_blank" title="Twitter">
+        <a href="https://twitter.com" target="_blank" title="Twitter">
             <i class="fab fa-twitter"></i>
         </a>
-        <a href="#" id="email-icon" title="Email">
+        <a href="mailto:contact@example.com" title="联系我们">
             <i class="fas fa-envelope"></i>
         </a>
-        <a href="/" title="主页">
-            <i class="fas fa-home"></i>
-        </a>
-    </footer>
+    </div>
 
-    <!-- 在页面底部加载JS，提高性能 -->
-    <script src="/static/js/index.js" defer></script>
-    <script src="translate.js" type="module" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

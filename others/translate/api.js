@@ -56,22 +56,52 @@ const TranslateAPI = {
      * @param {string} text - 要翻译的文本
      * @param {string} from - 源语言代码
      * @param {string} to - 目标语言代码
+     * @param {number} retryCount - 重试次数，默认3次
      * @returns {Promise<string>} 翻译后的文本
      */
-    async translate(text, from, to) {
+    async translate(text, from, to, retryCount = 3) {
         // 如果文本为空，直接返回
         if (!text.trim()) return '';
 
+        // 验证语言代码
+        if (!this.isValidLanguageCode(from) || !this.isValidLanguageCode(to)) {
+            throw new Error('不支持的语言代码');
+        }
+
+        // 限制文本长度
+        if (text.length > 5000) {
+            throw new Error('文本过长，请控制在5000字符以内');
+        }
+
         try {
             // 根据当前服务调用相应的API
+            let result;
             if (this.currentService === 'baidu') {
-                return await this.baiduTranslate(text, from, to);
+                result = await this.baiduTranslate(text, from, to);
             } else if (this.currentService === 'youdao') {
-                return await this.youdaoTranslate(text, from, to);
+                result = await this.youdaoTranslate(text, from, to);
+            } else {
+                throw new Error('不支持的翻译服务');
             }
+
+            // 验证翻译结果
+            if (!result || result.trim() === '') {
+                throw new Error('翻译结果为空');
+            }
+
+            return result;
         } catch (error) {
-            console.error('翻译失败:', error);
-            throw new Error('翻译服务暂时不可用');
+            console.error(`翻译失败 (${retryCount}次重试剩余):`, error);
+            
+            // 如果是网络错误或超时，尝试重试
+            if (retryCount > 0 && (error.message.includes('网络') || error.message.includes('超时') || error.message.includes('请求失败'))) {
+                console.log(`重试翻译，剩余重试次数: ${retryCount}`);
+                // 等待一段时间后重试
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                return await this.translate(text, from, to, retryCount - 1);
+            }
+            
+            throw new Error(`翻译服务暂时不可用: ${error.message}`);
         }
     },
 
@@ -180,6 +210,16 @@ const TranslateAPI = {
 
         // 返回翻译结果
         return data.translation.join('\n');
+    },
+
+    /**
+     * 验证语言代码是否有效
+     * @param {string} langCode - 语言代码
+     * @returns {boolean} 是否有效
+     */
+    isValidLanguageCode(langCode) {
+        const validLanguages = ['auto', 'zh', 'en', 'ja', 'ko', 'fr', 'de', 'es', 'ru'];
+        return validLanguages.includes(langCode);
     },
 
     /**
