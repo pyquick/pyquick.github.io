@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地翻译功能测试 - 自动化测试</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .test-result {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        .console-output {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .test-button {
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .test-button:hover {
+            background-color: #3182ce;
+        }
+        .test-button:disabled {
+            background-color: #a0aec0;
+            cursor: not-allowed;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4299e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .summary {
+            background-color: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .summary h3 {
+            color: #2d3748;
+            margin-top: 0;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4299e1;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 本地翻译功能自动化测试</h1>
+        
+        <div class="test-section">
+            <div class="test-title">测试控制</div>
+            <button id="run-tests" class="test-button">🚀 运行所有测试</button>
+            <button id="run-basic" class="test-button">🔍 运行基础测试</button>
+            <button id="run-performance" class="test-button">⚡ 运行性能测试</button>
+            <button id="clear-console" class="test-button">🗑️ 清空控制台</button>
+            <span id="loading-indicator"></span>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">测试摘要</div>
+            <div id="test-summary" class="summary" style="display: none;">
+                <h3>测试结果统计</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div id="total-tests" class="stat-number">0</div>
+                        <div class="stat-label">总测试数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="passed-tests" class="stat-number">0</div>
+                        <div class="stat-label">通过</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="failed-tests" class="stat-number">0</div>
+                        <div class="stat-label">失败</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="test-duration" class="stat-number">0ms</div>
+                        <div class="stat-label">耗时</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">实时测试结果</div>
+            <div id="test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">控制台输出</div>
+            <div id="console-output" class="console-output">等待测试开始...</div>
+        </div>
+    </div>
+
+    <!-- 加载本地翻译脚本 -->
+    <script src="local-translate.js"></script>
+    
+    <script>
+        class LocalTranslateTester {
+            constructor() {
+                this.testResults = [];
+                this.consoleOutput = document.getElementById('console-output');
+                this.testResultsDiv = document.getElementById('test-results');
+                this.loadingIndicator = document.getElementById('loading-indicator');
+                this.originalConsoleLog = console.log;
+                this.originalConsoleError = console.error;
+                this.originalConsoleWarn = console.warn;
+                this.setupConsoleCapture();
+                this.bindEvents();
+            }
+
+            setupConsoleCapture() {
+                // 捕获控制台输出
+                console.log = (...args) => {
+                    this.originalConsoleLog.apply(console, args);
+                    this.appendConsoleOutput(args.join(' '), 'log');
+                };
+                
+                console.error = (...args) => {
+                    this.originalConsoleError.apply(console, args);
+                    this.appendConsoleOutput(args.join(' '), 'error');
+                };
+                
+                console.warn = (...args) => {
+                    this.originalConsoleWarn.apply(console, args);
+                    this.appendConsoleOutput(args.join(' '), 'warn');
+                };
+            }
+
+            bindEvents() {
+                document.getElementById('run-tests').addEventListener('click', () => this.runAllTests());
+                document.getElementById('run-basic').addEventListener('click', () => this.runBasicTests());
+                document.getElementById('run-performance').addEventListener('click', () => this.runPerformanceTests());
+                document.getElementById('clear-console').addEventListener('click', () => this.clearConsole());
+            }
+
+            appendConsoleOutput(message, type = 'log') {
+                const timestamp = new Date().toLocaleTimeString();
+                this.consoleOutput.innerHTML += `[${timestamp}] ${message}\n`;
+                this.consoleOutput.scrollTop = this.consoleOutput.scrollHeight;
+            }
+
+            clearConsole() {
+                this.consoleOutput.innerHTML = '控制台已清空...\n';
+            }
+
+            addTestResult(title, success, message, details = '') {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = `test-result ${success ? 'success' : 'error'}`;
+                resultDiv.innerHTML = `
+                    <strong>${success ? '✅' : '❌'} ${title}</strong>
+                    ${message ? `<br>${message}` : ''}
+                    ${details ? `<br><small style="color: #666;">${details}</small>` : ''}
+                `;
+                this.testResultsDiv.appendChild(resultDiv);
+                this.testResults.push({ title, success, message, details });
+            }
+
+            async runAllTests() {
+                this.testResults = [];
+                this.testResultsDiv.innerHTML = '';
+                this.loadingIndicator.innerHTML = '<div class="loading"></div>';
+                
+                const startTime = performance.now();
+                
+                await this.runBasicTests();
+                await this.runPerformanceTests();
+                await this.runEdgeCaseTests();
+                
+                const endTime = performance.now();
+                const duration = (endTime - startTime).toFixed(0);
+                
+                this.loadingIndicator.innerHTML = '';
+                this.updateSummary(duration);
+            }
+
+            async runBasicTests() {
+                console.log('=== 开始基础测试 ===');
+                
+                // 测试1: LocalTranslate对象存在性
+                try {
+                    if (typeof LocalTranslate !== 'undefined') {
+                        this.addTestResult('LocalTranslate对象存在性', true, 'LocalTranslate对象已加载');
+                    } else {
+                        this.addTestResult('LocalTranslate对象存在性', false, 'LocalTranslate对象未定义');
+                    }
+                } catch (error) {
+                    this.addTestResult('LocalTranslate对象存在性', false, error.message);
+                }
+
+                // 测试2: translate方法存在性
+                try {
+                    if (typeof LocalTranslate.translate === 'function') {
+                        this.addTestResult('translate方法存在性', true, 'translate方法可用');
+                    } else {
+                        this.addTestResult('translate方法存在性', false, 'translate方法不可用');
+                    }
+                } catch (error) {
+                    this.addTestResult('translate方法存在性', false, error.message);
+                }
+
+                // 测试3: 简单英文到中文翻译
+                try {
+                    const result = LocalTranslate.translate('hello', 'en', 'zh');
+                    const success = result === '你好';
+                    this.addTestResult('英文到中文翻译', success, 
+                        success ? `翻译结果: ${result}` : `期望: 你好, 实际: ${result}`);
+                } catch (error) {
+                    this.addTestResult('英文到中文翻译', false, error.message);
+                }
+
+                // 测试4: 简单中文到英文翻译
+                try {
+                    const result = LocalTranslate.translate('你好', 'zh', 'en');
+                    const success = result === 'hello';
+                    this.addTestResult('中文到英文翻译', success, 
+                        success ? `翻译结果: ${result}` : `期望: hello, 实际: ${result}`);
+                } catch (error) {
+                    this.addTestResult('中文到英文翻译', false, error.message);
+                }
+
+                // 测试5: 复杂短语翻译
+                try {
+                    const result = LocalTranslate.translate('good morning', 'en', 'zh');
+                    const success = result.includes('早上好');
+                    this.addTestResult('复杂短语翻译', success, 
+                        success ? `翻译结果: ${result}` : `期望包含: 早上好, 实际: ${result}`);
+                } catch (error) {
+                    this.addTestResult('复杂短语翻译', false, error.message);
+                }
+            }
+
+            async runPerformanceTests() {
+                console.log('=== 开始性能测试 ===');
+                
+                // 测试1: 单次翻译性能
+                try {
+                    const start = performance.now();
+                    const result = LocalTranslate.translate('hello world', 'en', 'zh');
+                    const end = performance.now();
+                    const duration = (end - start).toFixed(2);
+                    
+                    this.addTestResult('单次翻译性能', true, 
+                        `翻译结果: ${result}, 耗时: ${duration}ms`, `期望 < 10ms`);
+                } catch (error) {
+                    this.addTestResult('单次翻译性能', false, error.message);
+                }
+
+                // 测试2: 批量翻译性能
+                try {
+                    const start = performance.now();
+                    for (let i = 0; i < 100; i++) {
+                        LocalTranslate.translate('hello', 'en', 'zh');
+                    }
+                    const end = performance.now();
+                    const duration = (end - start).toFixed(2);
+                    
+                    this.addTestResult('批量翻译性能', duration < 100, 
+                        `100次翻译耗时: ${duration}ms`, `期望 < 100ms`);
+                } catch (error) {
+                    this.addTestResult('批量翻译性能', false, error.message);
+                }
+            }
+
+            async runEdgeCaseTests() {
+                console.log('=== 开始边界情况测试 ===');
+                
+                // 测试1: 空字符串处理
+                try {
+                    const result = LocalTranslate.translate('', 'en', 'zh');
+                    const success = result === '';
+                    this.addTestResult('空字符串处理', success, 
+                        success ? '正确处理空字符串' : `结果: "${result}"`);
+                } catch (error) {
+                    this.addTestResult('空字符串处理', false, error.message);
+                }
+
+                // 测试2: 相同语言翻译
+                try {
+                    const result = LocalTranslate.translate('hello', 'en', 'en');
+                    const success = result === 'hello';
+                    this.addTestResult('相同语言翻译', success, 
+                        success ? '正确处理相同语言' : `期望: hello, 实际: ${result}`);
+                } catch (error) {
+                    this.addTestResult('相同语言翻译', false, error.message);
+                }
+
+                // 测试3: 不支持的语言对
+                try {
+                    const result = LocalTranslate.translate('hello', 'en', 'jp');
+                    this.addTestResult('不支持的语言对', false, 
+                        `应该抛出异常，但返回: ${result}`);
+                } catch (error) {
+                    this.addTestResult('不支持的语言对', true, 
+                        `正确抛出异常: ${error.message}`);
+                }
+            }
+
+            updateSummary(duration) {
+                const total = this.testResults.length;
+                const passed = this.testResults.filter(r => r.success).length;
+                const failed = total - passed;
+
+                document.getElementById('total-tests').textContent = total;
+                document.getElementById('passed-tests').textContent = passed;
+                document.getElementById('failed-tests').textContent = failed;
+                document.getElementById('test-duration').textContent = duration + 'ms';
+                
+                const summaryDiv = document.getElementById('test-summary');
+                summaryDiv.style.display = 'block';
+                
+                if (failed === 0) {
+                    summaryDiv.className = 'summary';
+                    summaryDiv.style.backgroundColor = '#f0fff4';
+                    summaryDiv.style.borderColor = '#9ae6b4';
+                } else if (failed < total * 0.3) {
+                    summaryDiv.className = 'summary';
+                    summaryDiv.style.backgroundColor = '#fffff0';
+                    summaryDiv.style.borderColor = '#f6e05e';
+                } else {
+                    summaryDiv.className = 'summary';
+                    summaryDiv.style.backgroundColor = '#fff5f5';
+                    summaryDiv.style.borderColor = '#fc8181';
+                }
+            }
+        }
+
+        // 初始化测试器
+        document.addEventListener('DOMContentLoaded', function() {
+            new LocalTranslateTester();
+        });
+    </script>
+</body>
+</html>

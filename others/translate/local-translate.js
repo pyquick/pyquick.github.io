@@ -1453,5 +1453,5 @@ const LocalTranslate = {
     }
 };
 
-// 导出模块
-export default LocalTranslate;
+// 导出模块到全局作用域
+window.LocalTranslate = LocalTranslate;

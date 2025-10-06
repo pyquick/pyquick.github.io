@@ -3,10 +3,8 @@
  * 实现输入实时翻译功能
  */
 
-// 导入翻译API服务
-import TranslateAPI from './api.js';
-import GoogleTranslateAPI from './google-translate-api.js';
-import LocalTranslate from './local-translate.js';
+// 全局翻译API服务（通过script标签引入）
+// TranslateAPI, GoogleTranslateAPI, LocalTranslate 将在全局作用域中可用
 
 const TranslateApp = {
     // 元素引用
@@ -77,38 +75,60 @@ const TranslateApp = {
     // 初始化API配置对话框
     initApiConfigModal() {
         // 点击API状态指示器打开配置对话框
-        this.elements.apiStatusDiv.addEventListener('click', () => {
-            this.openApiConfigModal();
-        });
+        if (this.elements.apiStatusDiv) {
+            this.elements.apiStatusDiv.addEventListener('click', () => {
+                this.openApiConfigModal();
+            });
+        } else {
+            console.warn('API状态指示器元素未找到');
+        }
 
         // 关闭对话框
-        this.elements.modalClose.addEventListener('click', () => {
-            this.closeApiConfigModal();
-        });
+        if (this.elements.modalClose) {
+            this.elements.modalClose.addEventListener('click', () => {
+                this.closeApiConfigModal();
+            });
+        } else {
+            console.warn('对话框关闭按钮元素未找到');
+        }
 
         // 点击对话框外部关闭对话框
         window.addEventListener('click', (event) => {
-            if (event.target === this.elements.apiConfigModal) {
+            if (this.elements.apiConfigModal && event.target === this.elements.apiConfigModal) {
                 this.closeApiConfigModal();
             }
         });
 
         // 切换API配置选项卡
-        this.elements.apiConfigTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                this.switchApiConfigTab(tab.dataset.tab);
+        if (this.elements.apiConfigTabs && this.elements.apiConfigTabs.forEach) {
+            this.elements.apiConfigTabs.forEach(tab => {
+                if (tab && tab.dataset) {
+                    tab.addEventListener('click', () => {
+                        this.switchApiConfigTab(tab.dataset.tab);
+                    });
+                }
             });
-        });
+        } else {
+            console.warn('API配置选项卡元素未找到');
+        }
 
         // 保存API配置
-        this.elements.saveApiConfigBtn.addEventListener('click', () => {
-            this.saveAllApiConfig();
-        });
+        if (this.elements.saveApiConfigBtn) {
+            this.elements.saveApiConfigBtn.addEventListener('click', () => {
+                this.saveAllApiConfig();
+            });
+        } else {
+            console.warn('保存API配置按钮元素未找到');
+        }
 
         // 取消API配置
-        this.elements.cancelApiConfigBtn.addEventListener('click', () => {
-            this.closeApiConfigModal();
-        });
+        if (this.elements.cancelApiConfigBtn) {
+            this.elements.cancelApiConfigBtn.addEventListener('click', () => {
+                this.closeApiConfigModal();
+            });
+        } else {
+            console.warn('取消API配置按钮元素未找到');
+        }
 
         // 填充当前配置到表单
         this.fillApiConfigForm();
@@ -185,18 +205,18 @@ const TranslateApp = {
     saveAllApiConfig() {
         try {
             // 获取当前所选服务
-            const currentService = this.elements.currentServiceSelect.value;
+            const currentService = this.elements.currentServiceSelect?.value || 'google';
 
             // 获取百度翻译API配置
-            const baiduAppId = document.getElementById('baidu-app-id').value.trim();
-            const baiduSecretKey = document.getElementById('baidu-secret-key').value.trim();
+            const baiduAppId = document.getElementById('baidu-app-id')?.value?.trim() || '';
+            const baiduSecretKey = document.getElementById('baidu-secret-key')?.value?.trim() || '';
 
             // 获取有道翻译API配置
-            const youdaoAppId = document.getElementById('youdao-app-id').value.trim();
-            const youdaoSecretKey = document.getElementById('youdao-secret-key').value.trim();
+            const youdaoAppId = document.getElementById('youdao-app-id')?.value?.trim() || '';
+            const youdaoSecretKey = document.getElementById('youdao-secret-key')?.value?.trim() || '';
 
             // 获取Google翻译API配置
-            const googleApiKey = document.getElementById('google-api-key').value.trim();
+            const googleApiKey = document.getElementById('google-api-key')?.value?.trim() || '';
 
             // 验证必填字段
             if (currentService === 'baidu' && (!baiduAppId || !baiduSecretKey)) {
@@ -370,7 +390,11 @@ const TranslateApp = {
         this.fillApiConfigForm();
 
         // 显示对话框
-        this.elements.apiConfigModal.style.display = 'block';
+        if (this.elements.apiConfigModal) {
+            this.elements.apiConfigModal.style.display = 'block';
+        } else {
+            console.warn('API配置模态框元素未找到');
+        }
 
         // 设置当前选项卡
         this.switchApiConfigTab(this.currentService);
@@ -378,21 +402,37 @@ const TranslateApp = {
 
     // 关闭API配置对话框
     closeApiConfigModal() {
-        this.elements.apiConfigModal.style.display = 'none';
+        if (this.elements.apiConfigModal) {
+            this.elements.apiConfigModal.style.display = 'none';
+        } else {
+            console.warn('API配置模态框元素未找到');
+        }
     },
 
     // 切换API配置选项卡
     switchApiConfigTab(tabId) {
         // 更新选项卡状态
-        this.elements.apiConfigTabs.forEach(tab => {
-            tab.classList.toggle('active', tab.dataset.tab === tabId);
-        });
+        if (this.elements.apiConfigTabs && this.elements.apiConfigTabs.forEach) {
+            this.elements.apiConfigTabs.forEach(tab => {
+                if (tab && tab.classList && tab.dataset) {
+                    tab.classList.toggle('active', tab.dataset.tab === tabId);
+                } else {
+                    console.warn('API配置选项卡元素或其属性不存在');
+                }
+            });
+        }
 
         // 更新内容显示
-        this.elements.apiServiceConfigs.forEach(config => {
-            const configId = config.id.replace('-config', '');
-            config.style.display = configId === tabId ? 'block' : 'none';
-        });
+        if (this.elements.apiServiceConfigs && this.elements.apiServiceConfigs.forEach) {
+            this.elements.apiServiceConfigs.forEach(config => {
+                if (config && config.id) {
+                    const configId = config.id.replace('-config', '');
+                    config.style.display = configId === tabId ? 'block' : 'none';
+                } else {
+                    console.warn('API服务配置元素或其id属性不存在');
+                }
+            });
+        }
     },
 
     // 填充API配置表单
@@ -401,25 +441,30 @@ const TranslateApp = {
             const apiConfig = JSON.parse(localStorage.getItem('translateApiConfig') || '{}');
 
             // 设置当前服务
-            if (apiConfig.service) {
+            if (apiConfig.service && this.elements.currentServiceSelect) {
                 this.elements.currentServiceSelect.value = apiConfig.service;
             }
 
             // 填充百度翻译API配置
             if (apiConfig.baidu) {
-                document.getElementById('baidu-app-id').value = apiConfig.baidu.appId || '';
-                document.getElementById('baidu-secret-key').value = apiConfig.baidu.secretKey || '';
+                const baiduAppId = document.getElementById('baidu-app-id');
+                const baiduSecretKey = document.getElementById('baidu-secret-key');
+                if (baiduAppId) baiduAppId.value = apiConfig.baidu.appId || '';
+                if (baiduSecretKey) baiduSecretKey.value = apiConfig.baidu.secretKey || '';
             }
 
             // 填充有道翻译API配置
             if (apiConfig.youdao) {
-                document.getElementById('youdao-app-id').value = apiConfig.youdao.appId || '';
-                document.getElementById('youdao-secret-key').value = apiConfig.youdao.secretKey || '';
+                const youdaoAppId = document.getElementById('youdao-app-id');
+                const youdaoSecretKey = document.getElementById('youdao-secret-key');
+                if (youdaoAppId) youdaoAppId.value = apiConfig.youdao.appId || '';
+                if (youdaoSecretKey) youdaoSecretKey.value = apiConfig.youdao.secretKey || '';
             }
 
             // 填充Google翻译API配置
             if (apiConfig.google) {
-                document.getElementById('google-api-key').value = apiConfig.google.apiKey || '';
+                const googleApiKey = document.getElementById('google-api-key');
+                if (googleApiKey) googleApiKey.value = apiConfig.google.apiKey || '';
             }
         } catch (e) {
             console.error('填充API配置表单失败:', e);
@@ -428,27 +473,27 @@ const TranslateApp = {
 
     // 初始化DOM元素引用
     initElements() {
-        this.elements.sourceText = document.getElementById('source-text');
-        this.elements.translatedText = document.getElementById('translated-text');
+        this.elements.sourceText = document.getElementById('input-text');
+        this.elements.translatedText = document.getElementById('output-text');
         this.elements.sourceLanguage = document.getElementById('source-language');
         this.elements.targetLanguage = document.getElementById('target-language');
-        this.elements.swapButton = document.querySelector('.swap-button');
-        this.elements.clearSource = document.getElementById('clear-source');
+        this.elements.swapButton = document.getElementById('swap-languages');
+        this.elements.clearSource = document.getElementById('clear-input');
         this.elements.copySource = document.getElementById('copy-source');
-        this.elements.copyTranslation = document.getElementById('copy-translation');
-        this.elements.speakTranslation = document.getElementById('speak-translation');
+        this.elements.copyTranslation = document.getElementById('copy-output');
+        this.elements.speakTranslation = document.getElementById('speak-output');
         this.elements.statusIndicator = document.getElementById('status-indicator');
         this.elements.statusText = document.getElementById('status-text');
 
-        // API配置对话框元素
+        // API配置对话框元素 - 这些元素在HTML中不存在，添加空值检查
         this.elements.apiStatusDiv = document.querySelector('.api-status');
-        this.elements.apiConfigModal = document.getElementById('api-config-modal');
-        this.elements.modalClose = this.elements.apiConfigModal.querySelector('.close');
+        this.elements.apiConfigModal = null; // HTML中没有api-config-modal元素
+        this.elements.modalClose = null;
         this.elements.apiConfigTabs = Array.from(document.querySelectorAll('.api-config-tab'));
         this.elements.apiServiceConfigs = Array.from(document.querySelectorAll('.api-service-config'));
-        this.elements.currentServiceSelect = document.getElementById('current-service');
-        this.elements.saveApiConfigBtn = document.getElementById('save-api-config');
-        this.elements.cancelApiConfigBtn = document.getElementById('cancel-api-config');
+        this.elements.currentServiceSelect = document.getElementById('current-api-service');
+        this.elements.saveApiConfigBtn = null;
+        this.elements.cancelApiConfigBtn = null;
     },
 
     // 初始化事件监听器
@@ -469,22 +514,46 @@ const TranslateApp = {
         });
 
         // 交换语言按钮
-        this.elements.swapButton.addEventListener('click', this.swapLanguages.bind(this));
+        if (this.elements.swapButton) {
+            this.elements.swapButton.addEventListener('click', this.swapLanguages.bind(this));
+        } else {
+            console.warn('交换语言按钮元素未找到');
+        }
 
         // 清空源文本
-        this.elements.clearSource.addEventListener('click', this.clearSourceText.bind(this));
+        if (this.elements.clearSource) {
+            this.elements.clearSource.addEventListener('click', this.clearSourceText.bind(this));
+        } else {
+            console.warn('清空源文本按钮元素未找到');
+        }
 
         // 复制源文本
-        this.elements.copySource.addEventListener('click', () => this.copyText(this.elements.sourceText));
+        if (this.elements.copySource) {
+            this.elements.copySource.addEventListener('click', () => this.copyText(this.elements.sourceText));
+        } else {
+            console.warn('复制源文本按钮元素未找到');
+        }
 
         // 复制翻译结果
-        this.elements.copyTranslation.addEventListener('click', () => this.copyText(this.elements.translatedText));
+        if (this.elements.copyTranslation) {
+            this.elements.copyTranslation.addEventListener('click', () => this.copyText(this.elements.translatedText));
+        } else {
+            console.warn('复制翻译结果按钮元素未找到');
+        }
 
         // 朗读翻译结果
-        this.elements.speakTranslation.addEventListener('click', this.speakTranslation.bind(this));
+        if (this.elements.speakTranslation) {
+            this.elements.speakTranslation.addEventListener('click', this.speakTranslation.bind(this));
+        } else {
+            console.warn('朗读翻译结果按钮元素未找到');
+        }
 
         // 自动调整文本区高度
-        this.elements.sourceText.addEventListener('input', () => this.adjustTextareaHeight(this.elements.sourceText));
+        if (this.elements.sourceText) {
+            this.elements.sourceText.addEventListener('input', () => this.adjustTextareaHeight(this.elements.sourceText));
+        } else {
+            console.warn('源文本输入框元素未找到');
+        }
     },
 
     // 处理文本输入
@@ -498,6 +567,11 @@ const TranslateApp = {
 
     // 翻译文本
     translateText() {
+        if (!this.elements.sourceText || !this.elements.sourceLanguage || !this.elements.targetLanguage || !this.elements.translatedText) {
+            console.warn('翻译所需的元素未找到');
+            return;
+        }
+
         const sourceText = this.elements.sourceText.value.trim();
         const sourceLanguage = this.elements.sourceLanguage.value;
         const targetLanguage = this.elements.targetLanguage.value;
@@ -614,6 +688,11 @@ const TranslateApp = {
 
     // 使用API进行实际翻译
     async simulateTranslation(text, sourceLanguage, targetLanguage) {
+        if (!this.elements.translatedText) {
+            console.warn('翻译结果文本框元素未找到');
+            return;
+        }
+
         // 设置加载状态
         this.elements.translatedText.value = '翻译中...';
 
@@ -652,9 +731,14 @@ const TranslateApp = {
 
     // 本地模拟翻译（作为API不可用时的后备方案）
     async fallbackTranslation(text, sourceLanguage, targetLanguage) {
+        if (!this.elements.translatedText) {
+            console.warn('翻译结果文本框元素未找到');
+            return;
+        }
+
         try {
-            // 使用本地翻译模块
-            const translatedText = await LocalTranslate.translate(text, sourceLanguage, targetLanguage);
+            // 使用本地翻译模块（同步函数，不需要await）
+            const translatedText = LocalTranslate.translate(text, sourceLanguage, targetLanguage);
 
             // 如果本地翻译有结果，更新UI
             if (translatedText && this.elements.translatedText.value.includes('翻译服务暂不可用')) {
@@ -667,6 +751,11 @@ const TranslateApp = {
 
     // 交换语言
     swapLanguages() {
+        if (!this.elements.sourceLanguage || !this.elements.targetLanguage || !this.elements.sourceText || !this.elements.translatedText) {
+            console.warn('交换语言所需的元素未找到');
+            return;
+        }
+
         // 只有当源语言不是自动检测时才能交换
         if (this.elements.sourceLanguage.value === 'auto') {
             this.showNotification('自动检测模式下无法交换语言');
@@ -690,14 +779,27 @@ const TranslateApp = {
         this.translateText();
 
         // 显示动画效果
-        this.elements.swapButton.classList.add('active');
-        setTimeout(() => {
-            this.elements.swapButton.classList.remove('active');
-        }, 500);
+        if (this.elements.swapButton && this.elements.swapButton.classList) {
+            this.elements.swapButton.classList.add('active');
+            setTimeout(() => {
+                if (this.elements.swapButton && this.elements.swapButton.classList) {
+                    this.elements.swapButton.classList.remove('active');
+                } else {
+                    console.warn('交换按钮元素或其classList属性不存在');
+                }
+            }, 500);
+        } else {
+            console.warn('交换按钮元素未找到');
+        }
     },
 
     // 清空源文本
     clearSourceText() {
+        if (!this.elements.sourceText || !this.elements.translatedText) {
+            console.warn('清空文本所需的元素未找到');
+            return;
+        }
+
         this.elements.sourceText.value = '';
         this.elements.translatedText.value = '';
         this.elements.sourceText.focus();
@@ -761,27 +863,45 @@ const TranslateApp = {
 
     // 调整文本区域高度
     adjustTextareaHeight(textarea) {
+        if (!textarea) {
+            console.warn('文本区域元素未找到');
+            return;
+        }
+        
         // 重置高度
-        textarea.style.height = 'auto';
+        if (textarea && textarea.style) {
+            textarea.style.height = 'auto';
 
-        // 设置新高度（最小200px）
-        const newHeight = Math.max(200, textarea.scrollHeight);
-        textarea.style.height = newHeight + 'px';
+            // 设置新高度（最小200px）
+            const newHeight = Math.max(200, textarea.scrollHeight);
+            textarea.style.height = newHeight + 'px';
+        } else {
+            console.warn('textarea元素或其style属性不存在');
+        }
     },
 
     // 显示通知
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.textContent = message;
+        if (notification && notification.className !== undefined) {
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+        } else {
+            console.warn('notification元素或其className属性不存在');
+            return;
+        }
 
         document.body.appendChild(notification);
 
         // 显示动画
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                notification.style.opacity = '1';
-                notification.style.transform = 'translateX(-50%) translateY(0)';
+                if (notification && notification.style) {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateX(-50%) translateY(0)';
+                } else {
+                    console.warn('notification元素或其style属性不存在');
+                }
             });
         });
 
@@ -790,8 +910,12 @@ const TranslateApp = {
 
         // 自动隐藏
         setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateX(-50%) translateY(20px)';
+            if (notification && notification.style) {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(-50%) translateY(20px)';
+            } else {
+                console.warn('notification元素或其style属性不存在');
+            }
 
             setTimeout(() => {
                 if (document.body.contains(notification)) {
@@ -914,8 +1038,12 @@ const TranslateApp = {
     // 更新API状态
     updateApiStatus(status) {
         this.apiStatus = status;
-        this.elements.statusIndicator.className = status === 'online' ? 'status-online' : 'status-offline';
-        this.elements.statusText.textContent = status === 'online' ? 'API服务正常' : 'API服务异常';
+        if (this.elements.statusIndicator) {
+            this.elements.statusIndicator.className = status === 'online' ? 'status-online' : 'status-offline';
+        }
+        if (this.elements.statusText) {
+            this.elements.statusText.textContent = status === 'online' ? 'API服务正常' : 'API服务异常';
+        }
     },
 
     // 保存用户偏好设置
@@ -1075,7 +1203,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 创建API设置对话框
     const apiConfigDialog = document.createElement('div');
-    apiConfigDialog.className = 'api-config-dialog';
+    if (apiConfigDialog && apiConfigDialog.className !== undefined) {
+        apiConfigDialog.className = 'api-config-dialog';
+    } else {
+        console.warn('apiConfigDialog元素或其className属性不存在');
+        return;
+    }
     apiConfigDialog.innerHTML = `
         <div class="api-config-content">
             <div class="api-config-header">
@@ -1134,17 +1267,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 切换API服务显示
     apiService.addEventListener('change', () => {
-        if (apiService.value === 'baidu') {
-            baiduConfig.style.display = 'block';
-            youdaoConfig.style.display = 'none';
+        if (baiduConfig && youdaoConfig) {
+            if (apiService.value === 'baidu') {
+                baiduConfig.style.display = 'block';
+                youdaoConfig.style.display = 'none';
+            } else {
+                baiduConfig.style.display = 'none';
+                youdaoConfig.style.display = 'block';
+            }
         } else {
-            baiduConfig.style.display = 'none';
-            youdaoConfig.style.display = 'block';
+            console.warn('API配置元素未找到');
         }
     });
 
     // 保存API设置
     saveBtn.addEventListener('click', () => {
+        if (!apiConfigDialog || !apiConfigDialog.classList) {
+            console.warn('API配置对话框元素未找到');
+            return;
+        }
+
         const service = apiService.value;
 
         // 保存当前服务选择
@@ -1152,23 +1294,36 @@ document.addEventListener('DOMContentLoaded', () => {
         TranslateAPI.setService(service);
 
         // 保存百度API配置
-        const baiduAppId = document.getElementById('baidu-app-id').value;
-        const baiduSecretKey = document.getElementById('baidu-secret-key').value;
-        if (baiduAppId && baiduSecretKey) {
-            TranslateApp.saveApiConfig('api', 'baidu', baiduAppId, baiduSecretKey);
-            TranslateAPI.setApiKey('baidu', baiduAppId, baiduSecretKey);
+        const baiduAppIdElement = document.getElementById('baidu-app-id');
+        const baiduSecretKeyElement = document.getElementById('baidu-secret-key');
+        if (baiduAppIdElement && baiduSecretKeyElement) {
+            const baiduAppId = baiduAppIdElement.value;
+            const baiduSecretKey = baiduSecretKeyElement.value;
+            if (baiduAppId && baiduSecretKey) {
+                TranslateApp.saveApiConfig('api', 'baidu', baiduAppId, baiduSecretKey);
+                TranslateAPI.setApiKey('baidu', baiduAppId, baiduSecretKey);
+            }
         }
 
         // 保存有道API配置
-        const youdaoAppId = document.getElementById('youdao-app-id').value;
-        const youdaoSecretKey = document.getElementById('youdao-secret-key').value;
-        if (youdaoAppId && youdaoSecretKey) {
-            TranslateApp.saveApiConfig('api', 'youdao', youdaoAppId, youdaoSecretKey);
-            TranslateAPI.setApiKey('youdao', youdaoAppId, youdaoSecretKey);
+        const youdaoAppIdElement = document.getElementById('youdao-app-id');
+        const youdaoSecretKeyElement = document.getElementById('youdao-secret-key');
+        if (youdaoAppIdElement && youdaoSecretKeyElement) {
+            const youdaoAppId = youdaoAppIdElement.value;
+            const youdaoSecretKey = youdaoSecretKeyElement.value;
+            if (youdaoAppId && youdaoSecretKey) {
+                TranslateApp.saveApiConfig('api', 'youdao', youdaoAppId, youdaoSecretKey);
+                TranslateAPI.setApiKey('youdao', youdaoAppId, youdaoSecretKey);
+            }
         }
 
         // 关闭对话框
-        apiConfigDialog.classList.remove('active');
+        if (apiConfigDialog && apiConfigDialog.classList) {
+            apiConfigDialog.classList.remove('active');
+        } else {
+            console.warn('apiConfigDialog元素或其classList属性不存在');
+            return;
+        }
 
         // 检查API状态
         TranslateApp.checkApiStatus();
@@ -1179,12 +1334,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 取消按钮
     cancelBtn.addEventListener('click', () => {
-        apiConfigDialog.classList.remove('active');
+        if (apiConfigDialog && apiConfigDialog.classList) {
+            apiConfigDialog.classList.remove('active');
+        } else {
+            console.warn('API配置对话框元素未找到');
+        }
     });
 
     // 关闭按钮
     closeBtn.addEventListener('click', () => {
-        apiConfigDialog.classList.remove('active');
+        if (apiConfigDialog && apiConfigDialog.classList) {
+            apiConfigDialog.classList.remove('active');
+        } else {
+            console.warn('API配置对话框元素未找到');
+        }
     });
 
     // 点击状态指示器打开API设置
@@ -1197,30 +1360,42 @@ document.addEventListener('DOMContentLoaded', () => {
             apiService.value = apiConfig.service || 'baidu';
 
             // 切换显示对应服务配置
-            if (apiService.value === 'baidu') {
-                baiduConfig.style.display = 'block';
-                youdaoConfig.style.display = 'none';
+            if (baiduConfig && youdaoConfig) {
+                if (apiService.value === 'baidu') {
+                    baiduConfig.style.display = 'block';
+                    youdaoConfig.style.display = 'none';
+                } else {
+                    baiduConfig.style.display = 'none';
+                    youdaoConfig.style.display = 'block';
+                }
             } else {
-                baiduConfig.style.display = 'none';
-                youdaoConfig.style.display = 'block';
+                console.warn('API配置元素未找到');
             }
 
             // 设置百度API密钥
             if (apiConfig.baidu) {
-                document.getElementById('baidu-app-id').value = apiConfig.baidu.appId || '';
-                document.getElementById('baidu-secret-key').value = apiConfig.baidu.secretKey || '';
+                const baiduAppId = document.getElementById('baidu-app-id');
+                const baiduSecretKey = document.getElementById('baidu-secret-key');
+                if (baiduAppId) baiduAppId.value = apiConfig.baidu.appId || '';
+                if (baiduSecretKey) baiduSecretKey.value = apiConfig.baidu.secretKey || '';
             }
 
             // 设置有道API密钥
             if (apiConfig.youdao) {
-                document.getElementById('youdao-app-id').value = apiConfig.youdao.appId || '';
-                document.getElementById('youdao-secret-key').value = apiConfig.youdao.secretKey || '';
+                const youdaoAppId = document.getElementById('youdao-app-id');
+                const youdaoSecretKey = document.getElementById('youdao-secret-key');
+                if (youdaoAppId) youdaoAppId.value = apiConfig.youdao.appId || '';
+                if (youdaoSecretKey) youdaoSecretKey.value = apiConfig.youdao.secretKey || '';
             }
         } catch (e) {
             console.error('加载API配置到表单失败:', e);
         }
 
         // 显示对话框
-        apiConfigDialog.classList.add('active');
+        if (apiConfigDialog && apiConfigDialog.classList) {
+            apiConfigDialog.classList.add('active');
+        } else {
+            console.warn('API配置对话框元素未找到');
+        }
     });
 });

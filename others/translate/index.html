@@ -137,6 +137,14 @@
                             <span class="char-counter">0 / 5000</span>
                         </div>
                     </div>
+                    
+                    <!-- 翻译按钮 -->
+                    <div class="translate-action-container">
+                        <button class="translate-button primary" id="translate-button">
+                            <i class="fas fa-language"></i>
+                            <span>翻译</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 翻译状态指示器 -->
@@ -152,11 +160,7 @@
                 <div class="synonym-selector" style="display: none;">
                     <h4>选择更合适的近义词：</h4>
                     <div class="synonym-options">
-                        <button class="synonym-option">选项1</button>
-                        <button class="synonym-option">选项2</button>
-                        <button class="synonym-option">选项3</button>
-                        <button class="synonym-option">选项4</button>
-                        <button class="synonym-option">选项5</button>
+                        <!-- 近义词选项将通过JavaScript动态生成 -->
                     </div>
                 </div>
 
@@ -558,7 +562,7 @@
             </div>
             <div class="modal-actions">
                 <button class="button secondary">取消</button>
-                <button class="button primary">开始翻译</button>
+                <button class="button primary" id="document-translate-button">开始翻译</button>
             </div>
         </div>
     </div>
@@ -626,6 +630,11 @@
         </a>
     </div>
 
-    <script src="script.js"></script>
+    <!-- 核心JavaScript文件 -->
+    <script src="local-translate.js"></script>
+    <script src="api.js"></script>
+    <script src="google-translate-api.js"></script>
+    <script src="translate.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

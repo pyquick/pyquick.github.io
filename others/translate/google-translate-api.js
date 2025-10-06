@@ -179,5 +179,5 @@ const GoogleTranslateAPI = {
     }
 };
 
-// 导出模块
-export default GoogleTranslateAPI;
+// 导出模块到全局作用域
+window.GoogleTranslateAPI = GoogleTranslateAPI;

@@ -278,6 +278,41 @@ body {
     min-height: 300px;
 }
 
+.translate-action-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+
+.translate-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    color: var(--text-inverse);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    min-width: 120px;
+}
+
+.translate-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.translate-button:active {
+    transform: translateY(0);
+}
+
 .input-container {
     flex: 1;
     display: flex;

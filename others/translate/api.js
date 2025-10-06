@@ -6,6 +6,32 @@
 // 这里可以根据需要使用任何翻译API服务
 // 本示例同时提供百度翻译和有道翻译两种API接口
 
+// 立即检查本地翻译状态
+console.log('api.js加载时检查本地翻译状态...');
+console.log('window.LocalTranslate立即检查:', window.LocalTranslate);
+
+// 等待DOM加载完成后检查本地翻译状态
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM加载完成，检查本地翻译状态...');
+    console.log('window.LocalTranslate DOM加载后:', window.LocalTranslate);
+    if (window.LocalTranslate) {
+        console.log('本地翻译已加载！');
+    } else {
+        console.log('本地翻译未加载，将在后续调用中检查');
+    }
+});
+
+// 延迟1秒后再次检查，确保所有脚本都加载完成
+setTimeout(function() {
+    console.log('延迟1秒后检查本地翻译状态...');
+    console.log('window.LocalTranslate延迟检查:', window.LocalTranslate);
+    if (window.LocalTranslate) {
+        console.log('延迟检查后：本地翻译已加载！');
+    } else {
+        console.log('延迟检查后：本地翻译仍未加载');
+    }
+}, 1000);
+
 const TranslateAPI = {
     // 当前使用的API服务，默认百度
     currentService: 'baidu',
@@ -73,15 +99,55 @@ const TranslateAPI = {
             throw new Error('文本过长，请控制在5000字符以内');
         }
 
+        console.log('开始翻译，输入文本:', text, '从', from, '到', to);
+        console.log('window.LocalTranslate状态:', window.LocalTranslate);
+
         try {
+            // 首先尝试使用本地翻译（如果可用）
+            if (window.LocalTranslate && typeof window.LocalTranslate.translate === 'function') {
+                console.log('本地翻译对象存在，准备调用...');
+                try {
+                    console.log('尝试使用本地翻译...');
+                    const localResult = window.LocalTranslate.translate(text, from, to);
+                    console.log('本地翻译结果:', localResult);
+                    if (localResult && localResult.trim() !== '') {
+                        console.log('使用本地翻译成功:', localResult);
+                        return localResult;
+                    }
+                } catch (localError) {
+                    console.warn('本地翻译失败，尝试API翻译:', localError.message);
+                }
+            } else {
+                console.log('本地翻译不可用，检查window.LocalTranslate:', window.LocalTranslate);
+            }
+
+            // 检查API配置是否完整
+            const hasBaiduConfig = this.config.baidu.appId && this.config.baidu.secretKey;
+            const hasYoudaoConfig = this.config.youdao.appId && this.config.youdao.secretKey;
+
+            if (!hasBaiduConfig && !hasYoudaoConfig) {
+                // 如果本地翻译可用但没有API配置，返回一个友好的提示
+                if (window.LocalTranslate && typeof window.LocalTranslate.translate === 'function') {
+                    return `[本地翻译] 请配置API密钥以获得更多翻译功能`;
+                } else {
+                    throw new Error('API密钥未配置，请先配置翻译API密钥');
+                }
+            }
+
             // 根据当前服务调用相应的API
             let result;
-            if (this.currentService === 'baidu') {
+            if (this.currentService === 'baidu' && hasBaiduConfig) {
                 result = await this.baiduTranslate(text, from, to);
-            } else if (this.currentService === 'youdao') {
+            } else if (this.currentService === 'youdao' && hasYoudaoConfig) {
+                result = await this.youdaoTranslate(text, from, to);
+            } else if (hasBaiduConfig) {
+                // 如果当前服务未配置，但有百度配置，使用百度
+                result = await this.baiduTranslate(text, from, to);
+            } else if (hasYoudaoConfig) {
+                // 如果百度未配置，但有有道配置，使用有道
                 result = await this.youdaoTranslate(text, from, to);
             } else {
-                throw new Error('不支持的翻译服务');
+                throw new Error('没有可用的翻译服务，请配置API密钥');
             }
 
             // 验证翻译结果
@@ -106,56 +172,81 @@ const TranslateAPI = {
     },
 
     /**
-     * 使用百度翻译API
+     * 百度翻译API
      * @param {string} text - 要翻译的文本
      * @param {string} from - 源语言代码
      * @param {string} to - 目标语言代码
      * @returns {Promise<string>} 翻译后的文本
      */
     async baiduTranslate(text, from, to) {
-        // 检查API配置
-        const { apiUrl, appId, secretKey } = this.config.baidu;
-        if (!appId || !secretKey) {
+        // 检查API密钥
+        if (!this.config.baidu.appId || !this.config.baidu.secretKey) {
             throw new Error('百度翻译API密钥未配置');
         }
 
-        // 将自动检测转换为百度API接受的格式
-        if (from === 'auto') from = 'auto';
-
-        // 生成请求参数
-        const salt = Date.now();
-        const sign = this.md5(appId + text + salt + secretKey);
-
-        const url = new URL(apiUrl);
-        const params = {
-            q: text,
-            from,
-            to,
-            appid: appId,
-            salt: salt.toString(),
-            sign
+        // 语言代码转换
+        const langMap = {
+            'zh': 'zh',
+            'en': 'en',
+            'jp': 'jp',
+            'kor': 'kor',
+            'fra': 'fra',
+            'de': 'de',
+            'spa': 'spa',
+            'ru': 'ru',
+            'th': 'th',
+            'ara': 'ara',
+            'pt': 'pt',
+            'it': 'it',
+            'el': 'el',
+            'nl': 'nl',
+            'pl': 'pl',
+            'bul': 'bul',
+            'est': 'est',
+            'dan': 'dan',
+            'fin': 'fin',
+            'cs': 'cs',
+            'rom': 'rom',
+            'slo': 'slo',
+            'swe': 'swe',
+            'hu': 'hu',
+            'vie': 'vie'
         };
 
-        // 添加参数到URL
-        Object.keys(params).forEach(key => {
-            url.searchParams.append(key, params[key]);
+        const fromCode = langMap[from] || 'auto';
+        const toCode = langMap[to] || 'zh';
+
+        // 生成随机数
+        const salt = Date.now();
+        // 生成签名
+        const sign = this.md5(this.config.baidu.appId + text + salt + this.config.baidu.secretKey);
+
+        // 构建请求参数
+        const params = new URLSearchParams({
+            q: text,
+            from: fromCode,
+            to: toCode,
+            appid: this.config.baidu.appId,
+            salt: salt,
+            sign: sign
         });
 
-        // 发送请求
-        const response = await fetch(url.toString());
-        if (!response.ok) {
-            throw new Error(`API请求失败: ${response.status}`);
+        try {
+            const response = await fetch('https://fanyi-api.baidu.com/api/trans/vip/translate?' + params.toString());
+            const data = await response.json();
+
+            if (data.error_code) {
+                throw new Error(`百度翻译API错误: ${data.error_msg}`);
+            }
+
+            if (data.trans_result && data.trans_result.length > 0) {
+                return data.trans_result[0].dst;
+            }
+
+            throw new Error('百度翻译API返回格式错误');
+        } catch (error) {
+            throw new Error(`百度翻译请求失败: ${error.message}`);
         }
-
-        const data = await response.json();
-
-        // 检查错误
-        if (data.error_code) {
-            throw new Error(`翻译错误: ${data.error_code} - ${data.error_msg}`);
-        }
-
-        // 返回翻译结果
-        return data.trans_result.map(item => item.dst).join('\n');
     },
 
     /**
@@ -262,9 +353,35 @@ const TranslateAPI = {
      */
     async checkApiStatus() {
         try {
-            // 简单翻译测试
-            await this.translate('hello', 'en', 'zh');
-            return true;
+            // 首先检查本地翻译是否可用
+            if (window.LocalTranslate && typeof window.LocalTranslate.translate === 'function') {
+                try {
+                    // 测试本地翻译
+                    console.log('测试本地翻译可用性...');
+                    const testResult = window.LocalTranslate.translate('hello', 'en', 'zh');
+                    if (testResult && testResult.trim() !== '') {
+                        console.log('本地翻译可用，测试结果:', testResult);
+                        return { status: 'available', service: 'local' };
+                    }
+                } catch (error) {
+                    console.warn('本地翻译测试失败:', error);
+                }
+            } else {
+                console.log('本地翻译不可用，window.LocalTranslate:', window.LocalTranslate);
+            }
+
+            // 检查是否有API配置
+            const hasBaiduConfig = this.config.baidu.appId && this.config.baidu.secretKey;
+            const hasYoudaoConfig = this.config.youdao.appId && this.config.youdao.secretKey;
+            
+            if (!hasBaiduConfig && !hasYoudaoConfig) {
+                console.warn('API密钥未配置');
+                return false;
+            }
+
+            // 测试翻译一个简单的词
+            const result = await this.translate('hello', 'en', 'zh', 0);
+            return !!(result && result.trim());
         } catch (error) {
             console.error('API状态检查失败:', error);
             return false;
@@ -273,4 +390,5 @@ const TranslateAPI = {
 };
 
 // 导出API对象
-export default TranslateAPI;
+// 导出模块到全局作用域
+window.TranslateAPI = TranslateAPI;
