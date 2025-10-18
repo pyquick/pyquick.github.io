@@ -37,6 +37,13 @@
       "kernel.release.t8122": "Darwin Kernel Version 25.1.0: Sun Oct  5 21:11:56 PDT 2025; root:xnu-12377.40.120~10/RELEASE_ARM64_T8122",
       "kernel.release.t8132": "Darwin Kernel Version 25.1.0: Sun Oct  5 21:11:28 PDT 2025; root:xnu-12377.40.120~10/RELEASE_ARM64_T8132",
       "kernel.release.vmapple": "Darwin Kernel Version 25.1.0: Sun Oct  5 21:11:32 PDT 2025; root:xnu-12377.40.120~10/RELEASE_ARM64_VMAPPLE"
+      },
+      "md5sum": "9f7b79087a39c8d28537386f605563c1",
+      "name": "Kernel Debug Kit 26.1 build 25B5062e",
+      "seen": "2025-10-14T19:19:22Z",
+      "sha256sum": "00a04e83babd18aedc04327771d14c984a2c9f6d717d8e47222e0322b211a87a",
+      "url": "https://github.com/dortania/KdkSupportPkg/releases/download/25B5062e/Kernel_Debug_Kit_26.1_build_25B5062e.dmg",
+      "version": "26.1"
   },
   {
       "build": "25B5057f",
